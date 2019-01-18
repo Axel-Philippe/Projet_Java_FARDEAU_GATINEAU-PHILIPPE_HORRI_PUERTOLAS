@@ -1,5 +1,5 @@
 package jeu;
 
-public class Personne {
+public abstract class Objet {
 	private String nom;
 }
