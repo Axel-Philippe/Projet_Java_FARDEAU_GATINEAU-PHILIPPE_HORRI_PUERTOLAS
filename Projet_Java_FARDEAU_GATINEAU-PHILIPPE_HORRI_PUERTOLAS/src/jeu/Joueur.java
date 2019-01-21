@@ -6,7 +6,8 @@ public class Joueur extends Personne {
 	private ArrayList<Objet> sac;
 	private int capaciteSac;
 	
-	public Joueur(int c) {
+	public Joueur(int c, String n, Position p) {
+		super(n, p);
 		capaciteSac = c;
 		sac = new ArrayList<Objet>();
 	}
