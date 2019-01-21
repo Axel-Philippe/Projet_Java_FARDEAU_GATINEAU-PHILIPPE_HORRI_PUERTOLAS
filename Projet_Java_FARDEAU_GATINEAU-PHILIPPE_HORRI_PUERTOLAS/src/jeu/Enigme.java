@@ -9,5 +9,10 @@ public class Enigme extends Activite{
 		solution = s;	
 		intitule = i;
 	}
+	
+	public String getSolution()
+	{
+		return this.solution;
+	}
 
 }
