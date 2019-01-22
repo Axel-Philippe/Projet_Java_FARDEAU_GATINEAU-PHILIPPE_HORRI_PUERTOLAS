@@ -14,5 +14,4 @@ public class Enigme extends Activite{
 	{
 		return this.solution;
 	}
-
 }
