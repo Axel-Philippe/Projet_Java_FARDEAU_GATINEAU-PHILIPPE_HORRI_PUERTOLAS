@@ -29,4 +29,13 @@ public class Joueur extends Personne {
 			sac.add(o);
 		return; 
 	}
+	
+	public void proposerSolution(Enigme e, String sol)
+	{
+		if (e.getSolution() == sol)
+		{
+			e.setReussi();
+			
+		}
+	}
 }
