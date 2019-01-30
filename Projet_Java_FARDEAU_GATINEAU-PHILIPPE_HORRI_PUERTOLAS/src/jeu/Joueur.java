@@ -2,9 +2,12 @@ package jeu;
 
 import java.util.ArrayList;
 
+import javafx.scene.image.ImageView;
+
 public class Joueur extends Personne {
 	private ArrayList<Objet> sac;
 	private int capaciteSac;
+	private ImageView image;
 	
 	public Joueur(int c, String n, Position p) {
 		super(n, p);
@@ -23,7 +26,7 @@ public class Joueur extends Personne {
 		return s;
 	}
 
-	public void ajouter(Objet o)
+	public void ramasser(Objet o)
 	{
 		if (o != null) 
 			sac.add(o);

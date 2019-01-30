@@ -16,6 +16,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import jeu.Ingredient;
+import jeu.Objet;
 import jeu.Personnage;
 
 public class MainFX extends Application {
@@ -43,28 +45,33 @@ public class MainFX extends Application {
 		t.setX(410);
 		t.setY(30);
 
+		FileInputStream file3 = new FileInputStream("./images/ingredients/beurre.png");
+		Image image3 = new Image(file3);
+		Ingredient beurre = new Ingredient("beurre", image3, false);
+		
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				switch (event.getCode()) {
 				case UP:
-					if (c.getX() < 530 && c.getX() > 20 && c.getY() > 20 && c.getY() < 395)
+					if (c.getX() < 536 && c.getX() > -6 && c.getY() > 0 && c.getY() < 395)
 						c.setY(c.getY() - 5);
 					break;
 				case DOWN:
-					if (c.getX() < 530 && c.getX() > 20 && c.getY() > 20 && c.getY() < 395)
+					if (c.getX() < 536 && c.getX() > -6 && c.getY() > -6 && c.getY() < 380)
 						c.setY(c.getY() + 5);
 					break;
 				case LEFT:
-					if (c.getX() < 530 && c.getX() > 20 && c.getY() > 20 && c.getY() < 395)
+					if (c.getX() < 536 && c.getX() > 0 && c.getY() > -6 && c.getY() < 395)
 						c.setX(c.getX() - 5);
 					break;
 				case RIGHT:
-					if (c.getX() < 530 && c.getX() > 20 && c.getY() > 20 && c.getY() < 395)
+					if (c.getX() < 530 && c.getX() > -6 && c.getY() > -6 && c.getY() < 395)
 						c.setX(c.getX() + 5);
 					break;
 				case E:
 					if (c.getX() > 400 && c.getX() < 546 && c.getY() >= 0 && c.getY() < 100) {
+						
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("Interaction Objet");
 						alert.setHeaderText("Vous avez intéragi avec un objet en pressant la touche 'E'.");
