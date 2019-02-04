@@ -7,6 +7,7 @@ public class Personne {
 	
 	public Personne(String n, Position p, Map map)
 	{
+		super();
 		nom = n; 
 		position = p;
 		this.map = map;

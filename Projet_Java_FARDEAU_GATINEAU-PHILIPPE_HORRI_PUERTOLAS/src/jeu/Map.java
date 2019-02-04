@@ -13,6 +13,7 @@ public abstract class Map {
 	private ArrayList<Zone> lesSorties;
 	
 	public Map(String n, ImageView i, int x, int y) {
+		super();
 		nom = n;
 		image = i;
 	}

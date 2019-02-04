@@ -7,6 +7,7 @@ public class Activite {
 	
 	
 	public Activite(String n) {
+		super();
 		nom = n;
 		estReussi = false; 
 	}

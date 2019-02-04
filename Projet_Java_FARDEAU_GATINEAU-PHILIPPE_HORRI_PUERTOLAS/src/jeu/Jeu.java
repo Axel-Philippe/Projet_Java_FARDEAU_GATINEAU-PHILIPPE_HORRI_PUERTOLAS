@@ -6,6 +6,7 @@ public class Jeu {
 	
 	
 	public Jeu(Personne p, Map m) {
+		super();
 		personne = p;
 		map = m;
 	}
