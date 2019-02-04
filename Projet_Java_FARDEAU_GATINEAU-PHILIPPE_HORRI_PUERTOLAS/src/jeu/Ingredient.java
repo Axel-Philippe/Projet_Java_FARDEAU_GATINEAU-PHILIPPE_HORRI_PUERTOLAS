@@ -9,8 +9,8 @@ public class Ingredient extends Objet{
 	private static ArrayList<Ingredient> listeIngredients = new ArrayList<Ingredient>();
 	private boolean present;
 
-	public Ingredient(String n, ImageView i, boolean p) {
-		super(n, i);
+	public Ingredient(String n, ImageView i, boolean p, Position pos) {
+		super(n, i, pos);
 		listeIngredients.add(this);
 		present = p;
 	}

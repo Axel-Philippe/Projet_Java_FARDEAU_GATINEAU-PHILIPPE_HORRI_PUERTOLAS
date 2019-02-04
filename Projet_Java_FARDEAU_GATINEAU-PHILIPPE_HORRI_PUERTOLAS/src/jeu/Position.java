@@ -1,17 +1,21 @@
 package jeu;
 
 public class Position {
-	private Map map;
 	private int x;
 	private int y;
 	
-	
-	public Position(Map m, int x, int y) {
+	public Position(int x, int y) {
 		super();
-		map = m;
 		this.x = x;
 		this.y = y;
 	}
 	
+	public void setX(int x){
+		this.x = x;
+	}
+	
+	public void setY(int y){
+		this.y = y;
+	}
 	
 }

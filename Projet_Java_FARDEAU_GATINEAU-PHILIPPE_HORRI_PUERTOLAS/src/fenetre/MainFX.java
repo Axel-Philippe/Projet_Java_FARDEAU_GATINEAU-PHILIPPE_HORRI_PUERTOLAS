@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import jeu.Ingredient;
 import jeu.Objet;
 import jeu.Personnage;
+import jeu.Position;
 
 public class MainFX extends Application {
 
@@ -47,7 +48,7 @@ public class MainFX extends Application {
 
 		FileInputStream file3 = new FileInputStream("./images/ingredients/beurre.png");
 		Image image3 = new Image(file3);
-		Ingredient beurre = new Ingredient("beurre", image3, false);
+		Ingredient beurre = new Ingredient("beurre", new ImageView(image3), false, new Position(new Map(), 480, 60));
 		
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
@@ -87,7 +88,7 @@ public class MainFX extends Application {
 		Image image2 = new Image(file);
 		ImageView i = new ImageView();
 		i.setImage(image2);
-		root.getChildren().addAll(i, c, t);
+		root.getChildren().addAll(i, c, t, beurre.getImageView());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
