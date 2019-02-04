@@ -12,4 +12,4 @@ public class Personne {
 		position = p;
 		this.map = map;
 	}
-}
+}  

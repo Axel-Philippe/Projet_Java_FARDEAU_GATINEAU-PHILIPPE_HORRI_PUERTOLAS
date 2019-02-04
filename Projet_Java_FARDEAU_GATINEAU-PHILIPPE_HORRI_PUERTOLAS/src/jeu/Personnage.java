@@ -25,5 +25,5 @@ public class Personnage extends Personne {
 	public ImageView getImage(){
 		return this.image;
 	}
-	
+	  
 }

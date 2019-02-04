@@ -28,5 +28,5 @@ public abstract class Objet {
 	public void setPosition(int x, int y){
 		this.position.setX(x);
 		this.position.setY(y);
-	}
+	} 
 }

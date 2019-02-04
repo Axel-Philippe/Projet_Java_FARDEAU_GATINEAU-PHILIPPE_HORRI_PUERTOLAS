@@ -10,5 +10,4 @@ public class Zone {
 		this.p2 = p2;
 		this.p1 = p1;
 	}
-
 }

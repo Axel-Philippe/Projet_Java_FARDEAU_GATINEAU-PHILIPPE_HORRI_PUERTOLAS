@@ -39,6 +39,6 @@ public class Joueur extends Personne {
 		{
 			e.setReussi();
 			
-		}
+		} 
 	}
 }

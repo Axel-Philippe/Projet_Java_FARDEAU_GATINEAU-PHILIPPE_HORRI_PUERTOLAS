@@ -16,3 +16,4 @@ public class Ingredient extends Objet{
 	}
 
 }
+  

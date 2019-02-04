@@ -14,3 +14,4 @@ public class Bonus extends Objet{
 	}
 
 }
+   
