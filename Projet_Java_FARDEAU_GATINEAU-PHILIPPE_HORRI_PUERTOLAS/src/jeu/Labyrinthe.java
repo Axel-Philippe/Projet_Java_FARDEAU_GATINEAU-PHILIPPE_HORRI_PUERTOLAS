@@ -1,8 +1,8 @@
 package jeu;
 
-public class MiniJeu extends Activite {
+public class Labyrinthe extends Activite {
 
-	public MiniJeu(String n) {
+	public Labyrinthe(String n) {
 		super(n);
 		// TODO Auto-generated constructor stub
 	}

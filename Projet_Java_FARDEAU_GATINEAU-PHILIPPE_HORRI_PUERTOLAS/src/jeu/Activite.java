@@ -2,7 +2,8 @@ package jeu;
 
 public class Activite {
 	private String nom;
-	private boolean estReussi; 
+	private boolean estReussi;
+	private Ingredient ingredient;
 	
 	
 	public Activite(String n) {

@@ -10,8 +10,8 @@ public class Personnage extends Personne {
 	private Activite activite;
 	private ImageView image;
 	
-	public Personnage (Activite a, String n, Position p, ImageView i) {
-		super(n, p); 
+	public Personnage (Activite a, String n, Position p, ImageView i, Objet objet, Map map) {
+		super(n, p, map); 
 		image = i;
 		activite = a; 
 	}
@@ -23,4 +23,5 @@ public class Personnage extends Personne {
 	public ImageView getImage(){
 		return this.image;
 	}
+	
 }

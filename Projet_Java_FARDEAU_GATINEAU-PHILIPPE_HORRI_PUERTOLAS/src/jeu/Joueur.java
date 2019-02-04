@@ -9,8 +9,8 @@ public class Joueur extends Personne {
 	private int capaciteSac;
 	private ImageView image;
 	
-	public Joueur(int c, String n, Position p) {
-		super(n, p);
+	public Joueur(int c, String n, Position p, Map map) {
+		super(n, p, map);
 		capaciteSac = c;
 		sac = new ArrayList<Objet>();
 	}
