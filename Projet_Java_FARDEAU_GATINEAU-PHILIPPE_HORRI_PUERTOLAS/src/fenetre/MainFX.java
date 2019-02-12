@@ -99,6 +99,7 @@ public class MainFX extends Application {
 		Image imSaladier = new Image(saladier);
 
 		
+		
 	}
 
 	@Override
