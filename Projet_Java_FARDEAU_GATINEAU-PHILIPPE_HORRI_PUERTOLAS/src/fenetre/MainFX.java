@@ -1,6 +1,7 @@
 package fenetre;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -29,6 +30,75 @@ public class MainFX extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	/**
+	 * Méthode permettant d'initialiser les éléments graphiques
+	 * @throws FileNotFoundException
+	 */
+	public static void initialiser() throws FileNotFoundException {
+		// Initialisation des fichiers des cartes
+		FileInputStream village = new FileInputStream("./images/maps/centre.png");
+		FileInputStream lac = new FileInputStream("./images/maps/lac.png");
+		FileInputStream mine = new FileInputStream("./images/maps/mine.png");
+		FileInputStream ferme = new FileInputStream("./images/maps/ferme.png");
+		FileInputStream maison = new FileInputStream("./images/maps/maison.png");
+		FileInputStream foret = new FileInputStream("./images/maps/foret.png");
+		
+		// Initialisation des fichiers des personnages et du joueur
+		FileInputStream julia = new FileInputStream("./images/personnages/julia.png");
+		FileInputStream bucheron = new FileInputStream("./images/personnages/bucheron.png");
+		FileInputStream fermiere = new FileInputStream("./images/personnages/fermiere.png");
+		FileInputStream pecheur = new FileInputStream("./images/personnages/pecheur.png");
+		FileInputStream quies1 = new FileInputStream("./images/personnages/quies1.png");
+		FileInputStream quies2 = new FileInputStream("./images/personnages/quies2.png");
+		FileInputStream quies3 = new FileInputStream("./images/personnages/quies3.png");
+		FileInputStream quiesMayor = new FileInputStream("./images/personnages/quiesMayor.png");
+		
+		// Initialisation des ingrédients
+		FileInputStream beurre = new FileInputStream(".images/ingredients/beurre.png");
+		FileInputStream chocolat = new FileInputStream(".images/ingredients/chocolat.png");
+		FileInputStream farine = new FileInputStream(".images/ingredients/farine.png");
+		FileInputStream oeufs = new FileInputStream(".images/ingredients/oeufs.png");
+		FileInputStream sucre = new FileInputStream(".images/ingredients/sucre.png");
+		
+		// Initialisation des bonus
+		FileInputStream fouet = new FileInputStream(".images/bonus/fouet.png");
+		FileInputStream maryse = new FileInputStream(".images/bonus/maryse.png");
+		FileInputStream papier = new FileInputStream(".images/bonus/papier.png");
+		FileInputStream plaque = new FileInputStream(".images/bonus/plaque.png");
+		FileInputStream saladier = new FileInputStream(".images/bonus/saladier.png");
+		
+		// Initialisation des image
+		Image imVillage = new Image(village);
+		Image imLac = new Image(lac);
+		Image imMine = new Image(mine);
+		Image imFerme = new Image(ferme);
+		Image imMaison = new Image(maison);
+		Image imForet = new Image(foret);
+		
+		Image imJulia = new Image(julia);
+		Image imBucheron = new Image(bucheron);
+		Image imFermiere = new Image(fermiere);
+		Image imPecheur = new Image(pecheur);
+		Image imQuies1 = new Image(quies1);
+		Image imQuies2 = new Image(quies2);
+		Image imQuies3 = new Image(quies3);
+		Image imQuiesMayor = new Image(quiesMayor);
+		
+		Image imBeurre = new Image(beurre);
+		Image imChocolat = new Image(chocolat);
+		Image imFarine = new Image(farine);
+		Image imOeufs = new Image(oeufs);
+		Image imSucre = new Image(sucre);
+		
+		Image imFouet = new Image(fouet);
+		Image imMaryse = new Image(maryse);
+		Image imPapier = new Image(papier);
+		Image imPlaque= new Image(plaque);
+		Image imSaladier = new Image(saladier);
+
+		
 	}
 
 	@Override
