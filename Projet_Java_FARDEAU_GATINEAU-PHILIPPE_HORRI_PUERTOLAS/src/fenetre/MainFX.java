@@ -18,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import jeu.Ingredient;
+import jeu.Joueur;
 import jeu.Objet;
 import jeu.Personnage;
 import jeu.Position;
@@ -69,7 +70,7 @@ public class MainFX extends Application {
 		FileInputStream plaque = new FileInputStream(".images/bonus/plaque.png");
 		FileInputStream saladier = new FileInputStream(".images/bonus/saladier.png");
 		
-		// Initialisation des image
+		// Initialisation des images
 		Image imVillage = new Image(village);
 		Image imLac = new Image(lac);
 		Image imMine = new Image(mine);
@@ -98,16 +99,78 @@ public class MainFX extends Application {
 		Image imPlaque= new Image(plaque);
 		Image imSaladier = new Image(saladier);
 
+		// Initialisation des imageViews	
+		ImageView ivVillage = new ImageView();
+		ImageView  ivLac = new ImageView();
+		ImageView  ivMine = new ImageView();
+		ImageView  ivFerme = new ImageView();
+		ImageView  ivMaison = new ImageView();
+		ImageView  ivForet = new ImageView();
 		
+		ImageView  ivJulia = new ImageView();
+		ImageView  ivBucheron = new ImageView();
+		ImageView  ivFermiere = new ImageView();
+		ImageView  ivPecheur = new ImageView();
+		ImageView  ivQuies1 = new ImageView();
+		ImageView  ivQuies2 = new ImageView();
+		ImageView  ivQuies3 = new ImageView();
+		ImageView  ivQuiesMayor = new ImageView();
 		
+		ImageView  ivBeurre = new ImageView();
+		ImageView  ivChocolat = new ImageView();
+		ImageView  ivFarine = new ImageView();
+		ImageView  ivOeufs = new ImageView();
+		ImageView  ivSucre = new ImageView();
+		
+		ImageView  ivFouet = new ImageView();
+		ImageView  ivMaryse = new ImageView();
+		ImageView  ivPapier = new ImageView();
+		ImageView  ivPlaque= new ImageView();
+		ImageView  ivSaladier = new ImageView();
+		
+		//Set imageViews
+		ivVillage.setImage(imVillage);
+		ivLac.setImage(imLac);
+		ivMine.setImage(imMine);
+		ivFerme.setImage(imFerme);
+		ivMaison.setImage(imMaison);
+		ivForet.setImage(imForet);
+		
+		ivJulia.setImage(imJulia);
+		ivBucheron.setImage(imBucheron);
+		ivFermiere.setImage(imFermiere);
+		ivPecheur.setImage(imPecheur);
+		ivQuies1.setImage(imQuies1);
+		ivQuies2.setImage(imQuies2);
+		ivQuies3.setImage(imQuies3);
+		ivQuiesMayor.setImage(imQuiesMayor);
+				
+		ivBeurre.setImage(imBeurre);
+		ivChocolat.setImage(imChocolat);
+		ivFarine.setImage(imFarine);
+		ivOeufs.setImage(imOeufs);
+		ivSucre.setImage(imSucre);
+		
+		ivFouet.setImage(imFouet);
+		ivMaryse.setImage(imMaryse);
+		ivPapier.setImage(imPapier);
+		ivPlaque.setImage(imPlaque);
+		ivSaladier.setImage(imSaladier);
+		
+		/*
+		Position positionJoueur = new Position(0,0);
+		Map PlaceVillage = new Map()
+		Joueur joueur = new Joueur(10, "Julia", positionJoueur, )
+*/
+				
 	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		Group root = new Group();
 		Scene scene = new Scene(root, 543, 416, Color.WHITE);
-		FileInputStream file2 = new FileInputStream("./images/personnages/julia.png");
-		Image image = new Image(file2);
+		/*FileInputStream file2 = new FileInputStream("./images/personnages/julia.png");
+		Image image = new Image(file2);*/
 		ImageView c = new ImageView();
 		c.setImage(image);
 		c.setY(100);
