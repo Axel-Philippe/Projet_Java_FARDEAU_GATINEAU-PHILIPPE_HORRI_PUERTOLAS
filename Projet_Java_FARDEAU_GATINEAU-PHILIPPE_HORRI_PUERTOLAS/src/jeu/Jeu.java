@@ -2,10 +2,10 @@ package jeu;
 
 public class Jeu {
 	private Personne personne;
-	private Map map;
+	private Carte map;
 	
 	
-	public Jeu(Personne p, Map m) {
+	public Jeu(Personne p, Carte m) {
 		super();
 		personne = p;
 		map = m;

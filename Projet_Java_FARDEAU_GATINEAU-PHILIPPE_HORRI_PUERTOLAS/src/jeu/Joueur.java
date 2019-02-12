@@ -5,37 +5,41 @@ import java.util.ArrayList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 
 public class Joueur extends Personne {
 	private ArrayList<Objet> sac;
 	private int capaciteSac;
 	private ImageView image;
 
-	public Joueur(int c, String n, Position p, Map map) {
+	public Joueur(int c, String n, Position p, Carte map, ImageView image) {
 		super(n, p, map);
 		capaciteSac = c;
 		sac = new ArrayList<Objet>();
+		this.image = image;
+		this.image.setX(p.getX());
+		this.image.setY(p.getY());
 	}
 
-	public void seDeplacer(Commandes d) {
-		switch (d) {
-		case HAUT:
+	public void seDeplacer(KeyEvent event) {
+		switch (event.getCode()) {
+		case UP:
 			if (image.getX() < 536 && image.getX() > -6 && image.getY() > 0 && image.getY() < 395)
 				image.setY(image.getY() - 5);
 			break;
-		case BAS:
+		case DOWN:
 			if (image.getX() < 536 && image.getX() > -6 && image.getY() > -6 && image.getY() < 380)
 				image.setY(image.getY() + 5);
 			break;
-		case GAUCHE:
+		case LEFT:
 			if (image.getX() < 536 && image.getX() > 0 && image.getY() > -6 && image.getY() < 395)
 				image.setX(image.getX() - 5);
 			break;
-		case DROITE:
+		case RIGHT:
 			if (image.getX() < 530 && image.getX() > -6 && image.getY() > -6 && image.getY() < 395)
 				image.setX(image.getX() + 5);
 			break;
-		case INTERACTION:
+		case E:
 			if (image.getX() > 400 && image.getX() < 546 && image.getY() >= 0 && image.getY() < 100) {
 
 				Alert alert = new Alert(AlertType.INFORMATION);
@@ -45,6 +49,7 @@ public class Joueur extends Personne {
 				alert.showAndWait();
 			}
 			break;
+		
 		}
 	}
 

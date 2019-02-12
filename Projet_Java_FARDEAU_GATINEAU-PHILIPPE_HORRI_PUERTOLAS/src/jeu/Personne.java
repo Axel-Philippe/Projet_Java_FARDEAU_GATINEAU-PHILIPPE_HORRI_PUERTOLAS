@@ -3,9 +3,9 @@ package jeu;
 public class Personne {
 	private String nom;
 	private Position position;
-	private Map map;
+	private Carte map;
 	
-	public Personne(String n, Position p, Map map)
+	public Personne(String n, Position p, Carte map)
 	{
 		super();
 		nom = n; 

@@ -11,7 +11,7 @@ public class Personnage extends Personne {
 	private ImageView image;
 	private Zone zone;
 	
-	public Personnage (Activite a, String n, Position p, ImageView i, Objet objet, Map map, Zone zone) {
+	public Personnage (Activite a, String n, Position p, ImageView i, Objet objet, Carte map, Zone zone) {
 		super(n, p, map); 
 		image = i;
 		activite = a; 
