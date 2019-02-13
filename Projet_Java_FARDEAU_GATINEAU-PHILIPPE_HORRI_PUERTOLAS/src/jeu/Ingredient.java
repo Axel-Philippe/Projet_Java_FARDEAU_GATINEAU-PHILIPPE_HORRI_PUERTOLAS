@@ -7,12 +7,10 @@ import javafx.scene.image.ImageView;
 
 public class Ingredient extends Objet{
 	private static ArrayList<Ingredient> listeIngredients = new ArrayList<Ingredient>();
-	private boolean present;
 
-	public Ingredient(String n, ImageView i, boolean p, Position pos) {
-		super(n, i, pos);
+	public Ingredient(String n, ImageView i, boolean z, Position pos) {
+		super(n, i, z, pos);
 		listeIngredients.add(this);
-		present = p;
 	}
 
 }

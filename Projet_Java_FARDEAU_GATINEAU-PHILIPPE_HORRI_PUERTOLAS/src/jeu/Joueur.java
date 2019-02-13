@@ -21,36 +21,75 @@ public class Joueur extends Personne {
 		this.image.setY(p.getY());
 	}
 
-	public void seDeplacer(KeyEvent event) {
+	public void setPositionImage(Position p) {
+		this.image.setX(p.getX());
+		this.image.setY(p.getY());
+	}
+
+	public Carte seDeplacer(KeyEvent event) {
 		switch (event.getCode()) {
 		case UP:
-			if (image.getX() < 536 && image.getX() > -6 && image.getY() > 0 && image.getY() < 395)
-				image.setY(image.getY() - 5);
-			break;
-		case DOWN:
-			if (image.getX() < 536 && image.getX() > -6 && image.getY() > -6 && image.getY() < 380)
-				image.setY(image.getY() + 5);
-			break;
-		case LEFT:
-			if (image.getX() < 536 && image.getX() > 0 && image.getY() > -6 && image.getY() < 395)
-				image.setX(image.getX() - 5);
-			break;
-		case RIGHT:
-			if (image.getX() < 530 && image.getX() > -6 && image.getY() > -6 && image.getY() < 395)
-				image.setX(image.getX() + 5);
-			break;
-		case E:
-			if (image.getX() > 400 && image.getX() < 546 && image.getY() >= 0 && image.getY() < 100) {
-
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Interaction Objet");
-				alert.setHeaderText("Vous avez intéragi avec un objet en pressant la touche 'E'.");
-				alert.setContentText("Cliquez sur la croix pour fermer.");
-				alert.showAndWait();
+			if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
+					&& this.getPosition().getY() < 395) {
+				this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() - 5));
+				this.setPositionImage(this.getPosition());
 			}
-			break;
-		
+			return null;
+		case DOWN:
+			if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
+					&& this.getPosition().getY() < 380) {
+				this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + 5));
+				this.setPositionImage(this.getPosition());
+			}
+			return null;
+		case LEFT:
+			if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
+					&& this.getPosition().getY() < 395) {
+				this.setPosition(new Position(this.getPosition().getX() - 5, this.getPosition().getY()));
+				this.setPositionImage(this.getPosition());
+			}
+			return null;
+		case RIGHT:
+			if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
+					&& this.getPosition().getY() < 395) {
+				this.setPosition(new Position(this.getPosition().getX() + 5, this.getPosition().getY()));
+				this.setPositionImage(this.getPosition());
+			}
+			return null;
+		case E:
+			Carte m = this.getMap();
+			ArrayList<Objet> l = this.getMap().getLesObjets();
+			Objet o;
+			for (int i = 0; i < l.size(); i++) {
+				o = l.get(i);
+				if (this.getPosition().getX() > o.getZoneObjet().getP1().getX()
+						&& this.getPosition().getX() < o.getZoneObjet().getP2().getX()
+						&& this.getPosition().getY() > o.getZoneObjet().getP1().getY()
+						&& this.getPosition().getY() < o.getZoneObjet().getP2().getY()) {
+					this.ramasser(o);
+					o.setPresent(true);
+					o.getImageView().setVisible(false); 
+				}
+			}
+
+			return null;
+		case A:
+			Carte map = this.getMap();
+			ArrayList<Zone> zones = new ArrayList<Zone>();
+			zones = map.getLesSorties();
+			Zone c;
+			for (int i = 0; i < zones.size(); i++) {
+				c = zones.get(i);
+				if (this.getPosition().getX() > c.getP1().getX() && this.getPosition().getX() < c.getP2().getX()
+						&& this.getPosition().getY() > c.getP1().getY()
+						&& this.getPosition().getY() < c.getP2().getY()) {
+					return c.getCarte();
+				}
+			}
+			return null;
+
 		}
+		return null;
 	}
 
 	public String afficherContenu() {
@@ -73,4 +112,9 @@ public class Joueur extends Personne {
 
 		}
 	}
+
+	public ImageView getImage() {
+		return image;
+	}
+
 }

@@ -17,6 +17,7 @@ public class Enigme extends Activite{
 		this.proposition.add(p3);
 	}
 	
+
 	public String getSolution()
 	{
 		return this.solution;

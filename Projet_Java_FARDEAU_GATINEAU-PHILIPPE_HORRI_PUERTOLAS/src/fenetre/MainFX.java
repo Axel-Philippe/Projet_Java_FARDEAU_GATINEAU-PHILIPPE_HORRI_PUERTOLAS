@@ -17,11 +17,18 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import jeu.Activite;
+import jeu.Bonus;
+import jeu.Carte;
+import jeu.Enigme;
 import jeu.Ingredient;
 import jeu.Joueur;
+import jeu.MapAnnexe;
+import jeu.MapPrincipale;
 import jeu.Objet;
 import jeu.Personnage;
 import jeu.Position;
+import jeu.Zone;
 
 public class MainFX extends Application {
 
@@ -128,7 +135,7 @@ public class MainFX extends Application {
 		ImageView  ivPlaque= new ImageView();
 		ImageView  ivSaladier = new ImageView();
 		
-		//Set imageViews
+		//Initialisation des imageViews
 		ivVillage.setImage(imVillage);
 		ivLac.setImage(imLac);
 		ivMine.setImage(imMine);
@@ -157,11 +164,85 @@ public class MainFX extends Application {
 		ivPlaque.setImage(imPlaque);
 		ivSaladier.setImage(imSaladier);
 		
-		/*
-		Position positionJoueur = new Position(0,0);
-		Map PlaceVillage = new Map()
-		Joueur joueur = new Joueur(10, "Julia", positionJoueur, )
-*/
+		// Initialisation des cartes 		
+		Carte carteVillage = new MapPrincipale("Place du village", ivVillage, 0, 0);
+		Carte carteLac = new MapAnnexe("Lac", ivLac, 0, 0);
+		Carte carteMine = new MapAnnexe("Mine", ivMine, 0, 0);
+		Carte carteFerme = new MapAnnexe("Ferme", ivFerme, 0, 0);
+		Carte carteMaison = new MapAnnexe("Maison", ivMaison, 0, 0);
+		Carte carteForet = new MapAnnexe("Forêt", ivForet, 0, 0);
+		
+		// Initialisation des positions
+		Position positionJulia = new Position(0,0);
+		Position positionBucheron = new Position(0,0);
+		Position positionFermiere = new Position(0,0);
+		Position positionPecheur = new Position(0,0);
+		Position positionQuies1 = new Position(0,0);
+		Position positionQuies2 = new Position(0,0);
+		Position positionQuies3 = new Position(0,0);
+		Position positionMayor = new Position(0,0);
+		
+		Position positionBeurre = new Position(0,0);
+		Position positionChocolat = new Position(0,0);
+		Position positionFarine = new Position(0,0);
+		Position positionOeufs = new Position(0,0);
+		Position positionSucre = new Position(0,0);
+		
+		Position positionFouet = new Position(0,0);
+		Position positionMaryse = new Position(0,0);
+		Position positionPapier = new Position(0,0);
+		Position positionPlaque = new Position(0,0);
+		Position positionSaladier = new Position(0,0);
+		
+		Position positionZoneFouet1 = new Position(0,0);
+		Position positionZoneFouet2 = new Position(0,0);
+		Position positionZoneMaryse1 = new Position(0,0);
+		Position positionZoneMaryse2 = new Position(0,0);
+		Position positionZonePapier1 = new Position(0,0);
+		Position positionZonePapier2 = new Position(0,0);
+		Position positionZonePlaque1 = new Position(0,0);
+		Position positionZonePlaque2 = new Position(0,0);
+		Position positionZoneSaladier1 = new Position(0,0);
+		Position positionZoneSaladier2 = new Position(0,0);
+		
+		// Initialisation des zones 
+		Zone zFouet = new Zone(positionZoneFouet1, positionZoneFouet2);
+		Zone zMaryse = new Zone(positionZoneMaryse1, positionZoneMaryse2);
+		Zone zPapier = new Zone(positionZonePapier1, positionZonePapier2);
+		Zone zPlaque = new Zone(positionZonePlaque1, positionZonePlaque2);
+		Zone zSaladier = new Zone(positionZoneSaladier1, positionZoneSaladier2);
+		
+		// Initialisation des enigmes
+		Enigme actBucheron = new Enigme("Enigme 1", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
+		Enigme actMaire= new Enigme("Qui est-ce?", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
+		Enigme actFermiere = new Enigme("Enigme 1", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
+		Enigme actPecheur = new Enigme("Enigme 1", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
+		
+		// Initialisation des ingrédients
+		Ingredient iBeurre = new Ingredient ("Beurre", ivBeurre, false, positionBeurre);
+		Ingredient iChocolat = new Ingredient ("Chocolat", ivChocolat, false, positionChocolat);
+		Ingredient iFarine = new Ingredient ("Farine", ivFarine, false, positionFarine);
+		Ingredient iOeufs = new Ingredient ("Oeufs", ivOeufs, false, positionOeufs);
+		Ingredient iSucre = new Ingredient ("Sucre", ivSucre, false, positionSucre);
+		
+		// Initialisation des ingrédients		
+		Bonus bFouet = new Bonus("Fouet", ivFouet, false, positionFouet, 5, zFouet);
+		Bonus bMaryse = new Bonus("Maryse", ivMaryse, false, positionMaryse, 10, zMaryse);
+		Bonus bPapier = new Bonus("Papier", ivPapier, false, positionPapier, 10, zPapier);
+		Bonus bPlaque = new Bonus("Plaque", ivPlaque, false, positionPlaque, 5, zPlaque);
+		Bonus bSaladier = new Bonus("Saladier", ivSaladier, false, positionSaladier, 15, zSaladier);
+		
+		// Initialisation des personnages et du joueur
+		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
+		Personnage persoBucheron = new Personnage(actBucheron, "Julia", positionBucheron, carteForet, ivBucheron);
+		Personnage persoFermiere = new Personnage(actFermiere, "Fermiere", positionFermiere, ivFermiere, carteFerme, ivFermiere);
+		Personnage persoPecheur = new Personnage(actPecheur, "Pecheur", positionPecheur, ivPecheur, carteLac, ivPecheur);
+		Personnage persoQuies1 = new Personnage("Quies1", positionQuies1, ivQuies1, carteVillage, ivQuies1);
+		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, ivQuies2);
+		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, ivQuies3);
+		Personnage persoMayor = new Personnage(actMaire, "Maire", positionMayor, ivQuiesMayor, carteVillage, ivQuiesMayor);
+		
+		
 				
 	}
 

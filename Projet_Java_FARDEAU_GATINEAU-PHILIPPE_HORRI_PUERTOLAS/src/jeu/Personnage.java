@@ -18,6 +18,13 @@ public class Personnage extends Personne {
 		this.zone = zone;
 	}
 	
+	public Personnage (String n, Position p, ImageView i, Objet objet, Carte map, Zone zone) {
+		super(n, p, map); 
+		image = i;
+		this.zone = zone;
+	}
+	
+	
 	public String parler(Joueur j) {
 		return null;
 	}

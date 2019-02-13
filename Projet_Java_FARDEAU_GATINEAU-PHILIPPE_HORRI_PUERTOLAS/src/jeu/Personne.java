@@ -12,4 +12,21 @@ public class Personne {
 		position = p;
 		this.map = map;
 	}
+
+	public void setMap(Carte map) {
+		this.map = map;
+	}
+
+	public Carte getMap() {
+		return map;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+	
 }  

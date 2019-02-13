@@ -7,8 +7,8 @@ public class Bonus extends Objet{
 	private int nombreCookieBonus;
 	private Zone zone;
 
-	public Bonus(String n, ImageView i, Position p, int nb, Zone z) {
-		super(n, i, p);
+	public Bonus(String n, ImageView i, boolean b, Position p, int nb, Zone z) {
+		super(n, i, b, p);
 		nombreCookieBonus = nb;
 		zone = z;
 	}
