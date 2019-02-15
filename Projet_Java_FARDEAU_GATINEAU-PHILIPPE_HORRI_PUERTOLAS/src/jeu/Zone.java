@@ -44,5 +44,15 @@ public class Zone {
 	public Carte getCarte() {
 		return carte;
 	}
+
+	public Deplacement getDeplacement() {
+		return d;
+	}
+
+	public void setDeplacement(Deplacement d) {
+		this.d = d;
+	}
+	
+	
 	
 }

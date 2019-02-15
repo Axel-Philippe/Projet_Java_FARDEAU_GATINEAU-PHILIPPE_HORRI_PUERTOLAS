@@ -63,8 +63,8 @@ public class Joueur extends Personne {
 			}
 			return null;
 		case E:
-			Carte m = this.getMap();
-			ArrayList<Objet> l = this.getMap().getLesBonus();
+			Carte m = this.getCarte();
+			ArrayList<Objet> l = this.getCarte().getLesBonus();
 			Objet o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
@@ -80,7 +80,7 @@ public class Joueur extends Personne {
 
 			return null;
 		case A:
-			Carte map = this.getMap();
+			Carte map = this.getCarte();
 			ArrayList<Zone> zones = new ArrayList<Zone>();
 			zones = map.getLesSorties();
 			Zone c;
@@ -89,7 +89,20 @@ public class Joueur extends Personne {
 				if (this.getPosition().getX() > c.getP1().getX() && this.getPosition().getX() < c.getP2().getX()
 						&& this.getPosition().getY() > c.getP1().getY()
 						&& this.getPosition().getY() < c.getP2().getY()) {
-					this.setPosition(new Position(200, 200));
+					switch(c.getDeplacement()) {
+					case DROITE:
+						this.setPosition(new Position(50, 200));
+						break;
+					case GAUCHE:
+						this.setPosition(new Position(450, 200));
+						break;
+					case HAUT:
+						this.setPosition(new Position(220, 400));
+						break;
+					case BAS:
+						this.setPosition(new Position(220, 50));
+						break;
+					}
 					return c.getCarte();
 
 				}
