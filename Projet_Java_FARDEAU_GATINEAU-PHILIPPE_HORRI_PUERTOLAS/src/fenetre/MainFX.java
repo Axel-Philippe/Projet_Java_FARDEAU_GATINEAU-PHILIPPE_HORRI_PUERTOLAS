@@ -265,7 +265,8 @@ public class MainFX extends Application {
 		Personnage persoQuies1 = new Personnage("Quies1", positionQuies1, ivQuies1, carteVillage, zQuies1);
 		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, zQuies2);
 		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, zQuies3);
-		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);				
+		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);
+				
 	}
 
 	@Override
