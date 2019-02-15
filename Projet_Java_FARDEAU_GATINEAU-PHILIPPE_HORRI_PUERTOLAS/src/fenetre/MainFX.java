@@ -279,60 +279,8 @@ public class MainFX extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-
-		/*FileInputStream file2 = new FileInputStream("./images/personnages/julia.png");
-		Image image = new Image(file2);
-		ImageView c = new ImageView();
-		c.setImage(image);
-		c.setY(100);
-		c.setX((scene.getWidth() / 2) - c.getFitWidth() / 2);
-
-		Text t = new Text("Zone\nd'intéraction\n(appuyer sur 'E'\npour intéragir)");
-		t.setX(410);
-		t.setY(30);
-
-		FileInputStream file3 = new FileInputStream("./images/ingredients/beurre.png");
-		Image image3 = new Image(file3);
-		
-		
-		
-		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent event) {
-				switch (event.getCode()) {
-				case UP:
-					if (c.getX() < 536 && c.getX() > -6 && c.getY() > 0 && c.getY() < 395)
-						c.setY(c.getY() - 5);
-					break;
-				case DOWN:
-					if (c.getX() < 536 && c.getX() > -6 && c.getY() > -6 && c.getY() < 380)
-						c.setY(c.getY() + 5);
-					break;
-				case LEFT:
-					if (c.getX() < 536 && c.getX() > 0 && c.getY() > -6 && c.getY() < 395)
-						c.setX(c.getX() - 5);
-					break;
-				case RIGHT:
-					if (c.getX() < 530 && c.getX() > -6 && c.getY() > -6 && c.getY() < 395)
-						c.setX(c.getX() + 5);
-					break;
-				case E:
-					if (c.getX() > 400 && c.getX() < 546 && c.getY() >= 0 && c.getY() < 100) {
-						
-						Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setTitle("Interaction Objet");
-						alert.setHeaderText("Vous avez intéragi avec un objet en pressant la touche 'E'.");
-						alert.setContentText("Cliquez sur la croix pour fermer.");
-						alert.showAndWait();
-					}
-					break;
-				}
-			}
-		});*/
 		
 		initialiser(stage);
-
-
 
 	}
 

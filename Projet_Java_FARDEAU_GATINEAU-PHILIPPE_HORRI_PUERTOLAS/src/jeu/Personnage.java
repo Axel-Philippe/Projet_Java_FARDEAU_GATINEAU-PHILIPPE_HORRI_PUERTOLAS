@@ -49,4 +49,5 @@ public class Personnage extends Personne {
 		this.image.setX(p.getX());
 		this.image.setY(p.getY());
 	}
+	
 }
