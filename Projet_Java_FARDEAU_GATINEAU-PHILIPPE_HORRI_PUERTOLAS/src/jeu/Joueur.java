@@ -21,9 +21,17 @@ public class Joueur extends Personne {
 		this.image.setY(p.getY());
 	}
 
+	@Override
+	public void setPosition(Position p) {
+		this.position = p;
+		this.setPositionImage(p);
+	}
+
 	public void setPositionImage(Position p) {
 		this.image.setX(p.getX());
+		System.out.println("1 x:" + p.getX());
 		this.image.setY(p.getY());
+		System.out.println("1 y:" + p.getY());
 	}
 
 	public Carte seDeplacer(KeyEvent event) {
@@ -68,7 +76,7 @@ public class Joueur extends Personne {
 						&& this.getPosition().getY() < o.getZoneObjet().getP2().getY()) {
 					this.ramasser(o);
 					o.setPresent(true);
-					o.getImageView().setVisible(false); 
+					o.getImageView().setVisible(false);
 				}
 			}
 
@@ -83,11 +91,12 @@ public class Joueur extends Personne {
 				if (this.getPosition().getX() > c.getP1().getX() && this.getPosition().getX() < c.getP2().getX()
 						&& this.getPosition().getY() > c.getP1().getY()
 						&& this.getPosition().getY() < c.getP2().getY()) {
+					this.setPosition(new Position(200, 200));
 					return c.getCarte();
+
 				}
 			}
 			return null;
-
 		}
 		return null;
 	}

@@ -2,7 +2,7 @@ package jeu;
 
 public class Personne {
 	private String nom;
-	private Position position;
+	protected Position position;
 	private Carte map;
 	
 	public Personne(String n, Position p, Carte map)
