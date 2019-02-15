@@ -273,23 +273,30 @@ public class MainFX extends Application {
 		Zone zLacVillage = new Zone(positionBasLac1, positionBasLac2, Deplacement.BAS, carteVillage);
 		carteLac.ajouterZone(zLacVillage);
 		
-		Zone zVillageMine = new Zone(positionGaucheVillage1, positionGaucheVillage2);
-		Zone zMineVillage = new Zone(positionDroiteMine1, positionDroiteMine2);
+		Zone zVillageMine = new Zone(positionGaucheVillage1, positionGaucheVillage2, Deplacement.GAUCHE, carteMine);
+		carteVillage.ajouterZone(zVillageMine);
+		Zone zMineVillage = new Zone(positionDroiteMine1, positionDroiteMine2, Deplacement.DROITE, carteVillage);
+		carteMine.ajouterZone(zMineVillage);
 		
-		Zone zVillageFerme = new Zone(positionBasVillage1, positionBasVillage2);
-		Zone zFermeVillage = new Zone (positionHautFerme1, positionHautFerme2);
+		Zone zVillageFerme = new Zone(positionBasVillage1, positionBasVillage2, Deplacement.BAS, carteFerme);
+		carteVillage.ajouterZone(zVillageFerme);
+		Zone zFermeVillage = new Zone (positionHautFerme1, positionHautFerme2, Deplacement.HAUT, carteVillage);
+		carteFerme.ajouterZone(zFermeVillage);
 		
-		Zone zVillageForet = new Zone (positionDroiteVillage1, positionDroiteVillage2);
-		Zone zForetVillage = new Zone (positionGaucheForet1, positionGaucheForet2);
+		Zone zVillageForet = new Zone (positionDroiteVillage1, positionDroiteVillage2, Deplacement.DROITE, carteForet);
+		carteVillage.ajouterZone(zVillageForet);
+		Zone zForetVillage = new Zone (positionGaucheForet1, positionGaucheForet2, Deplacement.GAUCHE, carteVillage);
+		carteForet.ajouterZone(zForetVillage);
 		
-		Zone zFermeMaison = new Zone (positionDroiteFerme1, positionDroiteFerme2);
-		Zone zMaisonFerme = new Zone(positionGaucheMaison1, positionGaucheMaison2);
+		Zone zFermeMaison = new Zone (positionDroiteFerme1, positionDroiteFerme2, Deplacement.DROITE, carteMaison);
+		carteFerme.ajouterZone(zFermeMaison);
+		Zone zMaisonFerme = new Zone(positionGaucheMaison1, positionGaucheMaison2, Deplacement.GAUCHE, carteFerme);
+		carteMaison.ajouterZone(zMaisonFerme);
 		
-		Zone zForetMaison = new Zone(positionBasForet1, positionBasForet2);
-		Zone zMaisonForet = new Zone(positionHautMaison1, positionHautMaison2);
-		
-		
-		
+		Zone zForetMaison = new Zone(positionBasForet1, positionBasForet2, Deplacement.BAS, carteMaison);
+		carteForet.ajouterZone(zForetMaison);
+		Zone zMaisonForet = new Zone(positionHautMaison1, positionHautMaison2, Deplacement.HAUT, carteForet);
+		carteMaison.ajouterZone(zMaisonForet);		
 		
 		// Initialisation des zones 
 		Zone zFouet = new Zone(positionZoneFouet1, positionZoneFouet2);
