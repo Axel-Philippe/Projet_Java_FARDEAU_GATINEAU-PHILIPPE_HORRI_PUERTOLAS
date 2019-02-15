@@ -178,10 +178,10 @@ public class MainFX extends Application {
 		Position positionMainHaut2 = new Position(490,50);
 		Position positionMainBas1 = new Position(40,355);
 		Position positionMainBas2 = new Position(500,416);
-		Position positionMainDroite1 = new Position(-6,80);
-		Position positionMainDroite2 = new Position(45,360);
-		Position positionMainGauche1 = new Position(500,80);
-		Position positionMainGauche2 = new Position(543,360);
+		Position positionMainGauche1 = new Position(-6,80);
+		Position positionMainGauche2 = new Position(45,360);
+		Position positionMainDroite1 = new Position(500,80);
+		Position positionMainDroite2 = new Position(543,360);
 		
 		// Initialisation des positions
 		Position positionJulia = new Position(0,0);
