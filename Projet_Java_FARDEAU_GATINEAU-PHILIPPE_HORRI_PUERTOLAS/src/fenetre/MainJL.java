@@ -80,8 +80,6 @@ public class MainJL extends Application {
 				if(c != null){
 					root.getChildren().set(0, c.getImage());
 					j.setMap(c);
-					j.getImage().setY(200);
-					j.getImage().setX(200);
 				}
 				/*switch (event.getCode()) {
 				case UP:

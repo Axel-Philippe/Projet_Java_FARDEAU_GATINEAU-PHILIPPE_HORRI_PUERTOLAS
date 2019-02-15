@@ -17,7 +17,7 @@ public class Personne {
 		this.map = map;
 	}
 
-	public Carte getMap() {
+	public Carte getCarte() {
 		return map;
 	}
 
