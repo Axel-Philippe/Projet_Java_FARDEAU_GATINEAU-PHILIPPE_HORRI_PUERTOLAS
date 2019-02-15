@@ -325,7 +325,7 @@ public class MainFX extends Application {
 		Bonus bMaryse = new Bonus("Maryse", ivMaryse, false, positionMaryse, 10, zMaryse);
 		Bonus bPapier = new Bonus("Papier", ivPapier, false, positionPapier, 10, zPapier);
 		Bonus bPlaque = new Bonus("Plaque", ivPlaque, false, positionPlaque, 5, zPlaque);
-		Bonus bSaladier = new Bonus("Saladier", ivSaladier, false, positionSaladier, 15, zSaladier);
+		Bonus bSaladier = new Bonus("Saladier", ivSaladier, false, positionSaladier, 15, zSaladier); 
 		
 		// Initialisation des personnages et du joueur
 		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
