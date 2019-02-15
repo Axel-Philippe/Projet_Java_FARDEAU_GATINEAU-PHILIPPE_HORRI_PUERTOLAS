@@ -44,7 +44,7 @@ public class MainFX extends Application {
 	 * Méthode permettant d'initialiser les éléments graphiques
 	 * @throws FileNotFoundException
 	 */
-	public static void initialiser() throws FileNotFoundException {
+	public static void initialiser(Stage stage) throws FileNotFoundException {
 		// Initialisation des fichiers des cartes
 		FileInputStream village = new FileInputStream("./images/maps/centre.png");
 		FileInputStream lac = new FileInputStream("./images/maps/lac.png");
@@ -64,18 +64,18 @@ public class MainFX extends Application {
 		FileInputStream quiesMaire = new FileInputStream("./images/personnages/quiesMaire.png");
 		
 		// Initialisation des ingrédients
-		FileInputStream beurre = new FileInputStream(".images/ingredients/beurre.png");
-		FileInputStream chocolat = new FileInputStream(".images/ingredients/chocolat.png");
-		FileInputStream farine = new FileInputStream(".images/ingredients/farine.png");
-		FileInputStream oeufs = new FileInputStream(".images/ingredients/oeufs.png");
-		FileInputStream sucre = new FileInputStream(".images/ingredients/sucre.png");
+		FileInputStream beurre = new FileInputStream("./images/ingredients/beurre.png");
+		FileInputStream chocolat = new FileInputStream("./images/ingredients/chocolat.png");
+		FileInputStream farine = new FileInputStream("./images/ingredients/farine.png");
+		FileInputStream oeufs = new FileInputStream("./images/ingredients/oeufs.png");
+		FileInputStream sucre = new FileInputStream("./images/ingredients/sucre.png");
 		
 		// Initialisation des bonus
-		FileInputStream fouet = new FileInputStream(".images/bonus/fouet.png");
-		FileInputStream maryse = new FileInputStream(".images/bonus/maryse.png");
-		FileInputStream papier = new FileInputStream(".images/bonus/papier.png");
-		FileInputStream plaque = new FileInputStream(".images/bonus/plaque.png");
-		FileInputStream saladier = new FileInputStream(".images/bonus/saladier.png");
+		FileInputStream fouet = new FileInputStream("./images/bonus/fouet.png");
+		FileInputStream maryse = new FileInputStream("./images/bonus/maryse.png");
+		FileInputStream papier = new FileInputStream("./images/bonus/papier.png");
+		FileInputStream plaque = new FileInputStream("./images/bonus/plaque.png");
+		FileInputStream saladier = new FileInputStream("./images/bonus/saladier.png");
 		
 		// Initialisation des images
 		Image imVillage = new Image(village);
@@ -177,7 +177,7 @@ public class MainFX extends Application {
 		Position positionBucheron = new Position(0,0);
 		Position positionFermiere = new Position(0,0);
 		Position positionPecheur = new Position(0,0);
-		Position positionQuies1 = new Position(0,0);
+		Position positionQuies1 = new Position(150,120);
 		Position positionQuies2 = new Position(0,0);
 		Position positionQuies3 = new Position(0,0);
 		Position positionMaire = new Position(0,0);
@@ -266,13 +266,20 @@ public class MainFX extends Application {
 		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, zQuies2);
 		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, zQuies3);
 		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);
-				
-	}
-
-	@Override
-	public void start(Stage stage) throws Exception {
+		
 		Group root = new Group();
 		Scene scene = new Scene(root, 543, 416, Color.WHITE);
+		
+		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage());
+		stage.setTitle("JavaFX Scene Graph Demo");
+		stage.setScene(scene);
+		stage.show();
+				
+	}
+	
+	@Override
+	public void start(Stage stage) throws Exception {
+
 		/*FileInputStream file2 = new FileInputStream("./images/personnages/julia.png");
 		Image image = new Image(file2);
 		ImageView c = new ImageView();
@@ -321,16 +328,11 @@ public class MainFX extends Application {
 					break;
 				}
 			}
-		});
+		});*/
+		
+		initialiser(stage);
 
-		FileInputStream file = new FileInputStream("./images/maps/centre.png");
-		Image image2 = new Image(file);
-		ImageView i = new ImageView();
-		i.setImage(image2);
-		root.getChildren().addAll(i, c, t);
-		stage.setTitle("JavaFX Scene Graph Demo");
-		stage.setScene(scene);
-		stage.show();*/
+
 
 	}
 

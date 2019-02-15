@@ -18,6 +18,7 @@ public class Personnage extends Personne {
 		activite = a; 
 		ingredient = in;
 		this.zone = zone;
+		this.setPositionImage(p);
 	}
 	
 	public Personnage (String n, Position p, ImageView i, Ingredient in, Carte map, Zone zone) {
@@ -25,12 +26,14 @@ public class Personnage extends Personne {
 		image = i;
 		ingredient = in;
 		this.zone = zone;
+		this.setPositionImage(p);
 	}
 	
 	public Personnage (String n, Position p, ImageView i, Carte map, Zone zone) {
 		super(n, p, map); 
 		image = i;
 		this.zone = zone;
+		this.setPositionImage(p);
 	}
 	
 	public String parler(Joueur j) {
@@ -41,4 +44,9 @@ public class Personnage extends Personne {
 		return this.image;
 	}
 	  
+	
+	public void setPositionImage(Position p) {
+		this.image.setX(p.getX());
+		this.image.setY(p.getY());
+	}
 }
