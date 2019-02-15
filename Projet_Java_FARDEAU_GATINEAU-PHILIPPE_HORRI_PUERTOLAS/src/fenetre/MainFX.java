@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import jeu.Activite;
 import jeu.Bonus;
 import jeu.Carte;
+import jeu.Deplacement;
 import jeu.Enigme;
 import jeu.Ingredient;
 import jeu.Joueur;
@@ -172,6 +173,16 @@ public class MainFX extends Application {
 		Carte carteMaison = new MapAnnexe("Maison", ivMaison, 0, 0);
 		Carte carteForet = new MapAnnexe("Forêt", ivForet, 0, 0);
 		
+		// Initialisation des positions main
+		Position positionMainHaut1 = new Position(50,-6);
+		Position positionMainHaut2 = new Position(490,50);
+		Position positionMainBas1 = new Position(40,355);
+		Position positionMainBas2 = new Position(500,416);
+		Position positionMainDroite1 = new Position(-6,80);
+		Position positionMainDroite2 = new Position(45,360);
+		Position positionMainGauche1 = new Position(500,80);
+		Position positionMainGauche2 = new Position(543,360);
+		
 		// Initialisation des positions
 		Position positionJulia = new Position(0,0);
 		Position positionBucheron = new Position(0,0);
@@ -221,44 +232,46 @@ public class MainFX extends Application {
 		Position positionZoneMaire2 = new Position(0,0);
 		
 		// Positions des zones du village
-		Position positionHautVillage1 = new Position(0,0);
-		Position positionHautVillage2 = new Position(0,0);
-		Position positionBasVillage1 = new Position(0,0);
-		Position positionBasVillage2 = new Position(0,0);
-		Position positionDroiteVillage1 = new Position(0,0);
-		Position positionDroiteVillage2 = new Position(0,0);
-		Position positionGaucheVillage1 = new Position(0,0);
-		Position positionGaucheVillage2 = new Position(0,0);
+		Position positionHautVillage1 = positionMainHaut1;
+		Position positionHautVillage2 = positionMainHaut2;
+		Position positionBasVillage1 = positionMainBas1;
+		Position positionBasVillage2 = positionMainBas2;
+		Position positionDroiteVillage1 = positionMainDroite1;
+		Position positionDroiteVillage2 = positionMainDroite2;
+		Position positionGaucheVillage1 = positionMainGauche1;
+		Position positionGaucheVillage2 = positionMainGauche2;
 		
 		// Position zone du lac
-		Position positionBasLac1 = new Position(0,0);
-		Position positionBasLac2 = new Position(0,0);
+		Position positionBasLac1 = positionMainBas1;
+		Position positionBasLac2 = positionMainBas2;
 		
 		// Position zone de la mine
-		Position positionDroiteMine1 = new Position(0,0);
-		Position positionDroiteMine2 = new Position(0,0);
+		Position positionDroiteMine1 = positionMainDroite1;
+		Position positionDroiteMine2 = positionMainDroite2;
 		
 		// Positions des zones de la ferme
-		Position positionHautFerme1 = new Position(0,0);
-		Position positionHautFerme2 = new Position(0,0);
-		Position positionDroiteFerme1 = new Position(0,0);
-		Position positionDroiteFerme2 = new Position(0,0);
+		Position positionHautFerme1 = positionMainHaut1;
+		Position positionHautFerme2 = positionMainHaut2;
+		Position positionDroiteFerme1 = positionMainDroite1;
+		Position positionDroiteFerme2 = positionMainDroite2;
 		
 		// Positions des zones de la maison de Julia
-		Position positionHautMaison1 = new Position(0,0);
-		Position positionHautMaison2 = new Position(0,0);
-		Position positionGaucheMaison1 = new Position(0,0);
-		Position positionGaucheMaison2 = new Position(0,0);
+		Position positionHautMaison1 = positionMainHaut1;
+		Position positionHautMaison2 = positionMainHaut2;
+		Position positionGaucheMaison1 = positionMainGauche1;
+		Position positionGaucheMaison2 = positionMainGauche2;
 		
 		// Positions des zones de la foret
-		Position positionGaucheForet1 = new Position(0,0);
-		Position positionGaucheForet2 = new Position(0,0);
-		Position positionBasForet1 = new Position(0,0);
-		Position positionBasForet2 = new Position(0,0);
+		Position positionGaucheForet1 = positionMainGauche1;
+		Position positionGaucheForet2 = positionMainGauche2;
+		Position positionBasForet1 = positionMainBas1;
+		Position positionBasForet2 = positionMainBas2;
 		
 		// Zones de déplacement entre les cartes
-		Zone zVillageLac = new Zone(positionHautVillage1, positionHautVillage2);
-		Zone zLacVillage = new Zone(positionBasLac1, positionBasLac2);
+		Zone zVillageLac = new Zone(positionHautVillage1, positionHautVillage2,Deplacement.HAUT, carteLac);
+		carteVillage.ajouterZone(zVillageLac);
+		Zone zLacVillage = new Zone(positionBasLac1, positionBasLac2, Deplacement.BAS, carteVillage);
+		carteLac.ajouterZone(zLacVillage);
 		
 		Zone zVillageMine = new Zone(positionGaucheVillage1, positionGaucheVillage2);
 		Zone zMineVillage = new Zone(positionDroiteMine1, positionDroiteMine2);
@@ -325,9 +338,22 @@ public class MainFX extends Application {
 		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);
 		
 		Group root = new Group();
+		
 		Scene scene = new Scene(root, 543, 416, Color.WHITE);
 		
-		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage());
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent event) {
+				
+				Carte c = joueurJulia.seDeplacer(event);
+				if(c != null){
+					root.getChildren().set(0, c.getImage());
+					joueurJulia.setMap(c);
+				}
+			}
+		});
+		
+		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
@@ -337,8 +363,8 @@ public class MainFX extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		initialiser(stage);
-
+		initialiser(stage);		
+		
 	}
 
 }

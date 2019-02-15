@@ -25,6 +25,7 @@ public class Joueur extends Personne {
 	public void setPosition(Position p) {
 		this.position = p;
 		this.setPositionImage(p);
+		System.out.println(p.getX()+ " "+p.getY());
 	}
 
 	public void setPositionImage(Position p) {
@@ -80,6 +81,7 @@ public class Joueur extends Personne {
 
 			return null;
 		case A:
+			
 			Carte map = this.getCarte();
 			ArrayList<Zone> zones = new ArrayList<Zone>();
 			zones = map.getLesSorties();
@@ -97,10 +99,10 @@ public class Joueur extends Personne {
 						this.setPosition(new Position(450, 200));
 						break;
 					case HAUT:
-						this.setPosition(new Position(220, 400));
+						this.setPosition(new Position(220, 380));
 						break;
 					case BAS:
-						this.setPosition(new Position(220, 50));
+						this.setPosition(new Position(220, 0));
 						break;
 					}
 					return c.getCarte();
