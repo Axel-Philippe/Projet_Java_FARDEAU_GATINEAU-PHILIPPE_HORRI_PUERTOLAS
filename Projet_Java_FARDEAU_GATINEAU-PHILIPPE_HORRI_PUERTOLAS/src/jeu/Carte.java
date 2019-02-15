@@ -11,14 +11,14 @@ public abstract class Carte {
 	private int x;
 	private int y;
 	private ArrayList<Zone> lesSorties;
-	private ArrayList<Objet> lesObjets;
+	private ArrayList<Objet> lesBonus;
 	
 	public Carte(String n, ImageView i, int x, int y) {
 		super();
 		nom = n;
 		image = i;
 		this.lesSorties = new ArrayList<Zone>();
-		this.lesObjets = new ArrayList<Objet>();
+		this.lesBonus = new ArrayList<Objet>();
 	}
 	
 	public void ajouterZone(Zone z){
@@ -33,12 +33,12 @@ public abstract class Carte {
 		return lesSorties;
 	}
 
-	public ArrayList<Objet> getLesObjets() {
-		return lesObjets;
+	public ArrayList<Objet> getLesBonus() {
+		return lesBonus;
 	}
 
 	public void setLesObjets(ArrayList<Objet> lesObjets) {
-		this.lesObjets = lesObjets;
+		this.lesBonus = lesObjets;
 	}
 	
 	

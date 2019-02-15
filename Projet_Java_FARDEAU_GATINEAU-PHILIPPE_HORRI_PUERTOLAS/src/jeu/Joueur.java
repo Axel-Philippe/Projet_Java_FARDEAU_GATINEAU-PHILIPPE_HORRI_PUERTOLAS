@@ -29,9 +29,7 @@ public class Joueur extends Personne {
 
 	public void setPositionImage(Position p) {
 		this.image.setX(p.getX());
-		System.out.println("1 x:" + p.getX());
 		this.image.setY(p.getY());
-		System.out.println("1 y:" + p.getY());
 	}
 
 	public Carte seDeplacer(KeyEvent event) {
@@ -66,7 +64,7 @@ public class Joueur extends Personne {
 			return null;
 		case E:
 			Carte m = this.getMap();
-			ArrayList<Objet> l = this.getMap().getLesObjets();
+			ArrayList<Objet> l = this.getMap().getLesBonus();
 			Objet o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
