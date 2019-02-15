@@ -177,10 +177,10 @@ public class MainFX extends Application {
 		Position positionBucheron = new Position(0,0);
 		Position positionFermiere = new Position(0,0);
 		Position positionPecheur = new Position(0,0);
-		Position positionQuies1 = new Position(150,120);
-		Position positionQuies2 = new Position(0,0);
-		Position positionQuies3 = new Position(0,0);
-		Position positionMaire = new Position(0,0);
+		Position positionQuies1 = new Position(130,110);
+		Position positionQuies2 = new Position(350,90);
+		Position positionQuies3 = new Position(110,250);
+		Position positionMaire = new Position(245,210);
 		
 		Position positionBeurre = new Position(0,0);
 		Position positionChocolat = new Position(0,0);
@@ -270,7 +270,7 @@ public class MainFX extends Application {
 		Group root = new Group();
 		Scene scene = new Scene(root, 543, 416, Color.WHITE);
 		
-		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage());
+		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
