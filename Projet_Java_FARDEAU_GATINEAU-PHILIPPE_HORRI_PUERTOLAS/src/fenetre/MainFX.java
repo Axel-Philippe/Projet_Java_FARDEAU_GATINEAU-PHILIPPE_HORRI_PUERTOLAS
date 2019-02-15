@@ -220,6 +220,63 @@ public class MainFX extends Application {
 		Position positionZoneMaire1 = new Position(0,0);
 		Position positionZoneMaire2 = new Position(0,0);
 		
+		// Positions des zones du village
+		Position positionHautVillage1 = new Position(0,0);
+		Position positionHautVillage2 = new Position(0,0);
+		Position positionBasVillage1 = new Position(0,0);
+		Position positionBasVillage2 = new Position(0,0);
+		Position positionDroiteVillage1 = new Position(0,0);
+		Position positionDroiteVillage2 = new Position(0,0);
+		Position positionGaucheVillage1 = new Position(0,0);
+		Position positionGaucheVillage2 = new Position(0,0);
+		
+		// Position zone du lac
+		Position positionBasLac1 = new Position(0,0);
+		Position positionBasLac2 = new Position(0,0);
+		
+		// Position zone de la mine
+		Position positionDroiteMine1 = new Position(0,0);
+		Position positionDroiteMine2 = new Position(0,0);
+		
+		// Positions des zones de la ferme
+		Position positionHautFerme1 = new Position(0,0);
+		Position positionHautFerme2 = new Position(0,0);
+		Position positionDroiteFerme1 = new Position(0,0);
+		Position positionDroiteFerme2 = new Position(0,0);
+		
+		// Positions des zones de la maison de Julia
+		Position positionHautMaison1 = new Position(0,0);
+		Position positionHautMaison2 = new Position(0,0);
+		Position positionGaucheMaison1 = new Position(0,0);
+		Position positionGaucheMaison2 = new Position(0,0);
+		
+		// Positions des zones de la foret
+		Position positionGaucheForet1 = new Position(0,0);
+		Position positionGaucheForet2 = new Position(0,0);
+		Position positionBasForet1 = new Position(0,0);
+		Position positionBasForet2 = new Position(0,0);
+		
+		// Zones de déplacement entre les cartes
+		Zone zVillageLac = new Zone(positionHautVillage1, positionHautVillage2);
+		Zone zLacVillage = new Zone(positionBasLac1, positionBasLac2);
+		
+		Zone zVillageMine = new Zone(positionGaucheVillage1, positionGaucheVillage2);
+		Zone zMineVillage = new Zone(positionDroiteMine1, positionDroiteMine2);
+		
+		Zone zVillageFerme = new Zone(positionBasVillage1, positionBasVillage2);
+		Zone zFermeVillage = new Zone (positionHautFerme1, positionHautFerme2);
+		
+		Zone zVillageForet = new Zone (positionDroiteVillage1, positionDroiteVillage2);
+		Zone zForetVillage = new Zone (positionGaucheForet1, positionGaucheForet2);
+		
+		Zone zFermeMaison = new Zone (positionDroiteFerme1, positionDroiteFerme2);
+		Zone zMaisonFerme = new Zone(positionGaucheMaison1, positionGaucheMaison2);
+		
+		Zone zForetMaison = new Zone(positionBasForet1, positionBasForet2);
+		Zone zMaisonForet = new Zone(positionHautMaison1, positionHautMaison2);
+		
+		
+		
 		
 		// Initialisation des zones 
 		Zone zFouet = new Zone(positionZoneFouet1, positionZoneFouet2);
