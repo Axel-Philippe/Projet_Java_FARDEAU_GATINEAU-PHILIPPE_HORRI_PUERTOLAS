@@ -81,7 +81,6 @@ public class Joueur extends Personne {
 
 			return null;
 		case A:
-			
 			Carte map = this.getCarte();
 			ArrayList<Zone> zones = new ArrayList<Zone>();
 			zones = map.getLesSorties();
@@ -105,8 +104,8 @@ public class Joueur extends Personne {
 						this.setPosition(new Position(220, 0));
 						break;
 					}
+					c.getCarte().personnageVisible();
 					return c.getCarte();
-
 				}
 			}
 			return null;

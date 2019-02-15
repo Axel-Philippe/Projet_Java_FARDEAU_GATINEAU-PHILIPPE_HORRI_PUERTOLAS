@@ -343,6 +343,14 @@ public class MainFX extends Application {
 		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, zQuies2);
 		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, zQuies3);
 		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);
+		Carte.ajouterPersonnage(persoBucheron);
+		Carte.ajouterPersonnage(persoFermiere);
+		Carte.ajouterPersonnage(persoPecheur);
+		Carte.ajouterPersonnage(persoQuies1);
+		Carte.ajouterPersonnage(persoQuies2);
+		Carte.ajouterPersonnage(persoQuies3);
+		Carte.ajouterPersonnage(persoMaire);
+		carteVillage.personnageVisible();
 		
 		Group root = new Group();
 		
@@ -360,7 +368,7 @@ public class MainFX extends Application {
 			}
 		});
 		
-		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage());
+		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),persoPecheur.getImage(),persoFermiere.getImage());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
