@@ -61,7 +61,7 @@ public class MainFX extends Application {
 		FileInputStream quies1 = new FileInputStream("./images/personnages/quies1.png");
 		FileInputStream quies2 = new FileInputStream("./images/personnages/quies2.png");
 		FileInputStream quies3 = new FileInputStream("./images/personnages/quies3.png");
-		FileInputStream quiesMayor = new FileInputStream("./images/personnages/quiesMayor.png");
+		FileInputStream quiesMaire = new FileInputStream("./images/personnages/quiesMaire.png");
 		
 		// Initialisation des ingrédients
 		FileInputStream beurre = new FileInputStream(".images/ingredients/beurre.png");
@@ -92,7 +92,7 @@ public class MainFX extends Application {
 		Image imQuies1 = new Image(quies1);
 		Image imQuies2 = new Image(quies2);
 		Image imQuies3 = new Image(quies3);
-		Image imQuiesMayor = new Image(quiesMayor);
+		Image imQuiesMaire = new Image(quiesMaire);
 		
 		Image imBeurre = new Image(beurre);
 		Image imChocolat = new Image(chocolat);
@@ -121,7 +121,7 @@ public class MainFX extends Application {
 		ImageView  ivQuies1 = new ImageView();
 		ImageView  ivQuies2 = new ImageView();
 		ImageView  ivQuies3 = new ImageView();
-		ImageView  ivQuiesMayor = new ImageView();
+		ImageView  ivQuiesMaire = new ImageView();
 		
 		ImageView  ivBeurre = new ImageView();
 		ImageView  ivChocolat = new ImageView();
@@ -150,7 +150,7 @@ public class MainFX extends Application {
 		ivQuies1.setImage(imQuies1);
 		ivQuies2.setImage(imQuies2);
 		ivQuies3.setImage(imQuies3);
-		ivQuiesMayor.setImage(imQuiesMayor);
+		ivQuiesMaire.setImage(imQuiesMaire);
 				
 		ivBeurre.setImage(imBeurre);
 		ivChocolat.setImage(imChocolat);
@@ -180,7 +180,7 @@ public class MainFX extends Application {
 		Position positionQuies1 = new Position(0,0);
 		Position positionQuies2 = new Position(0,0);
 		Position positionQuies3 = new Position(0,0);
-		Position positionMayor = new Position(0,0);
+		Position positionMaire = new Position(0,0);
 		
 		Position positionBeurre = new Position(0,0);
 		Position positionChocolat = new Position(0,0);
@@ -205,6 +205,22 @@ public class MainFX extends Application {
 		Position positionZoneSaladier1 = new Position(0,0);
 		Position positionZoneSaladier2 = new Position(0,0);
 		
+		Position positionZoneBucheron1 = new Position(0,0);
+		Position positionZoneBucheron2 = new Position(0,0);
+		Position positionZoneFermiere1 = new Position(0,0);
+		Position positionZoneFermiere2 = new Position(0,0);
+		Position positionZonePecheur1 = new Position(0,0);
+		Position positionZonePecheur2 = new Position(0,0);
+		Position positionZoneQuies11 = new Position(0,0);
+		Position positionZoneQuies12 = new Position(0,0);
+		Position positionZoneQuies21 = new Position(0,0);
+		Position positionZoneQuies22 = new Position(0,0);
+		Position positionZoneQuies31 = new Position(0,0);
+		Position positionZoneQuies32 = new Position(0,0);
+		Position positionZoneMaire1 = new Position(0,0);
+		Position positionZoneMaire2 = new Position(0,0);
+		
+		
 		// Initialisation des zones 
 		Zone zFouet = new Zone(positionZoneFouet1, positionZoneFouet2);
 		Zone zMaryse = new Zone(positionZoneMaryse1, positionZoneMaryse2);
@@ -212,11 +228,20 @@ public class MainFX extends Application {
 		Zone zPlaque = new Zone(positionZonePlaque1, positionZonePlaque2);
 		Zone zSaladier = new Zone(positionZoneSaladier1, positionZoneSaladier2);
 		
+		Zone zBucheron = new Zone(positionZoneBucheron1, positionZoneBucheron2);
+		Zone zFermiere = new Zone(positionZoneFermiere1, positionZoneFermiere2);
+		Zone zPecheur = new Zone(positionZonePecheur1, positionZonePecheur2);
+		Zone zQuies1 = new Zone(positionZoneQuies11, positionZoneQuies12);
+		Zone zQuies2 = new Zone(positionZoneQuies21, positionZoneQuies22);
+		Zone zQuies3 = new Zone(positionZoneQuies31, positionZoneQuies32);
+		Zone zMaire = new Zone(positionZoneMaire1, positionZoneMaire2);
+
+		
 		// Initialisation des enigmes
-		Enigme actBucheron = new Enigme("Enigme 1", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
-		Enigme actMaire= new Enigme("Qui est-ce?", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
-		Enigme actFermiere = new Enigme("Enigme 1", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
-		Enigme actPecheur = new Enigme("Enigme 1", "Solution", "Intitulé", "Proposition1", "Proposition2", "Proposition3");
+		Enigme actBucheron = new Enigme("Père et fils", "3", "Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?", "6", "3", "5");
+		Enigme actMaire= new Enigme("Qui est-ce?", "Quies1", "Mon personnage porte un pantalon, mais n'a pas de t-shirt de la couleur du ciel... Qui est-ce?", "Quies2", "Quies3", "Quies1");
+		Enigme actFermiere = new Enigme("Poulets et lapins", "3 lapins, 2 poules", "Dans un enclos, la fermière a des poules et des lapins. Elle y voit 5 têtes et 16 pattes. Combien y a-t-il de poules et de lapins? ", "1 lapin, 4 poules", "2 lapins, 3 poules", "3 lapins, 2 poules");
+		Enigme actPecheur = new Enigme("Les nénuphars", "9", "Les nénuphars doublent de nombre chaque nuit. Au bout de 10 nuits le lac est rempli de nénuphars. Combien de jours faut-il pour remplir la moitié du lac ?", "9", "5", "7");
 		
 		// Initialisation des ingrédients
 		Ingredient iBeurre = new Ingredient ("Beurre", ivBeurre, false, positionBeurre);
@@ -234,16 +259,13 @@ public class MainFX extends Application {
 		
 		// Initialisation des personnages et du joueur
 		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
-		Personnage persoBucheron = new Personnage(actBucheron, "Julia", positionBucheron, carteForet, ivBucheron);
-		Personnage persoFermiere = new Personnage(actFermiere, "Fermiere", positionFermiere, ivFermiere, carteFerme, ivFermiere);
-		Personnage persoPecheur = new Personnage(actPecheur, "Pecheur", positionPecheur, ivPecheur, carteLac, ivPecheur);
-		Personnage persoQuies1 = new Personnage("Quies1", positionQuies1, ivQuies1, carteVillage, ivQuies1);
-		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, ivQuies2);
-		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, ivQuies3);
-		Personnage persoMayor = new Personnage(actMaire, "Maire", positionMayor, ivQuiesMayor, carteVillage, ivQuiesMayor);
-		
-		
-				
+		Personnage persoBucheron = new Personnage(actBucheron, "Bucheron", positionBucheron, ivBucheron, iSucre, carteForet, zBucheron);
+		Personnage persoFermiere = new Personnage(actFermiere, "Fermiere", positionFermiere, ivFermiere, iBeurre, carteFerme,  zFermiere);
+		Personnage persoPecheur = new Personnage(actPecheur, "Pecheur", positionPecheur, ivPecheur, iOeufs,carteLac, zPecheur);
+		Personnage persoQuies1 = new Personnage("Quies1", positionQuies1, ivQuies1, carteVillage, zQuies1);
+		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, zQuies2);
+		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, zQuies3);
+		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);				
 	}
 
 	@Override
@@ -251,7 +273,7 @@ public class MainFX extends Application {
 		Group root = new Group();
 		Scene scene = new Scene(root, 543, 416, Color.WHITE);
 		/*FileInputStream file2 = new FileInputStream("./images/personnages/julia.png");
-		Image image = new Image(file2);*/
+		Image image = new Image(file2);
 		ImageView c = new ImageView();
 		c.setImage(image);
 		c.setY(100);
@@ -263,6 +285,8 @@ public class MainFX extends Application {
 
 		FileInputStream file3 = new FileInputStream("./images/ingredients/beurre.png");
 		Image image3 = new Image(file3);
+		
+		
 		
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
@@ -305,7 +329,7 @@ public class MainFX extends Application {
 		root.getChildren().addAll(i, c, t);
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
-		stage.show();
+		stage.show();*/
 
 	}
 
