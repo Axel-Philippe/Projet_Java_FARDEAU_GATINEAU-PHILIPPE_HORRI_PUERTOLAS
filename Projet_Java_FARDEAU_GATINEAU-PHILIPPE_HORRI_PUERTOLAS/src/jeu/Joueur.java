@@ -25,7 +25,7 @@ public class Joueur extends Personne {
 	public void setPosition(Position p) {
 		this.position = p;
 		this.setPositionImage(p);
-		System.out.println(p.getX()+ " "+p.getY());
+		System.out.println(p.getX() + " " + p.getY());
 	}
 
 	public void setPositionImage(Position p) {
@@ -33,35 +33,67 @@ public class Joueur extends Personne {
 		this.image.setY(p.getY());
 	}
 
+	public void deplacementHaut() {
+		
+		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
+				&& this.getPosition().getY() < 395) {
+			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() - 5));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
+	public void deplacementBas() {
+		
+		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
+				&& this.getPosition().getY() < 380) {
+			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + 5));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
+	public void deplacementGauche() {
+		
+		if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
+				&& this.getPosition().getY() < 395) {
+			this.setPosition(new Position(this.getPosition().getX() - 5, this.getPosition().getY()));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
+	public void deplacementDroite() {
+
+		if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
+				&& this.getPosition().getY() < 395) {
+			this.setPosition(new Position(this.getPosition().getX() + 5, this.getPosition().getY()));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
 	public Carte seDeplacer(KeyEvent event) {
 		switch (event.getCode()) {
+		case Z:
+			this.deplacementHaut();
+			return null;
 		case UP:
-			if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
-					&& this.getPosition().getY() < 395) {
-				this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() - 5));
-				this.setPositionImage(this.getPosition());
-			}
+			this.deplacementHaut();
+			return null;
+		case S:
+			this.deplacementBas();
 			return null;
 		case DOWN:
-			if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
-					&& this.getPosition().getY() < 380) {
-				this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + 5));
-				this.setPositionImage(this.getPosition());
-			}
+			this.deplacementBas();
+			return null;
+		case Q:
+			this.deplacementGauche();
 			return null;
 		case LEFT:
-			if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
-					&& this.getPosition().getY() < 395) {
-				this.setPosition(new Position(this.getPosition().getX() - 5, this.getPosition().getY()));
-				this.setPositionImage(this.getPosition());
-			}
+			this.deplacementGauche();
+			return null;
+		case D:
+			this.deplacementDroite();
 			return null;
 		case RIGHT:
-			if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
-					&& this.getPosition().getY() < 395) {
-				this.setPosition(new Position(this.getPosition().getX() + 5, this.getPosition().getY()));
-				this.setPositionImage(this.getPosition());
-			}
+			this.deplacementDroite();
 			return null;
 		case E:
 			Carte m = this.getCarte();
@@ -90,7 +122,7 @@ public class Joueur extends Personne {
 				if (this.getPosition().getX() > c.getP1().getX() && this.getPosition().getX() < c.getP2().getX()
 						&& this.getPosition().getY() > c.getP1().getY()
 						&& this.getPosition().getY() < c.getP2().getY()) {
-					switch(c.getDeplacement()) {
+					switch (c.getDeplacement()) {
 					case DROITE:
 						this.setPosition(new Position(50, 200));
 						break;
