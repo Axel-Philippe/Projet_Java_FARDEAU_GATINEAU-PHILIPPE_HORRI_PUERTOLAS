@@ -360,7 +360,13 @@ public class MainFX extends Application {
 			@Override
 			public void handle(KeyEvent event) {
 				
-				Carte c = joueurJulia.seDeplacer(event);
+				Carte c = null;
+				try {
+					c = joueurJulia.seDeplacer(event);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				if(c != null){
 					root.getChildren().set(0, c.getImage());
 					joueurJulia.setMap(c);

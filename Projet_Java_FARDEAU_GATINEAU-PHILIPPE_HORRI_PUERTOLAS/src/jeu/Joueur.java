@@ -1,9 +1,12 @@
 package jeu;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
@@ -33,43 +36,51 @@ public class Joueur extends Personne {
 		this.image.setY(p.getY());
 	}
 
-	public void deplacementHaut() {
+	public void deplacementHaut() throws FileNotFoundException {
 		
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
 				&& this.getPosition().getY() < 395) {
+			FileInputStream f = new FileInputStream("./images/personnages/pecheur.png");
+			this.image.setImage(new Image(f));
 			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() - 5));
 			this.setPositionImage(this.getPosition());
 		}
 	}
 
-	public void deplacementBas() {
+	public void deplacementBas() throws FileNotFoundException {
 		
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
 				&& this.getPosition().getY() < 380) {
+			FileInputStream f = new FileInputStream("./images/personnages/fermiere.png");
+			this.image.setImage(new Image(f));
 			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + 5));
 			this.setPositionImage(this.getPosition());
 		}
 	}
 
-	public void deplacementGauche() {
+	public void deplacementGauche() throws FileNotFoundException {
 		
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
 				&& this.getPosition().getY() < 395) {
+			FileInputStream f = new FileInputStream("./images/personnages/bucheron.png");
+			this.image.setImage(new Image(f));
 			this.setPosition(new Position(this.getPosition().getX() - 5, this.getPosition().getY()));
 			this.setPositionImage(this.getPosition());
 		}
 	}
 
-	public void deplacementDroite() {
+	public void deplacementDroite() throws FileNotFoundException {
 
 		if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
 				&& this.getPosition().getY() < 395) {
+			FileInputStream f = new FileInputStream("./images/personnages/julia.png");
+			this.image.setImage(new Image(f));
 			this.setPosition(new Position(this.getPosition().getX() + 5, this.getPosition().getY()));
 			this.setPositionImage(this.getPosition());
 		}
 	}
 
-	public Carte seDeplacer(KeyEvent event) {
+	public Carte seDeplacer(KeyEvent event) throws FileNotFoundException {
 		switch (event.getCode()) {
 		case Z:
 			this.deplacementHaut();
