@@ -14,6 +14,7 @@ public class Joueur extends Personne {
 	private ArrayList<Objet> sac;
 	private int capaciteSac;
 	private ImageView image;
+	private Deplacement dernierDeplacement;
 
 	public Joueur(int c, String n, Position p, Carte map, ImageView image) {
 		super(n, p, map);
@@ -37,33 +38,42 @@ public class Joueur extends Personne {
 	}
 
 	public void deplacementHaut() throws FileNotFoundException {
-		
+
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
 				&& this.getPosition().getY() < 395) {
-			FileInputStream f = new FileInputStream("./images/personnages/pecheur.png");
-			this.image.setImage(new Image(f));
+			if (this.dernierDeplacement != Deplacement.HAUT) {
+				FileInputStream f = new FileInputStream("./images/personnages/juliaback.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.HAUT;
 			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() - 5));
 			this.setPositionImage(this.getPosition());
 		}
 	}
 
 	public void deplacementBas() throws FileNotFoundException {
-		
+
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
 				&& this.getPosition().getY() < 380) {
-			FileInputStream f = new FileInputStream("./images/personnages/fermiere.png");
-			this.image.setImage(new Image(f));
+			if (this.dernierDeplacement != Deplacement.BAS) {
+				FileInputStream f = new FileInputStream("./images/personnages/julia.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.BAS;
 			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + 5));
 			this.setPositionImage(this.getPosition());
 		}
 	}
 
 	public void deplacementGauche() throws FileNotFoundException {
-		
+
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
 				&& this.getPosition().getY() < 395) {
-			FileInputStream f = new FileInputStream("./images/personnages/bucheron.png");
-			this.image.setImage(new Image(f));
+			if (this.dernierDeplacement != Deplacement.GAUCHE) {
+				FileInputStream f = new FileInputStream("./images/personnages/juliaprofilgauche.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.GAUCHE;
 			this.setPosition(new Position(this.getPosition().getX() - 5, this.getPosition().getY()));
 			this.setPositionImage(this.getPosition());
 		}
@@ -73,8 +83,11 @@ public class Joueur extends Personne {
 
 		if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
 				&& this.getPosition().getY() < 395) {
-			FileInputStream f = new FileInputStream("./images/personnages/julia.png");
-			this.image.setImage(new Image(f));
+			if (this.dernierDeplacement != Deplacement.DROITE) {
+				FileInputStream f = new FileInputStream("./images/personnages/juliaprofil.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.DROITE;
 			this.setPosition(new Position(this.getPosition().getX() + 5, this.getPosition().getY()));
 			this.setPositionImage(this.getPosition());
 		}
