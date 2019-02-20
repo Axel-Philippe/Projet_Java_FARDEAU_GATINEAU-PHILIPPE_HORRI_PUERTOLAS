@@ -32,7 +32,7 @@ public class Jeu {
 
 	
 	/**
-	* Méthode permettant d'initialiser les éléments graphiques
+	* Méthode permettant d'initialiser les éléments graphiques et de démarrer le jeu
 	* @throws FileNotFoundException
 	*/
 	public static void demarrerJeu(Stage stage) throws FileNotFoundException {
@@ -428,10 +428,15 @@ public class Jeu {
 		msgBienvenue.show();
 	}
 	
-	public String afficherMenu(){
-		return null;
-	}
-	
+
+	/**
+	 * Méthode permettant d'afficher le menu. Quatres options sont disponibles : 
+	 * - Aide : connaître les commandes disponibles
+	 * - Redémarrer : redémarre le jeu
+	 * - Quitter : quitte le jeu
+	 * - Fermer : ferme le menu
+	 * @param stage
+	 */
 	public static void menu(Stage stage) {
 		Stage menu = new Stage();
 		menu.initModality(Modality.APPLICATION_MODAL);
@@ -515,7 +520,10 @@ public class Jeu {
 		menu.show();
 	}
 	
-	
+	/**
+	 * Méthode permettant de retourner le message de bienvenue au démarrage du jeu.
+	 * @return
+	 */
 	public static String msgBienvenue() {
 		return "  \n  Bonjour Julia! Comment vas-tu aujourd'hui? \r\n" + 
 				"  C'est aujourd'hui que ton mari rentre, n'est-ce pas? J'ai entendu dire que tu voulais cuisiner des cookies, as-tu tous les ingrédients? \r\n" + 
