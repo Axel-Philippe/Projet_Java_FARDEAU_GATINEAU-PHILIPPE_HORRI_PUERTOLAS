@@ -1,6 +1,7 @@
 package fenetre;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -122,50 +124,87 @@ public class MainJL extends Application {
 		stage.setScene(scene);
 		stage.show();
 		
-		// Message de bienvenue
-		FileInputStream quiesMaire = new FileInputStream("./images/personnages/quiesMaire.png");
-		Image imQuiesMaire = new Image(quiesMaire);
-		ImageView  ivQuiesMaire = new ImageView();
-		ivQuiesMaire.setImage(imQuiesMaire);
-		
-		Stage msgBienvenue = new Stage();
-		msgBienvenue.initModality(Modality.APPLICATION_MODAL);
-		msgBienvenue.initOwner(stage);
-		VBox msgBienvenueBox = new VBox(30);
-		Text textMsg = new Text("  \n  Bonjour Julia! Comment vas-tu aujourd'hui? \r\n" + 
-								"  C'est aujourd'hui que ton mari rentre, n'est-ce pas? J'ai entendu dire que tu voulais cuisiner des cookies, as-tu tous les ingrédients? \r\n" + 
-								"  NON? Julia... Tu es une vraie tête en l'air... \r\n" + 
-								"  \r\n" + 
-								"  ...\r\n" + 
-								"  ...\r\n" + 
-								"  ...\r\n\n" + 
-								"  Bon, les habitants t\'aiment beaucoup, et je suis sûr qu'ils seront ravis de t'aider à récolter ce qu\'il te manque. \r\n" + 
-								"  La fermière fait du beurre, le pécheur garde toujours des oeufs avec lui. Je pense que le bûcheron a encore le sucre qu'il avait emprunté à sa grand-mère." + 
-								"  \n  Pour les pépites de chocolat... C'est le trésor caché de la mine, donc tu en trouveras là bas. \r\n" + 
-								"  Et pour la farine, c\'est moi qui t\'en donnerai, tu n\'auras qu'à venir me trouver sur la place.\r\n" + 
-								"  \n  Tu ne sais plus te déplacer???? Julia, enfin... Il te suffit d'utiliser les flèches de ton clavier, ou encore les touches ZQSD." + 
-								"  \n  Pour parler à quelqu'un, il te suffit d'utiliser la touche E, et pour ramasser les objets, la touche R." + 
-								"  \n  Pour te promener à travers les différents endroits, il faut que tu suives ton plan, et que tu appuies sur A pour changer de zone! \r\n" + 
-								"  N'oublie pas: concentre-toi, les ingrédients ne te seront pas donnés comme par magie, il te faudra réfléchir...\r\n" + 
-								"  Ballade toi dans chaque nouvel endroit, tu trouveras sûrement quelques objets cachés... \r\n" + 
-								"  Tout ce que tu trouveras ou gagneras sera rangé dans ton sac à dos." + 
-								"  \n\n  Bon courage!");
-		
-		Button btnMsg = new Button();
-		btnMsg.setText("Compris !");
+		// Menu
+		Stage menu = new Stage();
+		menu.initModality(Modality.APPLICATION_MODAL);
+		menu.initOwner(stage);
+		VBox menuBox = new VBox(30);
 
-		msgBienvenueBox.getChildren().addAll(textMsg, ivQuiesMaire, btnMsg);
-		Scene sceneMsg = new Scene (msgBienvenueBox, 850, 500);
-		msgBienvenue.setScene(sceneMsg);
-		btnMsg.setOnAction(new EventHandler<ActionEvent>() {
+		Button btnRedemarrer = new Button();
+		btnRedemarrer.setText("Redémarrer");
+		btnRedemarrer.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
-				msgBienvenue.close();		
+				stage.close();
+				menu.close();
+				try {
+					MainFX.initialiser(stage);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
-		msgBienvenue.setResizable(false);
-		msgBienvenue.show();
+		
+		Button btnQuitter = new Button();
+		btnQuitter.setText("Quitter");
+		btnQuitter.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				stage.close();
+				menu.close();
+			}
+		});
+		
+		Button btnAide = new Button();
+		btnAide.setText("Aide ?");
+		btnAide.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				menu.close();
+				FileInputStream commandes = null;
+				try {
+					commandes = new FileInputStream("./images/divers/testMenu.png");
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Image imCommande = new Image(commandes);
+				ImageView ivCommande = new ImageView();
+				ivCommande.setImage(imCommande);
+				
+				BorderPane borderpane = new BorderPane();
+				borderpane.getChildren().add(ivCommande);
+				Scene sceneCommande = new Scene(borderpane, 300, 300);
+				
+				Stage fenetreCommande = new Stage();
+				fenetreCommande.setTitle("Commandes");
+				fenetreCommande.setScene(sceneCommande);
+				fenetreCommande.show();
+				
+			}
+		});
+		
+		Button btnFermer = new Button();
+		btnFermer.setText("Fermer");
+		btnFermer.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				menu.close();
+			}
+		});
+
+		menuBox.getChildren().addAll(btnAide, btnRedemarrer, btnQuitter, btnFermer);
+		Scene sceneMenu = new Scene (menuBox, 100, 220);
+		menu.setTitle("Menu");
+		menu.setScene(sceneMenu);
+		
+		menu.setResizable(false);
+		menu.show();
 	}
 
 }
