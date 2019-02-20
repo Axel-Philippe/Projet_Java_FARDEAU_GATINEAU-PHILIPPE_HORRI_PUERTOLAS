@@ -120,21 +120,19 @@ public class Joueur extends Personne {
 		case RIGHT:
 			this.deplacementDroite();
 			return null;
-		case E:
-			Carte me = this.getCarte();
-			ArrayList<Personnage> lp = this.getCarte().getLesPersonnages();
-			Personnage p;
-			for (int i = 0; i < lp.size(); i++) {
-				p = lp.get(i);
-				if (this.getPosition().getX() > p.getZone().getP1().getX()
-						&& this.getPosition().getX() < p.getZone().getP2().getX()
-						&& this.getPosition().getY() > p.getZone().getP1().getY()
-						&& this.getPosition().getY() < p.getZone().getP2().getY()) {
-					p.getEnigme().afficher();
-				}
-			}
-			return null;
 
+		case E: Carte me = this.getCarte(); ArrayList<Personnage> lp =
+			this.getCarte().getLesPersonnages(); Personnage p; for (int i = 0; i <
+			lp.size(); i++) { p = lp.get(i); if (this.getPosition().getX() >
+			p.getZone().getP1().getX() && this.getPosition().getX() <
+			p.getZone().getP2().getX() && this.getPosition().getY() >
+			p.getZone().getP1().getY() && this.getPosition().getY() <
+			p.getZone().getP2().getY()) { 
+				p.getEnigme().afficher(); 
+			} 
+			
+			} 
+			return null;
 		case R:
 			Carte m = this.getCarte();
 			ArrayList<Bonus> l = this.getCarte().getLesBonus();
