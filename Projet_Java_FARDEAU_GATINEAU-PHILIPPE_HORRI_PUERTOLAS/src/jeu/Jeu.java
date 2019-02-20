@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import fenetre.MainFX;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +15,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -441,9 +446,10 @@ public class Jeu {
 		Stage menu = new Stage();
 		menu.initModality(Modality.APPLICATION_MODAL);
 		menu.initOwner(stage);
-		VBox menuBox = new VBox(30);
+		GridPane menuBox = new GridPane();
 
 		Button btnRedemarrer = new Button();
+		btnRedemarrer.setPrefWidth(130);
 		btnRedemarrer.setText("Redémarrer");
 		btnRedemarrer.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -461,6 +467,7 @@ public class Jeu {
 		});
 		
 		Button btnQuitter = new Button();
+		btnQuitter.setPrefWidth(130);
 		btnQuitter.setText("Quitter");
 		btnQuitter.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -472,6 +479,7 @@ public class Jeu {
 		});
 		
 		Button btnAide = new Button();
+		btnAide.setPrefWidth(130);
 		btnAide.setText("Aide ?");
 		btnAide.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -490,7 +498,7 @@ public class Jeu {
 				ivCommande.setImage(imCommande);
 				
 				BorderPane borderpane = new BorderPane();
-				borderpane.getChildren().add(ivCommande);
+				borderpane.setCenter(ivCommande);
 				Scene sceneCommande = new Scene(borderpane, 300, 300);
 				
 				Stage fenetreCommande = new Stage();
@@ -502,6 +510,8 @@ public class Jeu {
 		});
 		
 		Button btnFermer = new Button();
+		btnFermer.setPrefWidth(130);
+		btnFermer.setAlignment(Pos.CENTER);
 		btnFermer.setText("Fermer");
 		btnFermer.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -510,6 +520,31 @@ public class Jeu {
 				menu.close();
 			}
 		});
+		
+		GridPane.setRowIndex(btnAide, 0);
+		GridPane.setColumnIndex(btnAide, 0);
+		
+		GridPane.setRowIndex(btnRedemarrer, 1);
+		GridPane.setColumnIndex(btnRedemarrer, 0);
+		
+		GridPane.setRowIndex(btnQuitter, 2);
+		GridPane.setColumnIndex(btnQuitter, 0);
+		
+		GridPane.setRowIndex(btnFermer, 3);
+		GridPane.setColumnIndex(btnFermer, 0);
+		
+		RowConstraints row1 = new RowConstraints(50);
+		RowConstraints row2 = new RowConstraints(50);
+		RowConstraints row3 = new RowConstraints(50);
+		RowConstraints row4 = new RowConstraints(50);
+		
+		/*ColumnConstraints column1 = new ColumnConstraints(100);
+		ColumnConstraints column2 = new ColumnConstraints(100);
+		ColumnConstraints column3 = new ColumnConstraints(100);
+		ColumnConstraints column4 = new ColumnConstraints(100);*/
+		
+		menuBox.getRowConstraints().addAll(row1, row2, row3, row4);
+		//menuBox.getColumnConstraints().addAll(column1, column2, column3, column4);
 
 		menuBox.getChildren().addAll(btnAide, btnRedemarrer, btnQuitter, btnFermer);
 		Scene sceneMenu = new Scene (menuBox, 100, 220);
