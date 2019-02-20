@@ -18,6 +18,16 @@ public class Activite {
 		estReussi = true; 
 	}
 
-	public void lancerActivite() {}
+	public void lancerActivite() {
+		
+	}
+	
+	public boolean getReussi() {
+		return this.estReussi;
+	}
+	
+	public Ingredient getIngredient() {
+		return this.ingredient;
+	}
 	 
 }

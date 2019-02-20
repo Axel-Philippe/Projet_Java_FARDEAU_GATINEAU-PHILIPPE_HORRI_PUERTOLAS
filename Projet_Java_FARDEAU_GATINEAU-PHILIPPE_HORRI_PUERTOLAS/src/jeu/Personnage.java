@@ -7,15 +7,15 @@ import javafx.scene.image.ImageView;
 
 public class Personnage extends Personne {
 	
-	private Activite activite;
+	private Enigme enigme;
 	private Ingredient ingredient;
 	private ImageView image;
 	private Zone zone;
 	
-	public Personnage (Activite a, String n, Position p, ImageView i, Ingredient in, Carte map, Zone zone) {
+	public Personnage (Enigme e, String n, Position p, ImageView i, Ingredient in, Carte map, Zone zone) {
 		super(n, p, map); 
 		image = i;
-		activite = a; 
+		enigme = e; 
 		ingredient = in;
 		this.zone = zone;
 		this.setPositionImage(p);
@@ -48,6 +48,14 @@ public class Personnage extends Personne {
 	public void setPositionImage(Position p) {
 		this.image.setX(p.getX());
 		this.image.setY(p.getY());
+	}
+	
+	public Zone getZone() {
+		return this.zone;
+	}
+	
+	public Enigme getEnigme() {
+		return this.enigme;
 	}
 	
 }
