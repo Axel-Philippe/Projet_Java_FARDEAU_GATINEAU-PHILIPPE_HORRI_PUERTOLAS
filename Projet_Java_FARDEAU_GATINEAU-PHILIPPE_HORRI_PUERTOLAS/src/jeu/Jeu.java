@@ -362,6 +362,7 @@ public class Jeu {
 		
 		Scene scene = new Scene(root, 543, 416, Color.WHITE);
 		
+		// Utilisation des options + déplacement
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
@@ -371,7 +372,8 @@ public class Jeu {
 					menu(stage);
 					break;
 				case I:
-					
+					Joueur.Inventaire(stage);
+					break;
 				}
 				Carte c = null;
 				try {
@@ -513,9 +515,6 @@ public class Jeu {
 		menu.show();
 	}
 	
-	public static void Inventaire() {
-		
-	}
 	
 	public static String msgBienvenue() {
 		return "  \n  Bonjour Julia! Comment vas-tu aujourd'hui? \r\n" + 
