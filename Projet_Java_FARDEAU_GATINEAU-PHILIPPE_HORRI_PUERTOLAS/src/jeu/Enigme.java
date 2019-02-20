@@ -35,6 +35,7 @@ public class Enigme extends Activite{
 	
 	
 	public Ingredient afficher() {
+		
 		Ingredient i = null;
 		
 		if(this.getReussi() == false) {
