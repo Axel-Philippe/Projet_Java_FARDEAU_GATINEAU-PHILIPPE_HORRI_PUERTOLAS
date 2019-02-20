@@ -366,6 +366,13 @@ public class Jeu {
 			@Override
 			public void handle(KeyEvent event) {
 				
+				switch(event.getCode()) {
+				case M: 
+					menu(stage);
+					break;
+				case I:
+					
+				}
 				Carte c = null;
 				try {
 					c = joueurJulia.seDeplacer(event);
@@ -506,6 +513,9 @@ public class Jeu {
 		menu.show();
 	}
 	
+	public static void Inventaire() {
+		
+	}
 	
 	public static String msgBienvenue() {
 		return "  \n  Bonjour Julia! Comment vas-tu aujourd'hui? \r\n" + 
