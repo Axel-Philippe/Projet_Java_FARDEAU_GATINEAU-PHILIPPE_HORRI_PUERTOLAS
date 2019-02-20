@@ -12,7 +12,7 @@ public abstract class Carte {
 	private int x;
 	private int y;
 	private ArrayList<Zone> lesSorties;
-	private ArrayList<Objet> lesBonus;
+	private static ArrayList<Bonus> lesBonus;
 	private static ArrayList<Personnage> lesPersonnages;
 	
 	public Carte(String n, ImageView i, int x, int y) {
@@ -20,12 +20,15 @@ public abstract class Carte {
 		nom = n;
 		image = i;
 		this.lesSorties = new ArrayList<Zone>();
-		this.lesBonus = new ArrayList<Objet>();
+		lesBonus = new ArrayList<Bonus>();
 		lesPersonnages = new ArrayList<Personnage>();
 	}
 	
 	public static void ajouterPersonnage(Personnage p) {
 		lesPersonnages.add(p);
+	}
+	public static void ajouterBonus(Bonus b) {
+		lesBonus.add(b);
 	}
 	
 	public void personnageVisible() {
@@ -34,6 +37,16 @@ public abstract class Carte {
 				p.getImage().setVisible(true);
 			}else {
 				p.getImage().setVisible(false);
+			}
+		}
+	}
+	
+	public void bonusVisible() {
+		for (Bonus b : lesBonus) {
+			if(b.getCarte() == this) {
+				b.getImageView().setVisible(true);
+			}else {
+				b.getImageView().setVisible(false);
 			}
 		}
 	}
@@ -50,11 +63,11 @@ public abstract class Carte {
 		return lesSorties;
 	}
 
-	public ArrayList<Objet> getLesBonus() {
+	public ArrayList<Bonus> getLesBonus() {
 		return lesBonus;
 	}
 
-	public void setLesObjets(ArrayList<Objet> lesObjets) {
+	public void setLesObjets(ArrayList<Bonus> lesObjets) {
 		this.lesBonus = lesObjets;
 	}
 	

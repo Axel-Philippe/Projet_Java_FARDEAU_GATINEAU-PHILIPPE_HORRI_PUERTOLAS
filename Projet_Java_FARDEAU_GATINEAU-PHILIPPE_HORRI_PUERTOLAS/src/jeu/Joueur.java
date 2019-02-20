@@ -121,14 +121,16 @@ public class Joueur extends Personne {
 			return null;
 		case E:
 			Carte m = this.getCarte();
-			ArrayList<Objet> l = this.getCarte().getLesBonus();
-			Objet o;
+			ArrayList<Bonus> l = this.getCarte().getLesBonus();
+			Bonus o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
-				if (this.getPosition().getX() > o.getZoneObjet().getP1().getX()
-						&& this.getPosition().getX() < o.getZoneObjet().getP2().getX()
-						&& this.getPosition().getY() > o.getZoneObjet().getP1().getY()
-						&& this.getPosition().getY() < o.getZoneObjet().getP2().getY()) {
+				System.out.println("pas dans la zone de "+o.toString());
+				if (this.getPosition().getX() > o.getZone().getP1().getX()
+						&& this.getPosition().getX() < o.getZone().getP2().getX()
+						&& this.getPosition().getY() > o.getZone().getP1().getY()
+						&& this.getPosition().getY() < o.getZone().getP2().getY()) {
+					System.out.println("dans la zone de "+o.toString());
 					this.ramasser(o);
 					o.setPresent(true);
 					o.getImageView().setVisible(false);

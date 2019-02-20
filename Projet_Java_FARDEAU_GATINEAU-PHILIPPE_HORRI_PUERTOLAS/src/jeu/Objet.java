@@ -7,8 +7,8 @@ public abstract class Objet {
 	private String nom;
 	private ImageView image;
 	private Position position;
-	private Zone zoneObjet;
 	private boolean present;
+	private Carte carte;
 
 	
 	
@@ -18,17 +18,8 @@ public abstract class Objet {
 		this.image = image;
 		this.position = p;
 		this.present = present;
+		this.setPositionImage(position);
 	}
-	
-	public Zone getZoneObjet() {
-		return zoneObjet;
-	}
-
-	public void setZoneObjet(Zone zoneObjet) {
-		this.zoneObjet = zoneObjet;
-	}
-
-
 
 	public boolean isPresent() {
 		return present;
@@ -53,6 +44,11 @@ public abstract class Objet {
 	
 	public ImageView getImageView(){
 		return this.image;
+	}
+	
+	public void setPositionImage(Position p) {
+		this.image.setX(p.getX());
+		this.image.setY(p.getY());
 	}
 	
 	public void setPosition(int x, int y){

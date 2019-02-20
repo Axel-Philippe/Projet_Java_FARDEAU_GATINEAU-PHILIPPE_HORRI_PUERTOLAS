@@ -185,7 +185,7 @@ public class MainFX extends Application {
 		
 		// Initialisation des positions
 		Position positionJulia = new Position(0,0);
-		Position positionBucheron = new Position(0,0);
+		Position positionBucheron = new Position(150,150);
 		Position positionFermiere = new Position(0,0);
 		Position positionPecheur = new Position(0,0);
 		Position positionQuies1 = new Position(130,110);
@@ -199,14 +199,14 @@ public class MainFX extends Application {
 		Position positionOeufs = new Position(0,0);
 		Position positionSucre = new Position(0,0);
 		
-		Position positionFouet = new Position(0,0);
+		Position positionFouet = new Position(430,10);
 		Position positionMaryse = new Position(0,0);
 		Position positionPapier = new Position(0,0);
 		Position positionPlaque = new Position(0,0);
 		Position positionSaladier = new Position(0,0);
 		
-		Position positionZoneFouet1 = new Position(0,0);
-		Position positionZoneFouet2 = new Position(0,0);
+		Position positionZoneFouet1 = new Position(430,0);
+		Position positionZoneFouet2 = new Position(546,70);
 		Position positionZoneMaryse1 = new Position(0,0);
 		Position positionZoneMaryse2 = new Position(0,0);
 		Position positionZonePapier1 = new Position(0,0);
@@ -216,8 +216,8 @@ public class MainFX extends Application {
 		Position positionZoneSaladier1 = new Position(0,0);
 		Position positionZoneSaladier2 = new Position(0,0);
 		
-		Position positionZoneBucheron1 = new Position(0,0);
-		Position positionZoneBucheron2 = new Position(0,0);
+		Position positionZoneBucheron1 = new Position(100,100);
+		Position positionZoneBucheron2 = new Position(200,200);
 		Position positionZoneFermiere1 = new Position(0,0);
 		Position positionZoneFermiere2 = new Position(0,0);
 		Position positionZonePecheur1 = new Position(0,0);
@@ -328,11 +328,11 @@ public class MainFX extends Application {
 		Ingredient iSucre = new Ingredient ("Sucre", ivSucre, false, positionSucre);
 		
 		// Initialisation des ingrédients		
-		Bonus bFouet = new Bonus("Fouet", ivFouet, false, positionFouet, 5, zFouet);
-		Bonus bMaryse = new Bonus("Maryse", ivMaryse, false, positionMaryse, 10, zMaryse);
-		Bonus bPapier = new Bonus("Papier", ivPapier, false, positionPapier, 10, zPapier);
-		Bonus bPlaque = new Bonus("Plaque", ivPlaque, false, positionPlaque, 5, zPlaque);
-		Bonus bSaladier = new Bonus("Saladier", ivSaladier, false, positionSaladier, 15, zSaladier); 
+		Bonus bFouet = new Bonus("Fouet", ivFouet, false, positionFouet, 5, zFouet, carteVillage);
+		Bonus bMaryse = new Bonus("Maryse", ivMaryse, false, positionMaryse, 10, zMaryse, carteLac);
+		Bonus bPapier = new Bonus("Papier", ivPapier, false, positionPapier, 10, zPapier, carteForet);
+		Bonus bPlaque = new Bonus("Plaque", ivPlaque, false, positionPlaque, 5, zPlaque, carteFerme);
+		Bonus bSaladier = new Bonus("Saladier", ivSaladier, false, positionSaladier, 15, zSaladier, carteMaison); 
 		
 		// Initialisation des personnages et du joueur
 		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
@@ -350,6 +350,7 @@ public class MainFX extends Application {
 		Carte.ajouterPersonnage(persoQuies2);
 		Carte.ajouterPersonnage(persoQuies3);
 		Carte.ajouterPersonnage(persoMaire);
+		Carte.ajouterBonus(bFouet);
 		carteVillage.personnageVisible();
 		
 		Group root = new Group();
@@ -374,7 +375,9 @@ public class MainFX extends Application {
 			}
 		});
 		
-		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),persoPecheur.getImage(),persoFermiere.getImage());
+		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), 
+				persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
+				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
