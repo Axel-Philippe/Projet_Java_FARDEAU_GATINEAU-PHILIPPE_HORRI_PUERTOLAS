@@ -128,7 +128,8 @@ public class Joueur extends Personne {
 			p.getZone().getP2().getX() && this.getPosition().getY() >
 			p.getZone().getP1().getY() && this.getPosition().getY() <
 			p.getZone().getP2().getY()) { 
-				p.getEnigme().afficher(); 
+				Ingredient ing = p.getEnigme().afficher(); 
+				this.sac.add(ing);
 			} 
 			
 			} 
