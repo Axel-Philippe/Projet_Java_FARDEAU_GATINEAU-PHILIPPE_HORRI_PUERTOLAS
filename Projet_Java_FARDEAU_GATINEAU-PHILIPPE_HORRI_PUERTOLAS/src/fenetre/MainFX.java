@@ -185,9 +185,9 @@ public class MainFX extends Application {
 		
 		// Initialisation des positions
 		Position positionJulia = new Position(0,0);
-		Position positionBucheron = new Position(150,150);
-		Position positionFermiere = new Position(0,0);
-		Position positionPecheur = new Position(0,0);
+		Position positionBucheron = new Position(400,155);
+		Position positionFermiere = new Position(90,125);
+		Position positionPecheur = new Position(140,100);
 		Position positionQuies1 = new Position(130,110);
 		Position positionQuies2 = new Position(350,90);
 		Position positionQuies3 = new Position(110,250);
@@ -200,36 +200,36 @@ public class MainFX extends Application {
 		Position positionSucre = new Position(0,0);
 		
 		Position positionFouet = new Position(430,10);
-		Position positionMaryse = new Position(0,0);
-		Position positionPapier = new Position(0,0);
-		Position positionPlaque = new Position(0,0);
-		Position positionSaladier = new Position(0,0);
+		Position positionMaryse = new Position(20,40);
+		Position positionPapier = new Position(370,65);
+		Position positionPlaque = new Position(25,260);
+		Position positionSaladier = new Position(5,270);
 		
 		Position positionZoneFouet1 = new Position(430,0);
 		Position positionZoneFouet2 = new Position(546,70);
-		Position positionZoneMaryse1 = new Position(0,0);
-		Position positionZoneMaryse2 = new Position(0,0);
-		Position positionZonePapier1 = new Position(0,0);
-		Position positionZonePapier2 = new Position(0,0);
-		Position positionZonePlaque1 = new Position(0,0);
-		Position positionZonePlaque2 = new Position(0,0);
-		Position positionZoneSaladier1 = new Position(0,0);
-		Position positionZoneSaladier2 = new Position(0,0);
+		Position positionZoneMaryse1 = new Position(0,15);
+		Position positionZoneMaryse2 = new Position(45,80);
+		Position positionZonePapier1 = new Position(340,30);
+		Position positionZonePapier2 = new Position(395,90);
+		Position positionZonePlaque1 = new Position(5,240);
+		Position positionZonePlaque2 = new Position(60,305);
+		Position positionZoneSaladier1 = new Position(5,225);
+		Position positionZoneSaladier2 = new Position(30,290);
 		
-		Position positionZoneBucheron1 = new Position(100,100);
-		Position positionZoneBucheron2 = new Position(200,200);
-		Position positionZoneFermiere1 = new Position(0,0);
-		Position positionZoneFermiere2 = new Position(0,0);
-		Position positionZonePecheur1 = new Position(0,0);
-		Position positionZonePecheur2 = new Position(0,0);
-		Position positionZoneQuies11 = new Position(0,0);
-		Position positionZoneQuies12 = new Position(0,0);
-		Position positionZoneQuies21 = new Position(0,0);
-		Position positionZoneQuies22 = new Position(0,0);
-		Position positionZoneQuies31 = new Position(0,0);
-		Position positionZoneQuies32 = new Position(0,0);
-		Position positionZoneMaire1 = new Position(0,0);
-		Position positionZoneMaire2 = new Position(0,0);
+		Position positionZoneBucheron1 = new Position(380,125);
+		Position positionZoneBucheron2 = new Position(430,205);
+		Position positionZoneFermiere1 = new Position(65,90);
+		Position positionZoneFermiere2 = new Position(115,170);
+		Position positionZonePecheur1 = new Position(125,85);
+		Position positionZonePecheur2 = new Position(200,155);
+		Position positionZoneQuies11 = new Position(95,125);
+		Position positionZoneQuies12 = new Position(150,175);
+		Position positionZoneQuies21 = new Position(325,75);
+		Position positionZoneQuies22 = new Position(375,155);
+		Position positionZoneQuies31 = new Position(85,225);
+		Position positionZoneQuies32 = new Position(130,300);
+		Position positionZoneMaire1 = new Position(220,220);
+		Position positionZoneMaire2 = new Position(265,275);
 		
 		// Positions des zones du village
 		Position positionHautVillage1 = positionMainHaut1;
