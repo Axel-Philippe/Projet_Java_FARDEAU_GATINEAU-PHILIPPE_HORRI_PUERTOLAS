@@ -66,6 +66,10 @@ public abstract class Carte {
 	public ArrayList<Bonus> getLesBonus() {
 		return lesBonus;
 	}
+	
+	public ArrayList<Personnage> getLesPersonnages(){
+		return lesPersonnages;
+	}
 
 	public void setLesObjets(ArrayList<Bonus> lesObjets) {
 		this.lesBonus = lesObjets;
