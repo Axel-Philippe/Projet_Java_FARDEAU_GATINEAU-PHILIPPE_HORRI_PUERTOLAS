@@ -317,13 +317,6 @@ public class MainFX extends Application {
 		Zone zQuies2 = new Zone(positionZoneQuies21, positionZoneQuies22);
 		Zone zQuies3 = new Zone(positionZoneQuies31, positionZoneQuies32);
 		Zone zMaire = new Zone(positionZoneMaire1, positionZoneMaire2);
-
-		
-		// Initialisation des enigmes
-		Enigme actBucheron = new Enigme("Père et fils", "3", "Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?", "6", "3", "5");
-		Enigme actMaire= new Enigme("Qui est-ce?", "Quies1", "Mon personnage porte un pantalon, mais n'a pas de t-shirt de la couleur du ciel... Qui est-ce?", "Quies2", "Quies3", "Quies1");
-		Enigme actFermiere = new Enigme("Poulets et lapins", "3 lapins, 2 poules", "Dans un enclos, la fermière a des poules et des lapins. Elle y voit 5 têtes et 16 pattes. Combien y a-t-il de poules et de lapins? ", "1 lapin, 4 poules", "2 lapins, 3 poules", "3 lapins, 2 poules");
-		Enigme actPecheur = new Enigme("Les nénuphars", "9", "Les nénuphars doublent de nombre chaque nuit. Au bout de 10 nuits le lac est rempli de nénuphars. Combien de jours faut-il pour remplir la moitié du lac ?", "9", "5", "7");
 		
 		// Initialisation des ingrédients
 		Ingredient iBeurre = new Ingredient ("Beurre", ivBeurre, false, positionBeurre);
@@ -331,6 +324,16 @@ public class MainFX extends Application {
 		Ingredient iFarine = new Ingredient ("Farine", ivFarine, false, positionFarine);
 		Ingredient iOeufs = new Ingredient ("Oeufs", ivOeufs, false, positionOeufs);
 		Ingredient iSucre = new Ingredient ("Sucre", ivSucre, false, positionSucre);
+		
+		// Initialisation des enigmes
+		Enigme actBucheron = new Enigme("Père et fils", "3", "Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?", "6", "3", "5");
+		actBucheron.setIngredient(iSucre);
+		Enigme actMaire= new Enigme("Qui est-ce?", "Quies1", "Mon personnage porte un pantalon, mais n'a pas de t-shirt de la couleur du ciel... Qui est-ce?", "Quies2", "Quies3", "Quies1");
+		actMaire.setIngredient(iFarine);
+		Enigme actFermiere = new Enigme("Poulets et lapins", "3 lapins, 2 poules", "Dans un enclos, la fermière a des poules et des lapins. Elle y voit 5 têtes et 16 pattes. Combien y a-t-il de poules et de lapins? ", "1 lapin, 4 poules", "2 lapins, 3 poules", "3 lapins, 2 poules");
+		actFermiere.setIngredient(iBeurre);
+		Enigme actPecheur = new Enigme("Les nénuphars", "9", "Les nénuphars doublent de nombre chaque nuit. Au bout de 10 nuits le lac est rempli de nénuphars. Combien de jours faut-il pour remplir la moitié du lac ?", "9", "5", "7");
+		actPecheur.setIngredient(iOeufs);
 		
 		// Initialisation des ingrédients		
 		Bonus bFouet = new Bonus("Fouet", ivFouet, false, positionFouet, 5, zFouet, carteVillage);

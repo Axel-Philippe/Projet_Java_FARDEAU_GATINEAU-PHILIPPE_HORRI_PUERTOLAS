@@ -30,4 +30,7 @@ public class Activite {
 		return this.ingredient;
 	}
 	 
+	public void setIngredient(Ingredient i) {
+		this.ingredient = i;
+	}
 }
