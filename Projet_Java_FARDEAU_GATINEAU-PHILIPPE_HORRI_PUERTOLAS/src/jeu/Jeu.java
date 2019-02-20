@@ -398,7 +398,7 @@ public class Jeu {
 				persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
 				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
 				bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage());
-		stage.setTitle("JavaFX Scene Graph Demo");
+		stage.setTitle("Cookies Mama");
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
