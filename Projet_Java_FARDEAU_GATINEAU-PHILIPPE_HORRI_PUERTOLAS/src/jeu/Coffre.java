@@ -20,6 +20,8 @@ public class Coffre {
 	}
 
 	public static void ajouterObjets(ArrayList<Objet> l) {
+		lesIngredients.clear();
+		lesBonus.clear();
 		for (Objet o : l) {
 			if (o.getClass() == Bonus.class) {
 				lesBonus.add((Bonus) o);
