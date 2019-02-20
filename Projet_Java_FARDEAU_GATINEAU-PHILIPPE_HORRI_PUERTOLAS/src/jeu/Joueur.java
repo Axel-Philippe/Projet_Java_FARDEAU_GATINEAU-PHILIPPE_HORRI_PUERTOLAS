@@ -163,6 +163,7 @@ public class Joueur extends Personne {
 						break;
 					}
 					c.getCarte().personnageVisible();
+					c.getCarte().bonusVisible();
 					return c.getCarte();
 				}
 			}

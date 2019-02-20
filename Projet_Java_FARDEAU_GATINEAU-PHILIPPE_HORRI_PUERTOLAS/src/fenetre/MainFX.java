@@ -351,7 +351,12 @@ public class MainFX extends Application {
 		Carte.ajouterPersonnage(persoQuies3);
 		Carte.ajouterPersonnage(persoMaire);
 		Carte.ajouterBonus(bFouet);
+		Carte.ajouterBonus(bMaryse);
+		Carte.ajouterBonus(bPapier);
+		Carte.ajouterBonus(bPlaque);
+		Carte.ajouterBonus(bSaladier);
 		carteVillage.personnageVisible();
+		carteVillage.bonusVisible();
 		
 		Group root = new Group();
 		
@@ -377,7 +382,7 @@ public class MainFX extends Application {
 		
 		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), 
 				persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
-				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView());
+				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
