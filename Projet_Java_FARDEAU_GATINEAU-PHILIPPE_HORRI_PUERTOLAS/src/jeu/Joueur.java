@@ -120,6 +120,9 @@ public class Joueur extends Personne {
 			this.deplacementDroite();
 			return null;
 		case E:
+			
+			return null;
+		case R:
 			Carte m = this.getCarte();
 			ArrayList<Bonus> l = this.getCarte().getLesBonus();
 			Bonus o;

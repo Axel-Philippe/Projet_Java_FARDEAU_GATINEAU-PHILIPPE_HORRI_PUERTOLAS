@@ -207,8 +207,8 @@ public class MainFX extends Application {
 		
 		Position positionZoneFouet1 = new Position(430,0);
 		Position positionZoneFouet2 = new Position(546,70);
-		Position positionZoneMaryse1 = new Position(0,15);
-		Position positionZoneMaryse2 = new Position(45,80);
+		Position positionZoneMaryse1 = new Position(15,15);
+		Position positionZoneMaryse2 = new Position(80,80);
 		Position positionZonePapier1 = new Position(340,30);
 		Position positionZonePapier2 = new Position(395,90);
 		Position positionZonePlaque1 = new Position(5,240);

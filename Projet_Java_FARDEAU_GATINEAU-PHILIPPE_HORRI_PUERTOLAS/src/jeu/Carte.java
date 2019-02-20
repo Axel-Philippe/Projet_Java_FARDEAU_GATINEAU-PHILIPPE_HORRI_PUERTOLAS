@@ -43,7 +43,7 @@ public abstract class Carte {
 	
 	public void bonusVisible() {
 		for (Bonus b : lesBonus) {
-			if(b.getCarte() == this) {
+			if(b.getCarte() == this && !b.isPresent()) {
 				b.getImageView().setVisible(true);
 			}else {
 				b.getImageView().setVisible(false);
