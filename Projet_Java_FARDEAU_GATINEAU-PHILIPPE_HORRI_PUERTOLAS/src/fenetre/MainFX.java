@@ -211,7 +211,7 @@ public class MainFX extends Application {
 		Position positionZoneMaryse1 = new Position(15,15);
 		Position positionZoneMaryse2 = new Position(80,80);
 		Position positionZonePapier1 = new Position(340,30);
-		Position positionZonePapier2 = new Position(395,90);
+		Position positionZonePapier2 = new Position(420,110);
 		Position positionZonePlaque1 = new Position(5,240);
 		Position positionZonePlaque2 = new Position(60,305);
 		Position positionZoneSaladier1 = new Position(5,225);
