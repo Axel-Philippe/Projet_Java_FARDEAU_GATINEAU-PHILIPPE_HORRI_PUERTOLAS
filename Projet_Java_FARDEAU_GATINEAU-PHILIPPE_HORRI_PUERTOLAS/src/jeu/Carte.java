@@ -51,6 +51,9 @@ public abstract class Carte {
 		}
 	}
 	
+	public String getNom() {
+		return this.nom;
+	}
 	public void ajouterZone(Zone z){
 		this.lesSorties.add(z);
 	}

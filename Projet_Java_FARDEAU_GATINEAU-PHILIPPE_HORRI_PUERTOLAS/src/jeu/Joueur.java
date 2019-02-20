@@ -120,36 +120,40 @@ public class Joueur extends Personne {
 		case RIGHT:
 			this.deplacementDroite();
 			return null;
-		case E:
-			Carte me = this.getCarte();
-			ArrayList<Personnage> lp = this.getCarte().getLesPersonnages();
-			Personnage p;
-			for (int i = 0; i < lp.size(); i++) {
-				p = lp.get(i);
-				if (this.getPosition().getX() > p.getZone().getP1().getX()
-						&& this.getPosition().getX() < p.getZone().getP2().getX()
-						&& this.getPosition().getY() > p.getZone().getP1().getY()
-						&& this.getPosition().getY() < p.getZone().getP2().getY()) {
-					p.getEnigme().afficher();
-				}
-			}
-			return null;
+		/*
+		 * case E: Carte me = this.getCarte(); ArrayList<Personnage> lp =
+		 * this.getCarte().getLesPersonnages(); Personnage p; for (int i = 0; i <
+		 * lp.size(); i++) { p = lp.get(i); if (this.getPosition().getX() >
+		 * p.getZone().getP1().getX() && this.getPosition().getX() <
+		 * p.getZone().getP2().getX() && this.getPosition().getY() >
+		 * p.getZone().getP1().getY() && this.getPosition().getY() <
+		 * p.getZone().getP2().getY()) { p.getEnigme().afficher(); } } return null;
+		 */
 		case R:
 			Carte m = this.getCarte();
 			ArrayList<Bonus> l = this.getCarte().getLesBonus();
 			Bonus o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
-				System.out.println("pas dans la zone de "+o.toString());
+				System.out.println("pas dans la zone de " + o.toString());
 				if (this.getPosition().getX() > o.getZone().getP1().getX()
 						&& this.getPosition().getX() < o.getZone().getP2().getX()
 						&& this.getPosition().getY() > o.getZone().getP1().getY()
-						&& this.getPosition().getY() < o.getZone().getP2().getY()) {
-					System.out.println("dans la zone de "+o.toString());
+						&& this.getPosition().getY() < o.getZone().getP2().getY() && o.getCarte() == m
+						&& !o.isPresent()) {
+					System.out.println("dans la zone de " + o.toString());
 					this.ramasser(o);
 					o.setPresent(true);
 					o.getImageView().setVisible(false);
 				}
+			}
+			if (this.getPosition().getX() > Coffre.getZone().getP1().getX()
+					&& this.getPosition().getX() < Coffre.getZone().getP2().getX()
+					&& this.getPosition().getY() > Coffre.getZone().getP1().getY()
+					&& this.getPosition().getY() < Coffre.getZone().getP2().getY()) {
+				System.out.println("on tente de déposer les objets dans le coffre");
+				Coffre.ajouterObjets(this.sac);
+				System.out.println(Coffre.getPoints() + " Points gagnés");
 			}
 
 			return null;
@@ -179,6 +183,11 @@ public class Joueur extends Personne {
 					}
 					c.getCarte().personnageVisible();
 					c.getCarte().bonusVisible();
+					if (c.getCarte().getNom().equals("Maison")) {
+						Coffre.getImageView().setVisible(true);
+					} else {
+						Coffre.getImageView().setVisible(false);
+					}
 					return c.getCarte();
 				}
 			}

@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import jeu.Activite;
 import jeu.Bonus;
 import jeu.Carte;
+import jeu.Coffre;
 import jeu.Deplacement;
 import jeu.Enigme;
 import jeu.Ingredient;
@@ -214,7 +215,7 @@ public class MainFX extends Application {
 		Position positionZonePlaque1 = new Position(5,240);
 		Position positionZonePlaque2 = new Position(60,305);
 		Position positionZoneSaladier1 = new Position(5,225);
-		Position positionZoneSaladier2 = new Position(30,290);
+		Position positionZoneSaladier2 = new Position(50,290);
 		
 		Position positionZoneBucheron1 = new Position(380,125);
 		Position positionZoneBucheron2 = new Position(430,205);
@@ -334,6 +335,13 @@ public class MainFX extends Application {
 		Bonus bPlaque = new Bonus("Plaque", ivPlaque, false, positionPlaque, 5, zPlaque, carteFerme);
 		Bonus bSaladier = new Bonus("Saladier", ivSaladier, false, positionSaladier, 15, zSaladier, carteMaison); 
 		
+		FileInputStream fcoffre = new FileInputStream("./images/divers/coffre.png");
+		ImageView ivCoffre = new ImageView(new Image(fcoffre));
+		ivCoffre.setX(400);
+		ivCoffre.setY(300);
+		
+		Coffre coffre = new Coffre(new Position(380,280), new Position(500,400), ivCoffre);
+		
 		// Initialisation des personnages et du joueur
 		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
 		Personnage persoBucheron = new Personnage(actBucheron, "Bucheron", positionBucheron, ivBucheron, iSucre, carteForet, zBucheron);
@@ -380,9 +388,10 @@ public class MainFX extends Application {
 			}
 		});
 		
-		root.getChildren().addAll(carteVillage.getImage(), joueurJulia.getImage(), persoQuies1.getImage(), 
+		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), 
 				persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
-				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView());
+				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
+				bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage());
 		stage.setTitle("JavaFX Scene Graph Demo");
 		stage.setScene(scene);
 		stage.show();
