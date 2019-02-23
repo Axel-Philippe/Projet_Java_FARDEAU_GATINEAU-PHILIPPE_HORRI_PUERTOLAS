@@ -7,19 +7,13 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class Joueur extends Personne {
@@ -224,7 +218,6 @@ public class Joueur extends Personne {
 	public void ramasser(Objet o) {
 		if (o != null)
 			sac.add(o);
-		return;
 	}
 
 	public void proposerSolution(Enigme e, String sol) {
@@ -237,13 +230,13 @@ public class Joueur extends Personne {
 	public ImageView getImage() {
 		return image;
 	}
-	
+
 	public static void Inventaire(Stage stage) {
 		Stage inventaire = new Stage();
 		inventaire.initModality(Modality.APPLICATION_MODAL);
 		inventaire.initOwner(stage);
 		VBox inventaireBox = new VBox();
-		
+
 		Button btnFermer = new Button();
 		btnFermer.setText("Fermer");
 		btnFermer.setOnAction(new EventHandler<ActionEvent>() {
@@ -253,19 +246,19 @@ public class Joueur extends Personne {
 				inventaire.close();
 			}
 		});
-		
+
 		String contenu = "Il y a dans le sac : \n\n";
-		for(Objet o : sac) {
+		for (Objet o : sac) {
 			contenu += "- " + o.toString() + "\n";
 		}
-		if(sac.isEmpty()) {
+		if (sac.isEmpty()) {
 			contenu = "Le sac est vide";
 		}
-		
+
 		Text text = new Text(contenu);
 		inventaireBox.getChildren().addAll(text, btnFermer);
 
-		Scene sceneInventaire = new Scene (inventaireBox, 500, 500);
+		Scene sceneInventaire = new Scene(inventaireBox, 500, 500);
 
 		inventaire.setScene(sceneInventaire);
 		inventaire.setResizable(false);

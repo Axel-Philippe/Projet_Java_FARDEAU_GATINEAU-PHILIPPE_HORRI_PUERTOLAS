@@ -395,9 +395,9 @@ public class Jeu {
 		});
 		
 		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), 
-				persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
-				persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
-				bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage());
+		persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
+		persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
+		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage());
 		stage.setTitle("Cookies Mama");
 		stage.setScene(scene);
 		stage.setResizable(false);
