@@ -318,7 +318,7 @@ public class Jeu {
 		// Initialisation des enigmes
 		Enigme actBucheron = new Enigme("Père et fils", "3", "Un père et un fils ont à eux deux 36 ans. Sachant que le père a 30 ans de plus que le fils, quel âge a le fils ?", "6", "3", "5");
 		actBucheron.setIngredient(iSucre);
-		Enigme actMaire= new Enigme("Qui est-ce?", "Quies1", "Mon personnage porte un pantalon, mais n'a pas de t-shirt de la couleur du ciel... Qui est-ce?", "Quies2", "Quies3", "Quies1");
+		Enigme actMaire= new Enigme("Qui est-ce?", "Le personnage qui a des lunettes", "Mon personnage porte un pantalon, mais n'a pas de t-shirt de la couleur du ciel... Qui est-ce?", "Le personnage qui a un chapeau de gendarme", "Le personnage qui a les cheveux longs", "Le personnage qui a des lunettes");
 		actMaire.setIngredient(iFarine);
 		Enigme actFermiere = new Enigme("Poulets et lapins", "3 lapins, 2 poules", "Dans un enclos, la fermière a des poules et des lapins. Elle y voit 5 têtes et 16 pattes. Combien y a-t-il de poules et de lapins? ", "1 lapin, 4 poules", "2 lapins, 3 poules", "3 lapins, 2 poules");
 		actFermiere.setIngredient(iBeurre);
