@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -21,6 +25,7 @@ public class Joueur extends Personne {
 	private int capaciteSac;
 	private ImageView image;
 	private Deplacement dernierDeplacement;
+	private static int nbIngredient = 0;
 
 	public Joueur(int c, String n, Position p, Carte map, ImageView image) {
 		super(n, p, map);
@@ -194,8 +199,23 @@ public class Joueur extends Personne {
 					}
 					c.getCarte().personnageVisible();
 					c.getCarte().bonusVisible();
+					
+					
 					if (c.getCarte().getNom().equals("Maison")) {
 						Coffre.getImageView().setVisible(true);
+						if (nbIngredient != 5) {
+							Coffre.getImageView().setVisible(false);
+							this.getCarte().personnageVisible();
+							this.getCarte().bonusVisible();
+							Alert alert = new Alert(AlertType.CONFIRMATION);
+							alert.setTitle("Attention");
+							alert.setHeaderText(null);
+							alert.setContentText("Vous devez avoir recupéré les 5 ingrédients pour rentrer dans la maison !");
+							ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
+							alert.getButtonTypes().setAll(buttonTypeCancel);
+							alert.show();
+							return this.getCarte();
+						}
 					} else {
 						Coffre.getImageView().setVisible(false);
 					}
@@ -216,8 +236,13 @@ public class Joueur extends Personne {
 	}
 
 	public void ramasser(Objet o) {
-		if (o != null)
+		if (o != null) {
 			sac.add(o);
+			if(o.getClass() == Ingredient.class) {
+				++nbIngredient;
+			}
+		}
+
 	}
 
 	public void proposerSolution(Enigme e, String sol) {
