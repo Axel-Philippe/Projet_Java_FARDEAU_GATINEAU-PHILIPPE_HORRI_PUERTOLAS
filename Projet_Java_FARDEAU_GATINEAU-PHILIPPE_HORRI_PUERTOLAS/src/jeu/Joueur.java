@@ -8,10 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -26,6 +26,7 @@ public class Joueur extends Personne {
 	private ImageView image;
 	private Deplacement dernierDeplacement;
 	private static int nbIngredient = 0;
+	private static int vie = 0;
 
 	public Joueur(int c, String n, Position p, Carte map, ImageView image) {
 		super(n, p, map);
@@ -289,6 +290,14 @@ public class Joueur extends Personne {
 		inventaire.setResizable(false);
 		inventaire.setTitle("Inventaire");
 		inventaire.show();
+	}
+
+	public static int getVie() {
+		return vie;
+	}
+
+	public static void setVie(int vie) {
+		Joueur.vie = vie;
 	}
 
 }

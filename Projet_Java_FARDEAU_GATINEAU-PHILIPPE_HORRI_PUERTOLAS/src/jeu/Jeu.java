@@ -517,7 +517,7 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				menu.close();
+				
 			}
 		});
 		
