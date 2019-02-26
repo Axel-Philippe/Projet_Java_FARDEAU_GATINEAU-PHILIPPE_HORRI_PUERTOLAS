@@ -85,7 +85,9 @@ public class Enigme extends Activite{
 			alert.setTitle("Enigme");
 			alert.setHeaderText(null);
 			alert.setContentText("Vous avez déjà résolu cette énigme !\n");
-			//ButtonType buttonTypeCancel = new ButtonType("Quitter", ButtonData.CANCEL_CLOSE);
+			ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
+			alert.getButtonTypes().setAll(buttonTypeCancel);
+			alert.showAndWait();
 		}
 		
 		return i;
