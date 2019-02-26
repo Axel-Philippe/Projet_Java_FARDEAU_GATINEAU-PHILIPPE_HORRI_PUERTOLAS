@@ -322,7 +322,7 @@ public class Jeu {
 		actMaire.setIngredient(iFarine);
 		Enigme actFermiere = new Enigme("Poulets et lapins", "3 lapins, 2 poules", "Dans un enclos, la fermière a des poules et des lapins. Elle y voit 5 têtes et 16 pattes. Combien y a-t-il de poules et de lapins? ", "1 lapin, 4 poules", "2 lapins, 3 poules", "3 lapins, 2 poules");
 		actFermiere.setIngredient(iBeurre);
-		Enigme actPecheur = new Enigme("Les nénuphars", "9", "Les nénuphars doublent de nombre chaque nuit. Au bout de 10 nuits le lac est rempli de nénuphars. Combien de jours faut-il pour remplir la moitié du lac ?", "9", "5", "7");
+		Enigme actPecheur = new Enigme("Les nénuphars", "9", "Les nénuphars doublent de volume chaque nuit. Au bout de 10 nuits le lac est rempli de nénuphars. Combien de jours faut-il pour remplir la moitié du lac ?", "9", "5", "7");
 		actPecheur.setIngredient(iOeufs);
 		
 		// Initialisation des ingrédients		
