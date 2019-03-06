@@ -35,6 +35,67 @@ public class Jeu {
 		map = m;
 	}
 
+	/**
+	 * Méthode static permettant de quitter le jeu
+	 * @param stage
+	 * @param menu
+	 */
+	public static void quitter(Stage stage, Stage menu) {
+		stage.close();
+		menu.close();
+	}
+	
+	/**
+	 * Méthode static permettant de fermer la fenêtre courante
+	 * @param stage
+	 */
+	public static void fermer(Stage stage) {
+		stage.close();
+	}
+	
+	/**
+	 * Méthode permettant de redemarrer le jeu
+	 * @param stage
+	 * @param menu
+	 */
+	public static void redemarrer(Stage stage, Stage menu) {
+		stage.close();
+		menu.close();
+		try {
+			demarrerJeu(stage);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Méthode static permettant de demander de l'aide
+	 * @param stage
+	 */
+	public static void aide(Stage stage) {
+		stage.close();
+		FileInputStream commandes = null;
+		try {
+			commandes = new FileInputStream("./images/divers/testMenu.png");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Image imCommande = new Image(commandes);
+		ImageView ivCommande = new ImageView();
+		ivCommande.setImage(imCommande);
+		
+		BorderPane borderpane = new BorderPane();
+		borderpane.setCenter(ivCommande);
+		Scene sceneCommande = new Scene(borderpane, 300, 300);
+		
+		Stage fenetreCommande = new Stage();
+		fenetreCommande.setTitle("Commandes");
+		fenetreCommande.setScene(sceneCommande);
+		fenetreCommande.show();
+	}
+	
 	
 	/**
 	* Méthode permettant d'initialiser les éléments graphiques et de démarrer le jeu
@@ -421,7 +482,7 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				msgBienvenue.close();
+				fermer(msgBienvenue);
 			}
 		});
 		
@@ -433,6 +494,8 @@ public class Jeu {
 		msgBienvenue.show();
 	}
 	
+
+
 
 	/**
 	 * Méthode permettant d'afficher le menu. Quatres options sont disponibles : 
@@ -455,14 +518,7 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				stage.close();
-				menu.close();
-				try {
-					demarrerJeu(stage);
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				redemarrer(stage, menu);
 			}
 		});
 		
@@ -473,8 +529,7 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				stage.close();
-				menu.close();
+				quitter(stage, menu);
 			}
 		});
 		
@@ -485,27 +540,7 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				menu.close();
-				FileInputStream commandes = null;
-				try {
-					commandes = new FileInputStream("./images/divers/testMenu.png");
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Image imCommande = new Image(commandes);
-				ImageView ivCommande = new ImageView();
-				ivCommande.setImage(imCommande);
-				
-				BorderPane borderpane = new BorderPane();
-				borderpane.setCenter(ivCommande);
-				Scene sceneCommande = new Scene(borderpane, 300, 300);
-				
-				Stage fenetreCommande = new Stage();
-				fenetreCommande.setTitle("Commandes");
-				fenetreCommande.setScene(sceneCommande);
-				fenetreCommande.show();
-				
+				aide(menu);
 			}
 		});
 		
@@ -517,7 +552,7 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				
+				fermer(menu);
 			}
 		});
 		
