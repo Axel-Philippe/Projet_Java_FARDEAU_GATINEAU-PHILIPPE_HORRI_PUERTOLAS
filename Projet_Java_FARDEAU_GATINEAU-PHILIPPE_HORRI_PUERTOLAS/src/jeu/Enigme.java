@@ -15,11 +15,25 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
+/**
+ * Classe Enigme qui hérite de la classe Activite. Elle permet de générer des énigmes 
+ * @author all
+ *
+ */
 public class Enigme extends Activite {
 	private String solution;
 	private String intitule;
 	private ArrayList<String> proposition;
-
+	
+	/**
+	 * Constructeur de la classe Enigme
+	 * @param n
+	 * @param s
+	 * @param i
+	 * @param p1
+	 * @param p2
+	 * @param p3
+	 */
 	public Enigme(String n, String s, String i, String p1, String p2, String p3) {
 		super(n);
 		solution = s;
@@ -30,14 +44,26 @@ public class Enigme extends Activite {
 		this.proposition.add(p3);
 	}
 
+	/**
+	 * Méthode qui permet de récupérer la solution de l'éngime
+	 * @return solution
+	 */
 	public String getSolution() {
 		return this.solution;
 	}
 
+	/**
+	 * Méthode qui permet de récupérer les propositions de l'énigme
+	 * @return propostion
+	 */
 	public ArrayList<String> getProposition() {
 		return this.proposition;
 	}
-
+	
+	/**
+	 * Méthode qui permet d'afficher une énigme tout en gérant la vie du personnage.
+	 * @return
+	 */
 	public Ingredient afficher() {
 
 		Ingredient i = null;
