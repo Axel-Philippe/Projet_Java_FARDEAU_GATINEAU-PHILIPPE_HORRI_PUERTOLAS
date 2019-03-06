@@ -3,6 +3,7 @@ package jeu;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,6 +28,7 @@ public class Joueur extends Personne {
 	private Deplacement dernierDeplacement;
 	private static int nbIngredient = 0;
 	private static int vie = 0;
+	private static LinkedList<Carte> listeCarte = new LinkedList<Carte>();
 
 	public Joueur(int c, String n, Position p, Carte map, ImageView image) {
 		super(n, p, map);
@@ -131,6 +133,19 @@ public class Joueur extends Personne {
 		case RIGHT:
 			this.deplacementDroite();
 			return null;
+		case T:
+			if (listeCarte.size() > 0) {
+				Carte c = listeCarte.getFirst();
+				listeCarte.removeFirst();
+				c.personnageVisible();
+				c.bonusVisible();
+				if (c.getNom().equals("Maison")) {
+					Coffre.getImageView().setVisible(true);
+				}else {
+					Coffre.getImageView().setVisible(false);
+				}
+				return c;
+			}
 		case E:
 			Carte me = this.getCarte();
 			ArrayList<Personnage> lp = this.getCarte().getLesPersonnages();
@@ -200,8 +215,7 @@ public class Joueur extends Personne {
 					}
 					c.getCarte().personnageVisible();
 					c.getCarte().bonusVisible();
-					
-					
+
 					if (c.getCarte().getNom().equals("Maison")) {
 						Coffre.getImageView().setVisible(true);
 						if (nbIngredient != 5) {
@@ -211,15 +225,18 @@ public class Joueur extends Personne {
 							Alert alert = new Alert(AlertType.CONFIRMATION);
 							alert.setTitle("Attention");
 							alert.setHeaderText(null);
-							alert.setContentText("Vous devez avoir recupéré les 5 ingrédients pour rentrer dans la maison !");
+							alert.setContentText(
+									"Vous devez avoir recupéré les 5 ingrédients pour rentrer dans la maison !");
 							ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
 							alert.getButtonTypes().setAll(buttonTypeCancel);
 							alert.show();
+
 							return this.getCarte();
 						}
 					} else {
 						Coffre.getImageView().setVisible(false);
 					}
+					listeCarte.addFirst(this.getCarte());
 					return c.getCarte();
 				}
 			}
@@ -239,7 +256,7 @@ public class Joueur extends Personne {
 	public void ramasser(Objet o) {
 		if (o != null) {
 			sac.add(o);
-			if(o.getClass() == Ingredient.class) {
+			if (o.getClass() == Ingredient.class) {
 				++nbIngredient;
 			}
 		}
