@@ -17,7 +17,6 @@ public class MainFX extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		
 		Jeu.demarrerJeu(stage);
 		
 	}

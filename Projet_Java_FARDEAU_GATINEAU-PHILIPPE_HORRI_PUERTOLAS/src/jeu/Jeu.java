@@ -58,9 +58,8 @@ public class Jeu {
 	 * @param stage
 	 * @param menu
 	 */
-	public static void redemarrer(Stage stage, Stage menu) {
+	public static void redemarrer(Stage stage) {
 		stage.close();
-		menu.close();
 		try {
 			demarrerJeu(stage);
 		} catch (FileNotFoundException e) {
@@ -498,11 +497,10 @@ public class Jeu {
 
 
 	/**
-	 * Méthode permettant d'afficher le menu. Quatres options sont disponibles : 
-	 * - Aide : connaître les commandes disponibles
-	 * - Redémarrer : redémarre le jeu
-	 * - Quitter : quitte le jeu
-	 * - Fermer : ferme le menu
+	 * Méthode permettant d'afficher le menu. Quatres options sont disponibles : -
+	 * Aide : connaître les commandes disponibles - Redémarrer : redémarre le jeu -
+	 * Quitter : quitte le jeu - Fermer : ferme le menu
+	 * 
 	 * @param stage
 	 */
 	public static void menu(Stage stage) {
@@ -518,7 +516,8 @@ public class Jeu {
 
 			@Override
 			public void handle(ActionEvent event) {
-				redemarrer(stage, menu);
+				menu.close();
+				redemarrer(stage);
 			}
 		});
 		

@@ -156,7 +156,7 @@ public class Joueur extends Personne {
 						&& this.getPosition().getX() < p.getZone().getP2().getX()
 						&& this.getPosition().getY() > p.getZone().getP1().getY()
 						&& this.getPosition().getY() < p.getZone().getP2().getY()) {
-					p.getEnigme().afficher();
+					this.ramasser(p.getEnigme().afficher());
 				}
 			}
 			return null;
