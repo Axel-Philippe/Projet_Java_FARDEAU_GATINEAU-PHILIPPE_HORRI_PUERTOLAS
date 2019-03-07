@@ -417,14 +417,14 @@ public class Jeu {
 		
 		Coffre coffre = new Coffre(new Position(380,280), new Position(500,400), ivCoffre);
 		
-		ivVie3.setX(30);
-		ivVie3.setY(30);
+		ivVie3.setX(0);
+		ivVie3.setY(0);
 		
-		ivVie2.setX(30);
-		ivVie2.setY(30);
+		ivVie2.setX(0);
+		ivVie2.setY(0);
 		
-		ivVie1.setX(30);
-		ivVie1.setY(30);
+		ivVie1.setX(0);
+		ivVie1.setY(0);
 		
 		// Initialisation des personnages et du joueur
 		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
@@ -438,9 +438,6 @@ public class Jeu {
 		Carte.ajouterPersonnage(persoBucheron);
 		Carte.ajouterPersonnage(persoFermiere);
 		Carte.ajouterPersonnage(persoPecheur);
-		Carte.ajouterPersonnage(persoQuies1);
-		Carte.ajouterPersonnage(persoQuies2);
-		Carte.ajouterPersonnage(persoQuies3);
 		Carte.ajouterPersonnage(persoMaire);
 		Carte.ajouterBonus(bFouet);
 		Carte.ajouterBonus(bMaryse);
@@ -471,12 +468,10 @@ public class Jeu {
 				try {
 					c = joueurJulia.seDeplacer(event);
 					if(Joueur.getVie() == 1) {
-						root.getChildren().remove(ivVie3);
-						root.getChildren().add(0, ivVie2);
+						root.getChildren().set(15, ivVie2);
 					}
 					if(Joueur.getVie() == 2) {
-						root.getChildren().remove(ivVie2);
-						root.getChildren().add(0, ivVie1);
+						root.getChildren().set(15, ivVie1);
 					}
 					if(Joueur.getVie() == 3) {
 						redemarrer(stage);

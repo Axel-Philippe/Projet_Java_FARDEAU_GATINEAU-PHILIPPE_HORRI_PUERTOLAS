@@ -152,10 +152,11 @@ public class Joueur extends Personne {
 			Personnage p;
 			for (int i = 0; i < lp.size(); i++) {
 				p = lp.get(i);
+				System.out.println(p.getCarte().getNom());
 				if (this.getPosition().getX() > p.getZone().getP1().getX()
 						&& this.getPosition().getX() < p.getZone().getP2().getX()
 						&& this.getPosition().getY() > p.getZone().getP1().getY()
-						&& this.getPosition().getY() < p.getZone().getP2().getY()) {
+						&& this.getPosition().getY() < p.getZone().getP2().getY() && p.getCarte().getNom() == me.getNom()) {
 					this.ramasser(p.getEnigme().afficher());
 				}
 			}
