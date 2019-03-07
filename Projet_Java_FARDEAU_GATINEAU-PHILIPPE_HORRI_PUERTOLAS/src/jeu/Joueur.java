@@ -107,31 +107,111 @@ public class Joueur extends Personne {
 		}
 	}
 
+	public void deplacementHautLabyrinth() throws FileNotFoundException {
+
+		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
+				&& this.getPosition().getY() < 395) {
+			if (this.dernierDeplacement != Deplacement.HAUT) {
+				FileInputStream f = new FileInputStream("./images/personnages/juliaback.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.HAUT;
+			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() - 5));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
+	public void deplacementBasLabyrinth() throws FileNotFoundException {
+
+		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
+				&& this.getPosition().getY() < 380) {
+			if (this.dernierDeplacement != Deplacement.BAS) {
+				FileInputStream f = new FileInputStream("./images/personnages/julia.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.BAS;
+			this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + 5));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
+	public void deplacementGaucheLabyrinth() throws FileNotFoundException {
+
+		if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
+				&& this.getPosition().getY() < 395) {
+			if (this.dernierDeplacement != Deplacement.GAUCHE) {
+				FileInputStream f = new FileInputStream("./images/personnages/juliaprofilgauche.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.GAUCHE;
+			this.setPosition(new Position(this.getPosition().getX() - 5, this.getPosition().getY()));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
+	public void deplacementDroiteLabyrinth() throws FileNotFoundException {
+
+		if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
+				&& this.getPosition().getY() < 395) {
+			if (this.dernierDeplacement != Deplacement.DROITE) {
+				FileInputStream f = new FileInputStream("./images/personnages/juliaprofil.png");
+				this.image.setImage(new Image(f));
+			}
+			this.dernierDeplacement = Deplacement.DROITE;
+			this.setPosition(new Position(this.getPosition().getX() + 5, this.getPosition().getY()));
+			this.setPositionImage(this.getPosition());
+		}
+	}
+
 	public Carte seDeplacer(KeyEvent event) throws FileNotFoundException {
 		switch (event.getCode()) {
 		case Z:
-			this.deplacementHaut();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementHautLabyrinth();
+			else
+				this.deplacementHaut();
 			return null;
 		case UP:
-			this.deplacementHaut();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementHautLabyrinth();
+			else
+				this.deplacementHaut();
 			return null;
 		case S:
-			this.deplacementBas();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementBasLabyrinth();
+			else
+				this.deplacementBas();
 			return null;
 		case DOWN:
-			this.deplacementBas();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementBasLabyrinth();
+			else
+				this.deplacementBas();
 			return null;
 		case Q:
-			this.deplacementGauche();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementGaucheLabyrinth();
+			else
+				this.deplacementGauche();
 			return null;
 		case LEFT:
-			this.deplacementGauche();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementGaucheLabyrinth();
+			else
+				this.deplacementGauche();
 			return null;
 		case D:
-			this.deplacementDroite();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementDroiteLabyrinth();
+			else
+				this.deplacementDroite();
 			return null;
 		case RIGHT:
-			this.deplacementDroite();
+			if (this.getCarte().getNom() == "Labyrinth")
+				this.deplacementDroiteLabyrinth();
+			else
+				this.deplacementDroite();
 			return null;
 		case T:
 			if (listeCarte.size() > 0) {
@@ -141,7 +221,7 @@ public class Joueur extends Personne {
 				c.bonusVisible();
 				if (c.getNom().equals("Maison")) {
 					Coffre.getImageView().setVisible(true);
-				}else {
+				} else {
 					Coffre.getImageView().setVisible(false);
 				}
 				return c;
@@ -156,8 +236,11 @@ public class Joueur extends Personne {
 				if (this.getPosition().getX() > p.getZone().getP1().getX()
 						&& this.getPosition().getX() < p.getZone().getP2().getX()
 						&& this.getPosition().getY() > p.getZone().getP1().getY()
-						&& this.getPosition().getY() < p.getZone().getP2().getY() && p.getCarte().getNom() == me.getNom()) {
-					this.ramasser(p.getEnigme().afficher());
+						&& this.getPosition().getY() < p.getZone().getP2().getY()
+						&& p.getCarte().getNom() == me.getNom()) {
+					if (p.getEnigme() == null) {
+					} else
+						this.ramasser(p.getEnigme().afficher());
 				}
 			}
 			return null;

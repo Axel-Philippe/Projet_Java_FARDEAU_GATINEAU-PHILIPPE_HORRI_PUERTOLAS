@@ -439,6 +439,9 @@ public class Jeu {
 		Carte.ajouterPersonnage(persoFermiere);
 		Carte.ajouterPersonnage(persoPecheur);
 		Carte.ajouterPersonnage(persoMaire);
+		Carte.ajouterPersonnage(persoQuies1);
+		Carte.ajouterPersonnage(persoQuies2);
+		Carte.ajouterPersonnage(persoQuies3);
 		Carte.ajouterBonus(bFouet);
 		Carte.ajouterBonus(bMaryse);
 		Carte.ajouterBonus(bPapier);
