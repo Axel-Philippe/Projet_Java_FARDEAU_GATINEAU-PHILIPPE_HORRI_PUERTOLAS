@@ -106,7 +106,7 @@ public class Enigme extends Activite {
 					Joueur.setVie(Joueur.getVie() + 1);
 					if (Joueur.getVie() > 3) {
 						alertVie.show();
-						Jeu.redemarrer(new Stage());
+						//Jeu.redemarrer(new Stage());
 					}
 				}
 			} else if (result.get() == buttonTypeTwo) {
@@ -118,7 +118,7 @@ public class Enigme extends Activite {
 					Joueur.setVie(Joueur.getVie() + 1);
 					if (Joueur.getVie() > 3) {
 						alertVie.show();
-						Jeu.redemarrer(new Stage());
+						//Jeu.redemarrer(new Stage());
 					}
 				}
 			} else if (result.get() == buttonTypeThree) {
@@ -130,7 +130,7 @@ public class Enigme extends Activite {
 					Joueur.setVie(Joueur.getVie() + 1);
 					if (Joueur.getVie() > 3) {
 						alertVie.show();
-						Jeu.redemarrer(new Stage());
+						//Jeu.redemarrer(new Stage());
 					}
 				}
 			}

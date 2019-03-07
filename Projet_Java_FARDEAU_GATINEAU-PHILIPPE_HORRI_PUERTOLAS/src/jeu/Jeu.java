@@ -133,6 +133,11 @@ public class Jeu {
 		FileInputStream plaque = new FileInputStream("./images/bonus/plaque.png");
 		FileInputStream saladier = new FileInputStream("./images/bonus/saladier.png");
 		
+		// Initialisation des vies
+		FileInputStream vie1 = new FileInputStream("./images/divers/hearts1.png");
+		FileInputStream vie2 = new FileInputStream("./images/divers/hearts2.png");
+		FileInputStream vie3 = new FileInputStream("./images/divers/hearts3.png");
+		
 		// Initialisation des images
 		Image imVillage = new Image(village);
 		Image imLac = new Image(lac);
@@ -161,6 +166,10 @@ public class Jeu {
 		Image imPapier = new Image(papier);
 		Image imPlaque= new Image(plaque);
 		Image imSaladier = new Image(saladier);
+		
+		Image imVie1 = new Image(vie1);
+		Image imVie2 = new Image(vie2);
+		Image imVie3 = new Image(vie3);
 
 		// Initialisation des imageViews	
 		ImageView ivVillage = new ImageView();
@@ -191,6 +200,10 @@ public class Jeu {
 		ImageView  ivPlaque= new ImageView();
 		ImageView  ivSaladier = new ImageView();
 		
+		ImageView ivVie1 = new ImageView();
+		ImageView ivVie2 = new ImageView();
+		ImageView ivVie3 = new ImageView();
+		
 		//Initialisation des imageViews
 		ivVillage.setImage(imVillage);
 		ivLac.setImage(imLac);
@@ -219,6 +232,10 @@ public class Jeu {
 		ivPapier.setImage(imPapier);
 		ivPlaque.setImage(imPlaque);
 		ivSaladier.setImage(imSaladier);
+		
+		ivVie1.setImage(imVie1);
+		ivVie2.setImage(imVie2);
+		ivVie3.setImage(imVie3);
 		
 		// Initialisation des cartes 		
 		Carte carteVillage = new MapPrincipale("Place du village", ivVillage, 0, 0);
@@ -322,6 +339,7 @@ public class Jeu {
 		Position positionBasForet1 = positionMainBas1;
 		Position positionBasForet2 = positionMainBas2;
 		
+		
 		// Zones de déplacement entre les cartes
 		Zone zVillageLac = new Zone(positionHautVillage1, positionHautVillage2,Deplacement.HAUT, carteLac);
 		carteVillage.ajouterZone(zVillageLac);
@@ -399,6 +417,15 @@ public class Jeu {
 		
 		Coffre coffre = new Coffre(new Position(380,280), new Position(500,400), ivCoffre);
 		
+		ivVie3.setX(30);
+		ivVie3.setY(30);
+		
+		ivVie2.setX(30);
+		ivVie2.setY(30);
+		
+		ivVie1.setX(30);
+		ivVie1.setY(30);
+		
 		// Initialisation des personnages et du joueur
 		Joueur joueurJulia = new Joueur(10, "Julia", positionJulia, carteVillage, ivJulia);
 		Personnage persoBucheron = new Personnage(actBucheron, "Bucheron", positionBucheron, ivBucheron, iSucre, carteForet, zBucheron);
@@ -443,6 +470,17 @@ public class Jeu {
 				Carte c = null;
 				try {
 					c = joueurJulia.seDeplacer(event);
+					if(Joueur.getVie() == 1) {
+						root.getChildren().remove(ivVie3);
+						root.getChildren().add(0, ivVie2);
+					}
+					if(Joueur.getVie() == 2) {
+						root.getChildren().remove(ivVie2);
+						root.getChildren().add(0, ivVie1);
+					}
+					if(Joueur.getVie() == 3) {
+						redemarrer(stage);
+					}
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -457,7 +495,7 @@ public class Jeu {
 		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), 
 		persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
 		persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
-		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage());
+		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage(), ivVie3);
 		stage.setTitle("Cookies Mama");
 		stage.setScene(scene);
 		stage.setResizable(false);
