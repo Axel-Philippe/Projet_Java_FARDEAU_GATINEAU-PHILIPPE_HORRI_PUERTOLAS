@@ -271,7 +271,7 @@ public class Jeu {
 		Position positionMaire = new Position(245,210);
 		
 		Position positionBeurre = new Position(0,0);
-		Position positionChocolat = new Position(0,0);
+		Position positionChocolat = new Position(30,30);
 		Position positionFarine = new Position(0,0);
 		Position positionOeufs = new Position(0,0);
 		Position positionSucre = new Position(0,0);
@@ -307,6 +307,8 @@ public class Jeu {
 		Position positionZoneQuies32 = new Position(130,300);
 		Position positionZoneMaire1 = new Position(220,220);
 		Position positionZoneMaire2 = new Position(265,275);
+		Position positionZoneChocolat1 = new Position(30,30);
+		Position positionZoneChocolat2 = new Position(70,70);
 		
 		// Positions des zones du village
 		Position positionHautVillage1 = positionMainHaut1;
@@ -390,6 +392,7 @@ public class Jeu {
 		Zone zQuies2 = new Zone(positionZoneQuies21, positionZoneQuies22);
 		Zone zQuies3 = new Zone(positionZoneQuies31, positionZoneQuies32);
 		Zone zMaire = new Zone(positionZoneMaire1, positionZoneMaire2);
+		Zone zChoco = new Zone(positionZoneChocolat1, positionZoneChocolat2);
 		
 		// Initialisation des ingrédients
 		Ingredient iBeurre = new Ingredient ("Beurre", ivBeurre, false, positionBeurre);
@@ -407,6 +410,8 @@ public class Jeu {
 		actFermiere.setIngredient(iBeurre);
 		Enigme actPecheur = new Enigme("Les nénuphars", "9", "Les nénuphars doublent de volume chaque nuit. Au bout de 10 nuits le lac est rempli de nénuphars. Combien de jours faut-il pour remplir la moitié du lac ?", "9", "5", "7");
 		actPecheur.setIngredient(iOeufs);
+		Enigme actChocolat = new Enigme("Le chocolat", "Me ramasser","Bonjour ! Je suis Chocolette ! Que voulez vous faire de moi ?","Me ramasser", "Me manger", "Me laisser ici");
+		actChocolat.setIngredient(iChocolat);
 		
 		// Initialisation des ingrédients		
 		Bonus bFouet = new Bonus("Fouet", ivFouet, false, positionFouet, 5, zFouet, carteVillage);
@@ -440,6 +445,7 @@ public class Jeu {
 		Personnage persoQuies2 = new Personnage("Quies2", positionQuies2, ivQuies2, carteVillage, zQuies2);
 		Personnage persoQuies3 = new Personnage("Quies3", positionQuies3, ivQuies3, carteVillage, zQuies3);
 		Personnage persoMaire = new Personnage(actMaire, "Maire", positionMaire, ivQuiesMaire, iFarine, carteVillage, zMaire);
+		Personnage persoChocolat = new Personnage(actChocolat,"Chocolette",positionChocolat, ivChocolat,iChocolat,carteMine,zChoco);
 		Carte.ajouterPersonnage(persoBucheron);
 		Carte.ajouterPersonnage(persoFermiere);
 		Carte.ajouterPersonnage(persoPecheur);
@@ -447,6 +453,7 @@ public class Jeu {
 		Carte.ajouterPersonnage(persoQuies1);
 		Carte.ajouterPersonnage(persoQuies2);
 		Carte.ajouterPersonnage(persoQuies3);
+		Carte.ajouterPersonnage(persoChocolat);
 		Carte.ajouterBonus(bFouet);
 		Carte.ajouterBonus(bMaryse);
 		Carte.ajouterBonus(bPapier);
@@ -475,6 +482,9 @@ public class Jeu {
 				Carte c = null;
 				try {
 					c = joueurJulia.seDeplacer(event);
+					if(actChocolat.getReussi()) {
+						ivChocolat.setVisible(false);
+					}
 					if(Joueur.getVie() == 1) {
 						root.getChildren().set(15, ivVie2);
 					}
@@ -498,7 +508,7 @@ public class Jeu {
 		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), 
 		persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
 		persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
-		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage(), ivVie3);
+		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage(), ivVie3, ivChocolat);
 		stage.setTitle("Cookies Mama");
 		stage.setScene(scene);
 		stage.setResizable(false);
