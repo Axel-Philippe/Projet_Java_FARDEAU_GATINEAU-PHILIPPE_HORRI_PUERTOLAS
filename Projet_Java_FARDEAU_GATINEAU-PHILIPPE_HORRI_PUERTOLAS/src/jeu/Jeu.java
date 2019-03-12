@@ -142,6 +142,7 @@ public class Jeu {
 		FileInputStream vie1 = new FileInputStream("./images/divers/hearts1.png");
 		FileInputStream vie2 = new FileInputStream("./images/divers/hearts2.png");
 		FileInputStream vie3 = new FileInputStream("./images/divers/hearts3.png");
+		FileInputStream trou = new FileInputStream("./images/divers/trou.png");
 		
 		// Initialisation des images
 		Image imVillage = new Image(village);
@@ -175,6 +176,7 @@ public class Jeu {
 		Image imVie1 = new Image(vie1);
 		Image imVie2 = new Image(vie2);
 		Image imVie3 = new Image(vie3);
+		Image imTrou = new Image(trou);
 
 		// Initialisation des imageViews	
 		ImageView ivVillage = new ImageView();
@@ -208,6 +210,7 @@ public class Jeu {
 		ImageView ivVie1 = new ImageView();
 		ImageView ivVie2 = new ImageView();
 		ImageView ivVie3 = new ImageView();
+		ImageView ivTrou = new ImageView(imTrou);
 		
 		//Initialisation des imageViews
 		ivVillage.setImage(imVillage);
@@ -317,8 +320,8 @@ public class Jeu {
 		Position positionBasVillage2 = positionMainBas2;
 		Position positionDroiteVillage1 = positionMainDroite1;
 		Position positionDroiteVillage2 = positionMainDroite2;
-		Position positionGaucheVillage1 = positionMainGauche1;
-		Position positionGaucheVillage2 = positionMainGauche2;
+		Position positionGaucheVillage1 = new Position(0,150);
+		Position positionGaucheVillage2 = new Position(50,250);
 		
 		// Position zone du lac
 		Position positionBasLac1 = positionMainBas1;
@@ -508,7 +511,7 @@ public class Jeu {
 		root.getChildren().addAll(carteVillage.getImage(), persoQuies1.getImage(), 
 		persoQuies2.getImage(), persoQuies3.getImage(), persoMaire.getImage(), persoBucheron.getImage(),
 		persoPecheur.getImage(),persoFermiere.getImage(), bFouet.getImageView(), bMaryse.getImageView(), 
-		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage(), ivVie3, ivChocolat);
+		bPapier.getImageView(), bPlaque.getImageView(), bSaladier.getImageView(), ivCoffre, joueurJulia.getImage(), ivVie3, ivChocolat, ivTrou);
 		stage.setTitle("Cookies Mama");
 		stage.setScene(scene);
 		stage.setResizable(false);
