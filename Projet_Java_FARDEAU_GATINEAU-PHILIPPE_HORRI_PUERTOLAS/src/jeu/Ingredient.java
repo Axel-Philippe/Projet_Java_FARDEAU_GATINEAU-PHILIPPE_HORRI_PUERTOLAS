@@ -19,8 +19,8 @@ public class Ingredient extends Objet{
 	 * @param z
 	 * @param pos
 	 */
-	public Ingredient(String n, ImageView i, boolean z, Position pos) {
-		super(n, i, z, pos);
+	public Ingredient(String n, ImageView i, boolean b, Position pos) {
+		super(n, i, b, pos);
 		listeIngredients.add(this);
 	}
 

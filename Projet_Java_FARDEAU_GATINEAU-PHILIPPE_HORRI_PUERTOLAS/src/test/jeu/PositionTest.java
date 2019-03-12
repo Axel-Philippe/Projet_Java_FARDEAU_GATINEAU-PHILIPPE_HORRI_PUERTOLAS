@@ -22,7 +22,6 @@ class PositionTest {
 
 	@Test
 	void testSetX() {
-		
 		Position position = new Position(9, 0);
 		
 		position.setX(5);
