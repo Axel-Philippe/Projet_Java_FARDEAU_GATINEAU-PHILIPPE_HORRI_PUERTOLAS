@@ -188,7 +188,7 @@ public class Joueur extends Personne {
 		case S:
 			if (this.getCarte().getNom() == "Mine")
 				this.deplacementBasLabyrinth();
-			else
+			else 
 				this.deplacementBas();
 			return null;
 		case DOWN:

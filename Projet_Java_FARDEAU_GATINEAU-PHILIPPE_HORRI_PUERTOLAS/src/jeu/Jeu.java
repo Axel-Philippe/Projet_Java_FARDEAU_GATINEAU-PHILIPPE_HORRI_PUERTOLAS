@@ -30,7 +30,7 @@ import javafx.stage.Stage;
  */
 public class Jeu {
 	private Personne personne;
-	private Carte map;
+	private Carte map; 
 	
 	
 	public Jeu(Personne p, Carte m) {
