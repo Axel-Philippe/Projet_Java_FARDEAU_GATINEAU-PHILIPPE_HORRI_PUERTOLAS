@@ -61,6 +61,7 @@ public class Jeu {
 	public static void redemarrer(Stage stage) {
 		stage.close();
 		try {
+			Joueur.setVie(0);
 			demarrerJeu(stage);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

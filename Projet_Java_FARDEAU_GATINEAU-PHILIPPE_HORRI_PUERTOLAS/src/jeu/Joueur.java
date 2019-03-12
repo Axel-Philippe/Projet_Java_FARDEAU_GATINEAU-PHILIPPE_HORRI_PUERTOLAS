@@ -109,8 +109,10 @@ public class Joueur extends Personne {
 
 	public void deplacementHautLabyrinth() throws FileNotFoundException {
 
-		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
-				&& this.getPosition().getY() < 395) {
+		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() > 190
+				&& this.getPosition().getY() < 201)
+				|| (this.getPosition().getX() <= 75 && this.getPosition().getX() >= 25 && this.getPosition().getY() > 30
+						&& this.getPosition().getY() < 366)) {
 			if (this.dernierDeplacement != Deplacement.HAUT) {
 				FileInputStream f = new FileInputStream("./images/personnages/juliaback.png");
 				this.image.setImage(new Image(f));
@@ -123,8 +125,10 @@ public class Joueur extends Personne {
 
 	public void deplacementBasLabyrinth() throws FileNotFoundException {
 
-		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
-				&& this.getPosition().getY() < 380) {
+		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() > 184
+				&& this.getPosition().getY() < 195)
+				|| (this.getPosition().getX() <= 75 && this.getPosition().getX() >= 25 && this.getPosition().getY() > 24
+						&& this.getPosition().getY() < 360)) {
 			if (this.dernierDeplacement != Deplacement.BAS) {
 				FileInputStream f = new FileInputStream("./images/personnages/julia.png");
 				this.image.setImage(new Image(f));
@@ -137,8 +141,10 @@ public class Joueur extends Personne {
 
 	public void deplacementGaucheLabyrinth() throws FileNotFoundException {
 
-		if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
-				&& this.getPosition().getY() < 395) {
+		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() >= 190
+				&& this.getPosition().getY() < 201)
+				|| (this.getPosition().getX() <= 75 && this.getPosition().getX() >= 30 && this.getPosition().getY() >= 30
+						&& this.getPosition().getY() <= 360)) {
 			if (this.dernierDeplacement != Deplacement.GAUCHE) {
 				FileInputStream f = new FileInputStream("./images/personnages/juliaprofilgauche.png");
 				this.image.setImage(new Image(f));
@@ -151,8 +157,10 @@ public class Joueur extends Personne {
 
 	public void deplacementDroiteLabyrinth() throws FileNotFoundException {
 
-		if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
-				&& this.getPosition().getY() < 395) {
+		if ((this.getPosition().getX() >= 70 && this.getPosition().getX() < 525 && this.getPosition().getY() >= 190
+				&& this.getPosition().getY() < 201)
+				|| (this.getPosition().getX() <= 70 && this.getPosition().getX() >= 25 && this.getPosition().getY() >= 30
+						&& this.getPosition().getY() <= 360)) {
 			if (this.dernierDeplacement != Deplacement.DROITE) {
 				FileInputStream f = new FileInputStream("./images/personnages/juliaprofil.png");
 				this.image.setImage(new Image(f));
@@ -166,49 +174,49 @@ public class Joueur extends Personne {
 	public Carte seDeplacer(KeyEvent event) throws FileNotFoundException {
 		switch (event.getCode()) {
 		case Z:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementHautLabyrinth();
 			else
 				this.deplacementHaut();
 			return null;
 		case UP:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementHautLabyrinth();
 			else
 				this.deplacementHaut();
 			return null;
 		case S:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementBasLabyrinth();
 			else
 				this.deplacementBas();
 			return null;
 		case DOWN:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementBasLabyrinth();
 			else
 				this.deplacementBas();
 			return null;
 		case Q:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementGaucheLabyrinth();
 			else
 				this.deplacementGauche();
 			return null;
 		case LEFT:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementGaucheLabyrinth();
 			else
 				this.deplacementGauche();
 			return null;
 		case D:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementDroiteLabyrinth();
 			else
 				this.deplacementDroite();
 			return null;
 		case RIGHT:
-			if (this.getCarte().getNom() == "Labyrinth")
+			if (this.getCarte().getNom() == "Mine")
 				this.deplacementDroiteLabyrinth();
 			else
 				this.deplacementDroite();
@@ -288,7 +296,7 @@ public class Joueur extends Personne {
 						this.setPosition(new Position(50, 200));
 						break;
 					case GAUCHE:
-						this.setPosition(new Position(450, 200));
+						this.setPosition(new Position(450, 190));
 						break;
 					case HAUT:
 						this.setPosition(new Position(220, 380));
