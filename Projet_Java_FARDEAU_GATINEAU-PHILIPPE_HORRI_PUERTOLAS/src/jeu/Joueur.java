@@ -107,7 +107,7 @@ public class Joueur extends Personne {
 		}
 	}
 
-	public void deplacementHautLabyrinth() throws FileNotFoundException {
+	public void deplacementHautLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() > 190
 				&& this.getPosition().getY() < 201)
@@ -123,7 +123,7 @@ public class Joueur extends Personne {
 		}
 	}
 
-	public void deplacementBasLabyrinth() throws FileNotFoundException {
+	public void deplacementBasLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() > 184
 				&& this.getPosition().getY() < 195)
@@ -139,7 +139,7 @@ public class Joueur extends Personne {
 		}
 	}
 
-	public void deplacementGaucheLabyrinth() throws FileNotFoundException {
+	public void deplacementGaucheLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() >= 190
 				&& this.getPosition().getY() < 201)
@@ -155,7 +155,7 @@ public class Joueur extends Personne {
 		}
 	}
 
-	public void deplacementDroiteLabyrinth() throws FileNotFoundException {
+	public void deplacementDroiteLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() >= 70 && this.getPosition().getX() < 525 && this.getPosition().getY() >= 190
 				&& this.getPosition().getY() < 201)
@@ -175,49 +175,49 @@ public class Joueur extends Personne {
 		switch (event.getCode()) {
 		case Z:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementHautLabyrinth();
+				this.deplacementHautLabyrinthe();
 			else
 				this.deplacementHaut();
 			return null;
 		case UP:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementHautLabyrinth();
+				this.deplacementHautLabyrinthe();
 			else
 				this.deplacementHaut();
 			return null;
 		case S:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementBasLabyrinth();
+				this.deplacementBasLabyrinthe();
 			else 
 				this.deplacementBas();
 			return null;
 		case DOWN:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementBasLabyrinth();
+				this.deplacementBasLabyrinthe();
 			else
 				this.deplacementBas();
 			return null;
 		case Q:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementGaucheLabyrinth();
+				this.deplacementGaucheLabyrinthe();
 			else
 				this.deplacementGauche();
 			return null;
 		case LEFT:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementGaucheLabyrinth();
+				this.deplacementGaucheLabyrinthe();
 			else
 				this.deplacementGauche();
 			return null;
 		case D:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementDroiteLabyrinth();
+				this.deplacementDroiteLabyrinthe();
 			else
 				this.deplacementDroite();
 			return null;
 		case RIGHT:
 			if (this.getCarte().getNom() == "Mine")
-				this.deplacementDroiteLabyrinth();
+				this.deplacementDroiteLabyrinthe();
 			else
 				this.deplacementDroite();
 			return null;

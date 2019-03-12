@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
  * @author all
  *
  */
-public abstract class Carte {
+public class Carte {
 	private String nom;
 	private ImageView image;
 	private int x;

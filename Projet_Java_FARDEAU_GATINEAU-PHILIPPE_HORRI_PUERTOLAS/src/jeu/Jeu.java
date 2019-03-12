@@ -243,12 +243,12 @@ public class Jeu {
 		ivVie3.setImage(imVie3);
 		
 		// Initialisation des cartes 		
-		Carte carteVillage = new MapPrincipale("Place du village", ivVillage, 0, 0);
-		Carte carteLac = new MapAnnexe("Lac", ivLac, 0, 0);
-		Carte carteMine = new MapAnnexe("Mine", ivMine, 0, 0);
-		Carte carteFerme = new MapAnnexe("Ferme", ivFerme, 0, 0);
-		Carte carteMaison = new MapAnnexe("Maison", ivMaison, 0, 0);
-		Carte carteForet = new MapAnnexe("Forêt", ivForet, 0, 0);
+		Carte carteVillage = new Carte("Place du village", ivVillage, 0, 0);
+		Carte carteLac = new Carte("Lac", ivLac, 0, 0);
+		Carte carteMine = new Carte("Mine", ivMine, 0, 0);
+		Carte carteFerme = new Carte("Ferme", ivFerme, 0, 0);
+		Carte carteMaison = new Carte("Maison", ivMaison, 0, 0);
+		Carte carteForet = new Carte("Forêt", ivForet, 0, 0);
 		
 		// Initialisation des positions main
 		Position positionMainHaut1 = new Position(50,-6);
