@@ -24,6 +24,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Classe Jeu qui contient les méthodes principales du jeu (menu, démarrage, redémarrage etc..)
+ *
+ */
 public class Jeu {
 	private Personne personne;
 	private Carte map;

@@ -259,13 +259,13 @@ public class Joueur extends Personne {
 			Bonus o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
-				System.out.println("pas dans la zone de " + o.toString());
+				System.out.println("pas dans la zone de " + o.getNom());
 				if (this.getPosition().getX() > o.getZone().getP1().getX()
 						&& this.getPosition().getX() < o.getZone().getP2().getX()
 						&& this.getPosition().getY() > o.getZone().getP1().getY()
 						&& this.getPosition().getY() < o.getZone().getP2().getY() && o.getCarte() == m
 						&& !o.isPresent()) {
-					System.out.println("dans la zone de " + o.toString());
+					System.out.println("dans la zone de " + o.getNom());
 					this.ramasser(o);
 					o.setPresent(true);
 					o.getImageView().setVisible(false);
@@ -340,7 +340,7 @@ public class Joueur extends Personne {
 	public String afficherContenu() {
 		String s = "";
 		for (Objet o : sac) {
-			s = s + o.toString();
+			s = s + o.getNom();
 		}
 		return s;
 	}
@@ -384,7 +384,7 @@ public class Joueur extends Personne {
 
 		String contenu = "Il y a dans le sac : \n\n";
 		for (Objet o : sac) {
-			contenu += "- " + o.toString() + "\n";
+			contenu += "- " + o.getNom() + "\n";
 		}
 		if (sac.isEmpty()) {
 			contenu = "Le sac est vide";
