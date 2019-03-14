@@ -19,17 +19,17 @@ import jeu.Ingredient;
 import jeu.Position;
 
 /**
- * @author Axel1
  *
  */
 class ActiviteTest {
+	private Activite activite;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-		
+		activite = new Activite("test");
 	}
 
 	/**
@@ -41,16 +41,12 @@ class ActiviteTest {
 
 	@Test
 	void setReussiTest() {
-		Activite activite = new Activite("test");
 		activite.setReussi();
-		
-		assertTrue(activite.getReussi());
+		assertTrue(activite.getReussi()==true);
 	}
 	
 	@Test
 	void getReussiTest() {
-		Activite activite = new Activite ("test");
-		
 		assertFalse(activite.getReussi()); // elle est par défaut false
 	}
 	
@@ -61,8 +57,6 @@ class ActiviteTest {
 		ImageView imv = new ImageView(image);
 		
 		Position position = new Position(0,0);
-		
-		Activite activite = new Activite("test");
 		Ingredient i = new Ingredient("test", imv, false, position);
 		activite.setIngredient(i);
 		
