@@ -278,6 +278,11 @@ public class Joueur extends Personne {
 				System.out.println("on tente de déposer les objets dans le coffre");
 				Coffre.ajouterObjets(this.sac);
 				System.out.println(Coffre.getPoints() + " Points gagnés");
+				Alert alertFin = new Alert(AlertType.CONFIRMATION);
+				alertFin.setTitle("Bravo");
+				alertFin.setHeaderText(null);
+				alertFin.setContentText("Félicitations, la partie est terminée !");
+				alertFin.show();
 			}
 
 			return null;
