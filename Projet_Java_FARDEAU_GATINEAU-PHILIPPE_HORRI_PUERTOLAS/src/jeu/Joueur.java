@@ -364,7 +364,7 @@ public class Joueur extends Personne {
 				alertFin.setContentText("Félicitations, la partie est terminée !");
 				ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
 				alertFin.getButtonTypes().setAll(buttonTypeCancel);
-				alertFin.show();
+				alertFin.show(); 
 			}
 
 			return null;
