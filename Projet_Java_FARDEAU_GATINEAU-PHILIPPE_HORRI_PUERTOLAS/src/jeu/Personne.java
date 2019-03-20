@@ -27,7 +27,7 @@ public class Personne {
 	 * Méthode qui permet d'attribuer une carte à une personne.
 	 * @param map
 	 */
-	public void setMap(Carte map) {
+	public void setCarte(Carte map) {
 		this.map = map;
 	}
 

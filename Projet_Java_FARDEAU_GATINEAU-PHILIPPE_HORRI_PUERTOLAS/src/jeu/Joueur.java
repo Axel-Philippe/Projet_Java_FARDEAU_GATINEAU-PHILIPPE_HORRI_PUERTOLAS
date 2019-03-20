@@ -288,7 +288,7 @@ public class Joueur extends Personne {
 			Zone c;
 			for (int i = 0; i < zones.size(); i++) {
 				c = zones.get(i);
-				if (this.getPosition().getX() > c.getP1().getX() && this.getPosition().getX() < c.getP2().getX()
+				if (this.getPosition().getX() >= c.getP1().getX() && this.getPosition().getX() < c.getP2().getX()
 						&& this.getPosition().getY() > c.getP1().getY()
 						&& this.getPosition().getY() < c.getP2().getY()) {
 					switch (c.getDeplacement()) {
