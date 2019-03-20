@@ -31,6 +31,10 @@ class CoffreTest {
 	private Image image;
 	private ImageView imv;
 	private Ingredient ingredient1;
+	private Ingredient ingredient2;
+	private Ingredient ingredient3;
+	private Ingredient ingredient4;
+	private Ingredient ingredient5;
 	private Bonus bonus1;
 	private ArrayList listeObjetTest;
 	
@@ -51,10 +55,19 @@ class CoffreTest {
 		
 		bonus1 = new Bonus("Bonus", imv, false, position1, 1, zone, carte);
 		ingredient1 = new Ingredient("test", imv, false, position1);
+		ingredient2 = new Ingredient("test", imv, false, position1);
+		ingredient3 = new Ingredient("test", imv, false, position1);
+		ingredient4 = new Ingredient("test", imv, false, position1);
+		ingredient5 = new Ingredient("test", imv, false, position1);
 		
 		listeObjetTest = new ArrayList<Objet>();	
 		listeObjetTest.add(bonus1);
 		listeObjetTest.add(ingredient1);
+
+		listeObjetTest.add(ingredient2);
+		listeObjetTest.add(ingredient3);
+		listeObjetTest.add(ingredient4);
+		listeObjetTest.add(ingredient5);
 		
 		Coffre coffre = new Coffre(position1, position2, imv);
 	}
@@ -63,9 +76,30 @@ class CoffreTest {
 	void ajouterObjetsTest() {
 		
 		Coffre.ajouterObjets(listeObjetTest);
-		//assertTrue(coffre.); CREER UNE METHODE GETOBJET DANS COFFRE
+		assertTrue(Coffre.getLesObjets().contains(bonus1));
+	}
+	
+	@Test
+	void estPleinTest() {
+		Ingredient ingredient2 = new Ingredient("test", imv, false, position1);
+		Ingredient ingredient3 = new Ingredient("test", imv, false, position1);
+		Ingredient ingredient4 = new Ingredient("test", imv, false, position1);
+		Ingredient ingredient5 = new Ingredient("test", imv, false, position1);
 		
+		listeObjetTest.add(ingredient2);
+		listeObjetTest.add(ingredient3);
+		listeObjetTest.add(ingredient4);
+		listeObjetTest.add(ingredient5);
 		
+		Coffre.ajouterObjets(listeObjetTest);
+		assertTrue(Coffre.estPlein());
 	}
 
+	@Test
+	void getPointsTest() {
+
+		
+		Coffre.ajouterObjets(listeObjetTest);
+		assertTrue(Coffre.getPoints()==21);
+	}
 }

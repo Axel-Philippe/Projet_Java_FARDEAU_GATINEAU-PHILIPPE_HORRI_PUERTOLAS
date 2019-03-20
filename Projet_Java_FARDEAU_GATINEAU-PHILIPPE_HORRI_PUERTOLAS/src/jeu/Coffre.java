@@ -85,10 +85,29 @@ public class Coffre {
 	 * @return
 	 */
 	public static int getPoints() {
-		if (estPlein())
-			return lesIngredients.size() + lesBonus.size();
+		if (estPlein()) {
+			int somme = 0;
+			for (Bonus bonus : lesBonus) {
+				somme += bonus.getNbCookies();
+			}
+			return 20 + somme;
+		}
 		else
 			return 0;
+	}
+	
+	/**
+	 * Méthode qui permet de récuperer les objets d'une liste 
+	 */
+	public static ArrayList getLesObjets() {
+		ArrayList<Objet> listeObjets = new ArrayList<Objet>();
+		for (Bonus bonus : lesBonus) {
+			listeObjets.add(bonus);
+		}
+		for (Ingredient ingredient : lesIngredients) {
+			listeObjets.add(ingredient);
+		}
+		return listeObjets;
 	}
 
 	

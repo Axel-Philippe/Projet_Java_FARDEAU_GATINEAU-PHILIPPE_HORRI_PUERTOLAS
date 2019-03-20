@@ -54,6 +54,14 @@ public class Bonus extends Objet{
 		this.zone = zone;
 	}
 	
+	/**
+	 * Méthode qui permet de récuperer le nombre de cookies bonus
+	 * @return nombreCookieBonus
+	 */
+	public int getNbCookies() {
+		return nombreCookieBonus;
+	}
+	
 	
 }
    
