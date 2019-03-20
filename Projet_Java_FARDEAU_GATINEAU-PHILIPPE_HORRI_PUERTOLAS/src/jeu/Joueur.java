@@ -2,9 +2,11 @@ package jeu;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -282,6 +284,8 @@ public class Joueur extends Personne {
 				alertFin.setTitle("Bravo");
 				alertFin.setHeaderText(null);
 				alertFin.setContentText("Félicitations, la partie est terminée !");
+				ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
+				alertFin.getButtonTypes().setAll(buttonTypeCancel);
 				alertFin.show();
 			}
 

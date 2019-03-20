@@ -10,7 +10,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -426,6 +429,7 @@ public class Jeu {
 		ivCoffre.setY(300);
 		
 		Coffre coffre = new Coffre(new Position(380,280), new Position(500,400), ivCoffre);
+
 		
 		ivVie3.setX(0);
 		ivVie3.setY(0);
@@ -639,6 +643,7 @@ public class Jeu {
 		menu.setResizable(false);
 		menu.show();
 	}
+	
 	
 	/**
 	 * Méthode permettant de retourner le message de bienvenue au démarrage du jeu.
