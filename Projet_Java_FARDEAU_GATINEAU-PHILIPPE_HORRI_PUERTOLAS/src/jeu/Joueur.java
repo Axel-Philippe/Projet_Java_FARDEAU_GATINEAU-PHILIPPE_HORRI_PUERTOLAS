@@ -85,7 +85,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * définit la positon d'un joueur
+	 * Définit la positon d'un joueur
 	 * @param p nouvelle position de Julia
 	 */
 	public void setPositionImage(Position p) {
@@ -166,7 +166,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Dépacement dans le labyrinthe de Julia vers le haut
+	 * Déplacement dans le labyrinthe de Julia vers le haut
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementHautLabyrinthe() throws FileNotFoundException {
@@ -186,7 +186,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Dépacement dans le labyrinthe de Julia vers le bas
+	 * Déplacement dans le labyrinthe de Julia vers le bas
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementBasLabyrinthe() throws FileNotFoundException {
@@ -206,7 +206,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Dépacement dans le labyrinthe de Julia vers la gauche
+	 * Déplacement dans le labyrinthe de Julia vers la gauche
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementGaucheLabyrinthe() throws FileNotFoundException {
@@ -226,7 +226,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Dépacement dans le labyrinthe de Julia vers la droite
+	 * Déplacement dans le labyrinthe de Julia vers la droite
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementDroiteLabyrinthe() throws FileNotFoundException {
@@ -246,7 +246,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * méthode globale de déplacement
+	 * Méthode globale de déplacement
 	 * @param event
 	 * @return carte vers laquelle on se déplace (si on change de map uniquement).
 	 * @throws FileNotFoundException
@@ -425,6 +425,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
+	 * Méthode qui permet d'afficher le contenu du sac
 	 * @return contenu du sac en String
 	 */
 	public String afficherContenu() {
@@ -436,7 +437,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Ramasse l'objet passé en paramètre
+	 * Méthode qui permer de ramasser l'objet passé en paramètre
 	 * @param o objet que l'on ramasse
 	 */
 	public void ramasser(Objet o) {
@@ -450,7 +451,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * tentative de résolution d'une énigme
+	 * Tentative de résolution d'une énigme
 	 * @param e énigme
 	 * @param sol solution
 	 */
@@ -462,6 +463,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
+	 * Méthode qui permet de récuperer l'image de Julia
 	 * @return l'image de Julia
 	 */
 	public ImageView getImage() {
@@ -508,6 +510,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
+	 * Méthode qui permet de récupérer le nombre de vie
 	 * @return nombre de vie
 	 */
 	public static int getVie() {
@@ -515,7 +518,7 @@ public class Joueur extends Personne {
 	}
 
 	/** 
-	 * définit le nombre de vie
+	 * Méthide qui définit le nombre de vie
 	 * @param vie
 	 */
 	public static void setVie(int vie) {
