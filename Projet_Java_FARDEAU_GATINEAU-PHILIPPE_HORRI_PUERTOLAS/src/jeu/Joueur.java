@@ -21,15 +21,48 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Cette classe représente le joueur (Julia).
+ *
+ */
 public class Joueur extends Personne {
+	/**
+	 * Conteneur d'objets de Julia
+	 */
 	private static ArrayList<Objet> sac;
+	/**
+	 * Capacité maximal du sac
+	 */
 	private int capaciteSac;
+	/**
+	 * Image du joueur (petit personnage)
+	 */
 	private ImageView image;
+	/**
+	 * Enumération des déplacements : permet de récupérer le dernier déplacement pour changer l'image du personnage
+	 */
 	private Deplacement dernierDeplacement;
+	/**
+	 * Nombre d'ingrédients dans le sac
+	 */
 	private static int nbIngredient = 0;
+	/**
+	 * Nombre de vie restante à Julia
+	 */
 	private static int vie = 0;
+	/**
+	 * Historise les cartes précédentes pour revenir sur la/ précédente(s)
+	 */
 	private static LinkedList<Carte> listeCarte = new LinkedList<Carte>();
 
+	/**
+	 * Constructeur de la classe
+	 * @param c capactié du sac
+	 * @param n nom du joueur
+	 * @param p position du joueur sur la carte
+	 * @param map carte sur laquelle se trouve 
+	 * @param image image du joueur
+	 */
 	public Joueur(int c, String n, Position p, Carte map, ImageView image) {
 		super(n, p, map);
 		capaciteSac = c;
@@ -39,6 +72,9 @@ public class Joueur extends Personne {
 		this.image.setY(p.getY());
 	}
 
+	/* (non-Javadoc)
+	 * @see jeu.Personne#setPosition(jeu.Position)
+	 */
 	@Override
 	public void setPosition(Position p) {
 		this.position = p;
@@ -46,11 +82,19 @@ public class Joueur extends Personne {
 		System.out.println(p.getX() + " " + p.getY());
 	}
 
+	/**
+	 * définit la positon d'un joueur
+	 * @param p nouvelle position de Julia
+	 */
 	public void setPositionImage(Position p) {
 		this.image.setX(p.getX());
 		this.image.setY(p.getY());
 	}
 
+	/**
+	 * Déplacement vers le haut de Julia
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementHaut() throws FileNotFoundException {
 
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > 0
@@ -65,6 +109,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Déplacement vers le bas de Julia
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementBas() throws FileNotFoundException {
 
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
@@ -79,6 +127,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Déplacement vers la gauche de Julia
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementGauche() throws FileNotFoundException {
 
 		if (this.getPosition().getX() < 536 && this.getPosition().getX() > 0 && this.getPosition().getY() > -6
@@ -93,6 +145,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Déplacement vers la droite de Julia
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementDroite() throws FileNotFoundException {
 
 		if (this.getPosition().getX() < 530 && this.getPosition().getX() > -6 && this.getPosition().getY() > -6
@@ -107,6 +163,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Dépacement dans le labyrinthe de Julia vers le haut
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementHautLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() > 190
@@ -123,6 +183,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Dépacement dans le labyrinthe de Julia vers le bas
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementBasLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() > 184
@@ -139,6 +203,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Dépacement dans le labyrinthe de Julia vers la gauche
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementGaucheLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() > 70 && this.getPosition().getX() < 525 && this.getPosition().getY() >= 190
@@ -155,6 +223,10 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * Dépacement dans le labyrinthe de Julia vers la droite
+	 * @throws FileNotFoundException
+	 */
 	public void deplacementDroiteLabyrinthe() throws FileNotFoundException {
 
 		if ((this.getPosition().getX() >= 70 && this.getPosition().getX() < 525 && this.getPosition().getY() >= 190
@@ -171,6 +243,12 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * méthode globale de déplacement
+	 * @param event
+	 * @return carte vers laquelle on se déplace (si on change de map uniquement).
+	 * @throws FileNotFoundException
+	 */
 	public Carte seDeplacer(KeyEvent event) throws FileNotFoundException {
 		switch (event.getCode()) {
 		case Z:
@@ -342,6 +420,9 @@ public class Joueur extends Personne {
 		return null;
 	}
 
+	/**
+	 * @return contenu du sac en String
+	 */
 	public String afficherContenu() {
 		String s = "";
 		for (Objet o : sac) {
@@ -350,6 +431,10 @@ public class Joueur extends Personne {
 		return s;
 	}
 
+	/**
+	 * Ramasse l'objet passé en paramètre
+	 * @param o objet que l'on ramasse
+	 */
 	public void ramasser(Objet o) {
 		if (o != null) {
 			sac.add(o);
@@ -360,6 +445,11 @@ public class Joueur extends Personne {
 
 	}
 
+	/**
+	 * tentative de résolution d'une énigme
+	 * @param e énigme
+	 * @param sol solution
+	 */
 	public void proposerSolution(Enigme e, String sol) {
 		if (e.getSolution() == sol) {
 			e.setReussi();
@@ -367,10 +457,17 @@ public class Joueur extends Personne {
 		}
 	}
 
+	/**
+	 * @return l'image de Julia
+	 */
 	public ImageView getImage() {
 		return image;
 	}
 
+	/**
+	 * Affiche le contenu du sac (ingrédients et bonus)
+	 * @param stage
+	 */
 	public static void Inventaire(Stage stage) {
 		Stage inventaire = new Stage();
 		inventaire.initModality(Modality.APPLICATION_MODAL);
@@ -406,10 +503,17 @@ public class Joueur extends Personne {
 		inventaire.show();
 	}
 
+	/**
+	 * @return nombre de vie
+	 */
 	public static int getVie() {
 		return vie;
 	}
 
+	/** 
+	 * définit le nombre de vie
+	 * @param vie
+	 */
 	public static void setVie(int vie) {
 		Joueur.vie = vie;
 	}
