@@ -1,4 +1,4 @@
-package test.jeu;
+package test;
 
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
