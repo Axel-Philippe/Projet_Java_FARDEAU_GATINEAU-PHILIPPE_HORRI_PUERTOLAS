@@ -524,5 +524,12 @@ public class Joueur extends Personne {
 	public static void setVie(int vie) {
 		Joueur.vie = vie;
 	}
+	
+	/**
+	 * @return nombre d'objet(s) du sac à dos
+	 */
+	public int tailleSac() {
+		return this.sac.size();
+	}
 
 }
