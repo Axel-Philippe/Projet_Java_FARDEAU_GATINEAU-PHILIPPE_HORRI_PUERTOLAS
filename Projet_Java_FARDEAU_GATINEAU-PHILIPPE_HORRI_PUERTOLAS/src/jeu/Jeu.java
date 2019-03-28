@@ -264,7 +264,7 @@ public class Jeu {
 		Position positionMainDroite2 = new Position(543,360);
 		
 		// Initialisation des positions
-		Position positionJulia = new Position(0,0);
+		Position positionJulia = new Position(245,100);
 		Position positionBucheron = new Position(400,155);
 		Position positionFermiere = new Position(90,125);
 		Position positionPecheur = new Position(140,100);
