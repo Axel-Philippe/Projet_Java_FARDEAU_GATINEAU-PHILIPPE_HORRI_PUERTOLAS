@@ -361,7 +361,7 @@ public class Joueur extends Personne {
 				Alert alertFin = new Alert(AlertType.CONFIRMATION);
 				alertFin.setTitle("Bravo");
 				alertFin.setHeaderText(null);
-				alertFin.setContentText("Félicitations, la partie est terminée !/nVous avez gagné "+Coffre.getPoints()+" points. Félicitation !");
+				alertFin.setContentText("Félicitations, la partie est terminée !\nVous avez gagné "+Coffre.getPoints()+" points. Félicitation !");
 				ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
 				alertFin.getButtonTypes().setAll(buttonTypeCancel);
 				alertFin.show(); 
