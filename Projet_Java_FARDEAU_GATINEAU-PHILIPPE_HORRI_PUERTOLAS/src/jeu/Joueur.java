@@ -81,7 +81,7 @@ public class Joueur extends Personne {
 	public void setPosition(Position p) {
 		this.position = p;
 		this.setPositionImage(p);
-		System.out.println(p.getX() + " " + p.getY());
+		//System.out.println(p.getX() + " " + p.getY());
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class Joueur extends Personne {
 			Personnage p;
 			for (int i = 0; i < lp.size(); i++) {
 				p = lp.get(i);
-				System.out.println(p.getCarte().getNom());
+				//System.out.println(p.getCarte().getNom());
 				if (this.getPosition().getX() > p.getZone().getP1().getX()
 						&& this.getPosition().getX() < p.getZone().getP2().getX()
 						&& this.getPosition().getY() > p.getZone().getP1().getY()
@@ -339,13 +339,13 @@ public class Joueur extends Personne {
 			Bonus o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
-				System.out.println("pas dans la zone de " + o.getNom());
+				//System.out.println("pas dans la zone de " + o.getNom());
 				if (this.getPosition().getX() > o.getZone().getP1().getX()
 						&& this.getPosition().getX() < o.getZone().getP2().getX()
 						&& this.getPosition().getY() > o.getZone().getP1().getY()
 						&& this.getPosition().getY() < o.getZone().getP2().getY() && o.getCarte() == m
 						&& !o.isPresent()) {
-					System.out.println("dans la zone de " + o.getNom());
+					//System.out.println("dans la zone de " + o.getNom());
 					this.ramasser(o);
 					o.setPresent(true);
 					o.getImageView().setVisible(false);
@@ -355,13 +355,13 @@ public class Joueur extends Personne {
 					&& this.getPosition().getX() < Coffre.getZone().getP2().getX()
 					&& this.getPosition().getY() > Coffre.getZone().getP1().getY()
 					&& this.getPosition().getY() < Coffre.getZone().getP2().getY()) {
-				System.out.println("on tente de déposer les objets dans le coffre");
+				//System.out.println("on tente de déposer les objets dans le coffre");
 				Coffre.ajouterObjets(this.sac);
-				System.out.println(Coffre.getPoints() + " Points gagnés");
+				//System.out.println(Coffre.getPoints() + " Points gagnés");
 				Alert alertFin = new Alert(AlertType.CONFIRMATION);
 				alertFin.setTitle("Bravo");
 				alertFin.setHeaderText(null);
-				alertFin.setContentText("Félicitations, la partie est terminée !");
+				alertFin.setContentText("Félicitations, la partie est terminée !/nVous avez gagné "+Coffre.getPoints()+" points. Félicitation !");
 				ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
 				alertFin.getButtonTypes().setAll(buttonTypeCancel);
 				alertFin.show(); 
