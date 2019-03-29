@@ -468,7 +468,7 @@ public class Jeu {
 		
 		Group root = new Group();
 		
-		Scene scene = new Scene(root, 543, 416, Color.WHITE);
+		Scene scene = new Scene(root, 533, 407, Color.WHITE);
 		
 		// Utilisation des options + déplacement
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -667,6 +667,6 @@ public class Jeu {
 				"  N'oublie pas: concentre-toi, les ingrédients ne te seront pas donnés comme par magie, il te faudra réfléchir...\r\n" + 
 				"  Ballade toi dans chaque nouvel endroit, tu trouveras sûrement quelques objets cachés... \r\n" + 
 				"  Tout ce que tu trouveras ou gagneras sera rangé dans ton sac à dos." + 
-				"  \n\n  Bon courage!";
+				"  \n\n  Bon courage!\nPS : Appuyer sur la touche 'M' pour voir s'ouvrir le champs des possibles :-)";
 	}
 }
