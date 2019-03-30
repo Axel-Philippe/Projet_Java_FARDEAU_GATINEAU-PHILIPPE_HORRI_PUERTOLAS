@@ -7,7 +7,7 @@ import jeu.Jeu;
 public class MainFX extends Application {
 
 	public MainFX() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public static void main(String[] args) {

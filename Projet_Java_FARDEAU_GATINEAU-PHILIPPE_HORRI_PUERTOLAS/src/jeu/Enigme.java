@@ -80,21 +80,10 @@ public class Enigme extends Activite {
 			ButtonType buttonTypeCancel = new ButtonType("Quitter", ButtonData.CANCEL_CLOSE);
 
 			alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
-
 			Alert alertVie = new Alert(AlertType.CONFIRMATION);
 			alertVie.setTitle("Attention");
 			alertVie.setHeaderText(null);
 			alertVie.setContentText("Vous n'avez plus de vie !");
-			/*
-			 * Button buttonTypeCancelVie = new Button();
-			 * buttonTypeCancelVie.setText("Fermer"); buttonTypeCancelVie.setOnAction(new
-			 * EventHandler<ActionEvent>() {
-			 * 
-			 * @Override public void handle(ActionEvent event) { stage.close();
-			 * menu.close(); try { demarrerJeu(stage); } catch (FileNotFoundException e) {
-			 * // TODO Auto-generated catch block e.printStackTrace(); } } });
-			 * alertVie.getButtonTypes().setAll(buttonTypeCancelVie);
-			 */
 
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.get() == buttonTypeOne) {
@@ -106,7 +95,6 @@ public class Enigme extends Activite {
 					Joueur.setVie(Joueur.getVie() + 1);
 					if (Joueur.getVie() > 3) {
 						alertVie.show();
-						//Jeu.redemarrer(new Stage());
 					}
 				}
 			} else if (result.get() == buttonTypeTwo) {
@@ -118,7 +106,6 @@ public class Enigme extends Activite {
 					Joueur.setVie(Joueur.getVie() + 1);
 					if (Joueur.getVie() > 3) {
 						alertVie.show();
-						//Jeu.redemarrer(new Stage());
 					}
 				}
 			} else if (result.get() == buttonTypeThree) {
@@ -130,7 +117,6 @@ public class Enigme extends Activite {
 					Joueur.setVie(Joueur.getVie() + 1);
 					if (Joueur.getVie() > 3) {
 						alertVie.show();
-						//Jeu.redemarrer(new Stage());
 					}
 				}
 			}

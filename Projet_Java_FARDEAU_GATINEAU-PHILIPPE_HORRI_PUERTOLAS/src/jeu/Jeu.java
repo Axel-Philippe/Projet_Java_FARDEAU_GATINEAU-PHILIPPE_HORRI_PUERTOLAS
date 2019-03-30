@@ -71,7 +71,6 @@ public class Jeu {
 			Joueur.setVie(0);
 			demarrerJeu(stage);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -86,7 +85,6 @@ public class Jeu {
 		try {
 			commandes = new FileInputStream("./images/divers/tabcommandes.JPG");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Image imCommande = new Image(commandes);
@@ -499,7 +497,6 @@ public class Jeu {
 						redemarrer(stage);
 					}
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if(c != null){
@@ -627,13 +624,7 @@ public class Jeu {
 		RowConstraints row3 = new RowConstraints(50);
 		RowConstraints row4 = new RowConstraints(50);
 		
-		/*ColumnConstraints column1 = new ColumnConstraints(100);
-		ColumnConstraints column2 = new ColumnConstraints(100);
-		ColumnConstraints column3 = new ColumnConstraints(100);
-		ColumnConstraints column4 = new ColumnConstraints(100);*/
-		
 		menuBox.getRowConstraints().addAll(row1, row2, row3, row4);
-		//menuBox.getColumnConstraints().addAll(column1, column2, column3, column4);
 
 		menuBox.getChildren().addAll(btnAide, btnRedemarrer, btnQuitter, btnFermer);
 		Scene sceneMenu = new Scene (menuBox, 100, 220);
@@ -650,10 +641,9 @@ public class Jeu {
 	 * @return
 	 */
 	public static String msgBienvenue() {
-		return "  \n  Bonjour Julia! Comment vas-tu aujourd'hui? \r\n" + 
-				"  C'est aujourd'hui que ton mari rentre, n'est-ce pas? J'ai entendu dire que tu voulais cuisiner des cookies, as-tu tous les ingrédients? \r\n" + 
+		return "  \n  Bonjour Julia! Comment vas-tu aujourd'hui ? \r\n" + 
+				"  C'est aujourd'hui que ton mari rentre, n'est-ce pas ? J'ai entendu dire que tu voulais cuisiner des cookies, as-tu tous les ingrédients ? \r\n" + 
 				"  NON? Julia... Tu es une vraie tête en l'air... \r\n" + 
-				"  \r\n" + 
 				"  ...\r\n" + 
 				"  ...\r\n" + 
 				"  ...\r\n\n" + 
@@ -661,12 +651,12 @@ public class Jeu {
 				"  La fermière fait du beurre, le pécheur garde toujours des oeufs avec lui. Je pense que le bûcheron a encore le sucre qu'il avait emprunté à sa grand-mère." + 
 				"  \n  Pour les pépites de chocolat... C'est le trésor caché de la mine, donc tu en trouveras là bas. \r\n" + 
 				"  Et pour la farine, c\'est moi qui t\'en donnerai, tu n\'auras qu'à venir me trouver sur la place.\r\n" + 
-				"  \n  Tu ne sais plus te déplacer???? Julia, enfin... Il te suffit d'utiliser les flèches de ton clavier, ou encore les touches ZQSD." + 
+				"  \n  Tu ne sais plus te déplacer ???? Julia, enfin... Il te suffit d'utiliser les flèches de ton clavier, ou encore les touches ZQSD." + 
 				"  \n  Pour parler à quelqu'un, il te suffit d'utiliser la touche E, et pour ramasser les objets, la touche R." + 
-				"  \n  Pour te promener à travers les différents endroits, il faut que tu suives ton plan, et que tu appuies sur A pour changer de zone! \r\n" + 
+				"  \n  Pour te promener à travers les différents endroits, il faut que tu suives ton plan, et que tu appuies sur A pour changer de zone ! \r\n" + 
 				"  N'oublie pas: concentre-toi, les ingrédients ne te seront pas donnés comme par magie, il te faudra réfléchir...\r\n" + 
 				"  Ballade toi dans chaque nouvel endroit, tu trouveras sûrement quelques objets cachés... \r\n" + 
 				"  Tout ce que tu trouveras ou gagneras sera rangé dans ton sac à dos." + 
-				"  \n\n  Bon courage!\n\nPS : Appuyez sur la touche 'M' pour voir s'ouvrir le champ des possibles :-)";
+				"  \n\n  Bon courage !\n  PS : Appuyez sur la touche M pour voir s'ouvrir le champ des possibles :-)";
 	}
 }

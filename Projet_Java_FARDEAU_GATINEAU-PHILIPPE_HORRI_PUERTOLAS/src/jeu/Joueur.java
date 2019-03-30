@@ -29,36 +29,41 @@ import javafx.stage.Stage;
  */
 public class Joueur extends Personne {
 	/**
-	 * Conteneur d'objets de Julia
+	 * Conteneur d'objets de Julia.
 	 */
 	private static ArrayList<Objet> sac;
+	
 	/**
-	 * Capacité maximal du sac
+	 * Capacité maximale du sac.
 	 */
 	private int capaciteSac;
+	
 	/**
-	 * Image du joueur (petit personnage)
+	 * Image du joueur (petit personnage).
 	 */
 	private ImageView image;
+	
 	/**
-	 * Enumération des déplacements : permet de récupérer le dernier déplacement pour changer l'image du personnage
+	 * Enumération des déplacements : permet de récupérer le dernier déplacement pour changer l'image du personnage.
 	 */
 	private Deplacement dernierDeplacement;
+	
 	/**
-	 * Nombre d'ingrédients dans le sac
+	 * Nombre d'ingrédients dans le sac.
 	 */
 	private static int nbIngredient = 0;
 	/**
-	 * Nombre de vie restante à Julia
+	 * Nombre de vie restantes à Julia.
 	 */
 	private static int vie = 0;
+	
 	/**
-	 * Historise les cartes précédentes pour revenir sur la/ précédente(s)
+	 * Historise les cartes précédentes pour revenir sur la/ précédente(s).
 	 */
 	private static LinkedList<Carte> listeCarte = new LinkedList<Carte>();
 
 	/**
-	 * Constructeur de la classe
+	 * Constructeur de la classe.
 	 * @param c capactié du sac
 	 * @param n nom du joueur
 	 * @param p position du joueur sur la carte
@@ -81,11 +86,10 @@ public class Joueur extends Personne {
 	public void setPosition(Position p) {
 		this.position = p;
 		this.setPositionImage(p);
-		//System.out.println(p.getX() + " " + p.getY());
 	}
 
 	/**
-	 * Définit la positon d'un joueur
+	 * Définit la positon d'un joueur.
 	 * @param p nouvelle position de Julia
 	 */
 	public void setPositionImage(Position p) {
@@ -94,7 +98,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement vers le haut de Julia
+	 * Déplacement vers le haut de Julia.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementHaut() throws FileNotFoundException {
@@ -112,7 +116,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement vers le bas de Julia
+	 * Déplacement vers le bas de Julia.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementBas() throws FileNotFoundException {
@@ -130,7 +134,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement vers la gauche de Julia
+	 * Déplacement vers la gauche de Julia.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementGauche() throws FileNotFoundException {
@@ -148,7 +152,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement vers la droite de Julia
+	 * Déplacement vers la droite de Julia.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementDroite() throws FileNotFoundException {
@@ -166,7 +170,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement dans le labyrinthe de Julia vers le haut
+	 * Déplacement dans le labyrinthe de Julia vers le haut.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementHautLabyrinthe() throws FileNotFoundException {
@@ -186,7 +190,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement dans le labyrinthe de Julia vers le bas
+	 * Déplacement dans le labyrinthe de Julia vers le bas.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementBasLabyrinthe() throws FileNotFoundException {
@@ -206,7 +210,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement dans le labyrinthe de Julia vers la gauche
+	 * Déplacement dans le labyrinthe de Julia vers la gauche.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementGaucheLabyrinthe() throws FileNotFoundException {
@@ -226,7 +230,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Déplacement dans le labyrinthe de Julia vers la droite
+	 * Déplacement dans le labyrinthe de Julia vers la droite.
 	 * @throws FileNotFoundException
 	 */
 	public void deplacementDroiteLabyrinthe() throws FileNotFoundException {
@@ -246,7 +250,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Méthode globale de déplacement
+	 * Méthode globale de déplacement.
 	 * @param event
 	 * @return carte vers laquelle on se déplace (si on change de map uniquement).
 	 * @throws FileNotFoundException
@@ -320,7 +324,6 @@ public class Joueur extends Personne {
 			Personnage p;
 			for (int i = 0; i < lp.size(); i++) {
 				p = lp.get(i);
-				//System.out.println(p.getCarte().getNom());
 				if (this.getPosition().getX() > p.getZone().getP1().getX()
 						&& this.getPosition().getX() < p.getZone().getP2().getX()
 						&& this.getPosition().getY() > p.getZone().getP1().getY()
@@ -339,13 +342,11 @@ public class Joueur extends Personne {
 			Bonus o;
 			for (int i = 0; i < l.size(); i++) {
 				o = l.get(i);
-				//System.out.println("pas dans la zone de " + o.getNom());
 				if (this.getPosition().getX() > o.getZone().getP1().getX()
 						&& this.getPosition().getX() < o.getZone().getP2().getX()
 						&& this.getPosition().getY() > o.getZone().getP1().getY()
 						&& this.getPosition().getY() < o.getZone().getP2().getY() && o.getCarte() == m
 						&& !o.isPresent()) {
-					//System.out.println("dans la zone de " + o.getNom());
 					this.ramasser(o);
 					o.setPresent(true);
 					o.getImageView().setVisible(false);
@@ -355,13 +356,11 @@ public class Joueur extends Personne {
 					&& this.getPosition().getX() < Coffre.getZone().getP2().getX()
 					&& this.getPosition().getY() > Coffre.getZone().getP1().getY()
 					&& this.getPosition().getY() < Coffre.getZone().getP2().getY()) {
-				//System.out.println("on tente de déposer les objets dans le coffre");
 				Coffre.ajouterObjets(this.sac);
-				//System.out.println(Coffre.getPoints() + " Points gagnés");
 				Alert alertFin = new Alert(AlertType.CONFIRMATION);
 				alertFin.setTitle("Bravo");
 				alertFin.setHeaderText(null);
-				alertFin.setContentText("Félicitations, la partie est terminée !\nVous avez gagné "+Coffre.getPoints()+" points. Félicitation !");
+				alertFin.setContentText("Félicitations, la partie est terminée !\nVous avez gagné "+Coffre.getPoints()+" points. Félicitations !");
 				ButtonType buttonTypeCancel = new ButtonType("Fermer", ButtonData.CANCEL_CLOSE);
 				alertFin.getButtonTypes().setAll(buttonTypeCancel);
 				alertFin.show(); 
@@ -425,7 +424,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Méthode qui permet d'afficher le contenu du sac
+	 * Méthode qui permet d'afficher le contenu du sac.
 	 * @return contenu du sac en String
 	 */
 	public String afficherContenu() {
@@ -437,7 +436,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Méthode qui permer de ramasser l'objet passé en paramètre
+	 * Méthode qui permet de ramasser l'objet passé en paramètre.
 	 * @param o objet que l'on ramasse
 	 */
 	public void ramasser(Objet o) {
@@ -451,7 +450,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Tentative de résolution d'une énigme
+	 * Tentative de résolution d'une énigme.
 	 * @param e énigme
 	 * @param sol solution
 	 */
@@ -463,7 +462,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Méthode qui permet de récuperer l'image de Julia
+	 * Méthode qui permet de récuperer l'image de Julia.
 	 * @return l'image de Julia
 	 */
 	public ImageView getImage() {
@@ -471,7 +470,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Affiche le contenu du sac (ingrédients et bonus)
+	 * Affiche le contenu du sac (ingrédients et bonus).
 	 * @param stage
 	 */
 	public static void Inventaire(Stage stage) {
@@ -510,7 +509,7 @@ public class Joueur extends Personne {
 	}
 
 	/**
-	 * Méthode qui permet de récupérer le nombre de vie
+	 * Méthode qui permet de récupérer le nombre de vies.
 	 * @return nombre de vie
 	 */
 	public static int getVie() {
@@ -518,7 +517,7 @@ public class Joueur extends Personne {
 	}
 
 	/** 
-	 * Méthide qui définit le nombre de vie
+	 * Méthide qui définit le nombre de vies.
 	 * @param vie
 	 */
 	public static void setVie(int vie) {
@@ -526,7 +525,7 @@ public class Joueur extends Personne {
 	}
 	
 	/**
-	 * @return nombre d'objet(s) du sac à dos
+	 * @return nombre d'objet(s) du sac à dos.
 	 */
 	public int tailleSac() {
 		return this.sac.size();
