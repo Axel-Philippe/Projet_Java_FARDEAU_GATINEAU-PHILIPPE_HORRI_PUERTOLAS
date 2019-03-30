@@ -84,7 +84,7 @@ public class Jeu {
 		stage.close();
 		FileInputStream commandes = null;
 		try {
-			commandes = new FileInputStream("./images/divers/testMenu.png");
+			commandes = new FileInputStream("./images/divers/tabcommandes.JPG");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class Jeu {
 		
 		BorderPane borderpane = new BorderPane();
 		borderpane.setCenter(ivCommande);
-		Scene sceneCommande = new Scene(borderpane, 300, 300);
+		Scene sceneCommande = new Scene(borderpane, 600, 300);
 		
 		Stage fenetreCommande = new Stage();
 		fenetreCommande.setTitle("Commandes");
